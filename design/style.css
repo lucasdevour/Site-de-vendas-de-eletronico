@@ -30,11 +30,7 @@ body {
     background: var(--bg-dark);
 }
 
-.logo-img {
-    height: 100px;
-    filter: drop-shadow(0 0 15px rgba(255, 69, 0, 0.8)) brightness(1.2);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
+
 
 .logo-img:hover {
     transform: scale(1.1) rotate(-2deg);
@@ -535,10 +531,16 @@ body {
 
 .footer-copy {
     text-align: center;
-    padding: 25px;
-    background: #000;
-    color: #555;
+    width: 100%;
+    margin-top: 60px;
+    padding: 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.footer-copy p {
+    color: var(--text-muted);
     font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0 auto;
 }
 
 /* ================= SCROLLBAR ================= */
@@ -1342,4 +1344,49 @@ body {
 }
 .dropdown-content.show {
     display: block;
+}
+\n
+/* ================= NOVO LOGO HTML ================= */
+.logo-link {
+    text-decoration: none;
+}
+.logo-hagon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Outfit', sans-serif;
+    transition: transform 0.3s ease;
+}
+.logo-hagon:hover {
+    transform: scale(1.05);
+}
+.logo-icon {
+    font-size: 2.2rem;
+    color: var(--primary);
+    filter: drop-shadow(0 0 10px rgba(255, 69, 0, 0.5));
+}
+.logo-text {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 1px;
+}
+.logo-highlight {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--primary);
+    letter-spacing: 1px;
+}
+\n.footer-copy {
+    text-align: center;
+    width: 100%;
+    margin-top: 60px;
+    padding: 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.footer-copy p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0 auto;
 }
