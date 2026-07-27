@@ -289,14 +289,12 @@
                 </div>
                 <hr>
             </div>
-
+        
+        <button class="btn-avaliar-hagon" onclick="verificarLoginParaAvaliar()">
+            Avaliar este produto
+        </button>
+        
         </div> </div> </section>
-
-      <button class="btn-avaliar-hagon" onclick="verificarLoginParaAvaliar()">
-    Avaliar este produto
-</button>
-</div>
-</section>
 <section id="suporte" class="secao-suporte">
     <div class="container-suporte">
         <h2>SUPORTE AO CLIENTE</h2>
@@ -488,8 +486,12 @@ window.onclick = function(event) {
                         <span class="checkmark"></span>
                         <span class="texto-termos">Concordo com os termos e condições</span>
                     </label>
+                    <div class="sessao-form">
+                        <label>Anexar Foto 📷</label>
+                        <input type="file" id="fotoAvaliacao" accept="image/*" style="padding: 10px; background: rgba(0,0,0,0.5); border-radius: 8px; border: 1px dashed var(--primary); color: #fff; width: 100%; cursor: pointer;">
+                    </div>
 
-                    <button type="button" class="btn-enviar-avaliacao" onclick="alert('Avaliação enviada!')">ENVIAR</button>
+                    <button type="button" class="btn-enviar-avaliacao" onclick="enviarNovaAvaliacao()">ENVIAR</button>
                 </div>
             `;
         } else {
@@ -533,6 +535,60 @@ window.onclick = function(event) {
     // Fechar Modal
     function fecharModal() {
         document.getElementById('modalAvaliacao').style.display = 'none';
+    }
+
+    function enviarNovaAvaliacao() {
+        const texto = document.getElementById('textoAvaliacao').value;
+        if (!texto) {
+            alert('Por favor, escreva uma avaliação.');
+            return;
+        }
+
+        // Pega os dados logados
+        let nomeUsuario = "Visitante";
+        try {
+            const userData = JSON.parse(localStorage.getItem('hagon_user'));
+            if (userData && userData.nome) {
+                nomeUsuario = userData.nome + (userData.sobrenome ? ' ' + userData.sobrenome : '');
+            }
+        } catch(e) {}
+
+        const hoje = new Date();
+        const dataFormatada = hoje.toLocaleDateString('pt-BR');
+
+        // Cria o HTML do novo comentário
+        const novoComentario = `
+            <div class="comentario-item">
+                <div class="comentario-estrelas">⭐⭐⭐⭐⭐</div>
+                <h3>Avaliação do Cliente</h3>
+                <p class="comentario-autor"><strong>${nomeUsuario}</strong> • ${dataFormatada}</p>
+                <div class="fotos-comentario-cliente">
+                    <div style="width: 150px; height: 150px; background: #333; display: flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px dashed #666; margin-bottom: 15px; color: #aaa; font-size: 0.8rem; text-align: center;">
+                        [Imagem Simulada] <br> Upload Feito
+                    </div>
+                </div>
+                <p class="comentario-texto">${texto}</p>
+                <div class="comentario-util">
+                    <span>Esta avaliação foi útil?</span>
+                    <button>Sim (0)</button> <button>Não (0)</button>
+                </div>
+            </div>
+            <hr>
+        `;
+
+        // Adiciona na lista
+        const lista = document.querySelector('.lista-comentarios');
+        
+        // Inserir logo após o contador (ou no início)
+        const titulo = lista.querySelector('.contador-vendas');
+        if(titulo) {
+            titulo.insertAdjacentHTML('afterend', novoComentario);
+        } else {
+            lista.innerHTML = novoComentario + lista.innerHTML;
+        }
+
+        fecharModal();
+        alert('Obrigado! Sua avaliação foi adicionada com sucesso.');
     }
 
     window.onclick = function(event) {
