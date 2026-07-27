@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Hagon Store</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../design/style.css">
+    <style>
+        .checkout-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+        @media (max-width: 900px) {
+            .checkout-container { grid-template-columns: 1fr; }
+        }
+        .checkout-section {
+            background: #111;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+        .checkout-section h3 {
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-grid.full { grid-template-columns: 1fr; }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .input-group label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .input-group input {
+            padding: 12px 15px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            transition: all 0.3s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 8px rgba(255, 69, 0, 0.3);
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .pay-method {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: var(--text-muted);
+        }
+        .pay-method.active {
+            border-color: var(--primary);
+            color: white;
+            background: rgba(255, 69, 0, 0.1);
+        }
+        .pay-method i {
+            display: block;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .pay-details { display: none; }
+        .pay-details.active { display: block; animation: fadeIn 0.4s; }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Order Summary */
+        .summary-items {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .summary-item {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 15px;
+        }
+        .summary-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        .summary-info h4 { margin: 0 0 5px 0; font-size: 1rem; color: #fff; }
+        .summary-info p { margin: 0; color: var(--primary); font-weight: bold; }
+        .summary-info span { color: var(--text-muted); font-size: 0.8rem; }
+        
+        .totals-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+        .totals-row.grand-total {
+            font-size: 1.4rem;
+            color: #fff;
+            font-weight: bold;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 15px;
+            margin-top: 10px;
+        }
+        .totals-row.grand-total span:last-child {
+            color: var(--primary);
+        }
+        
+        .btn-pay {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+        .btn-pay:hover {
+            background: var(--primary-hover);
+            box-shadow: var(--neon-glow);
+            transform: translateY(-2px);
+        }
+
+        .checkout-header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            background: #0a0a0a;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="checkout-header">
+        <a href="../index.html" class="logo-link" style="display:inline-block;">
+            <div class="logo-hagon" style="justify-content: center;">
+                <span class="logo-icon"><i class="fa-solid fa-gamepad"></i></span>
+                <span class="logo-text">HAGON</span><span class="logo-highlight">STORE</span>
+            </div>
+        </a>
+    </header>
+
+    <div class="checkout-container">
+        <!-- Esquerda: Dados -->
+        <div class="checkout-left">
+            <div class="checkout-section">
+                <h3><i class="fa-solid fa-truck"></i> Endereço de Entrega</h3>
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label>CEP</label>
+                        <input type="text" id="cep" placeholder="00000-000">
+                    </div>
+                    <div class="input-group">
+                        <label>Rua / Logradouro</label>
+                        <input type="text" id="rua" placeholder="Ex: Av. Paulista">
+                    </div>
+                    <div class="input-group">
+                        <label>Número</label>
+                        <input type="text" id="numero" placeholder="1000">
+                    </div>
+                    <div class="input-group">
+                        <label>Complemento</label>
+                        <input type="text" id="complemento" placeholder="Apto 12">
+                    </div>
+                    <div class="input-group">
+                        <label>Bairro</label>
+                        <input type="text" id="bairro" placeholder="Bela Vista">
+                    </div>
+                    <div class="input-group">
+                        <label>Cidade</label>
+                        <input type="text" id="cidade" placeholder="São Paulo">
+                    </div>
+                    <div class="input-group">
+                        <label>Estado (UF)</label>
+                        <input type="text" id="uf" placeholder="SP">
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout-section">
+                <h3><i class="fa-solid fa-credit-card"></i> Pagamento</h3>
+                
+                <div class="payment-methods">
+                    <div class="pay-method active" onclick="selecionarMetodo('cartao')">
+                        <i class="fa-regular fa-credit-card"></i>
+                        Cartão
+                    </div>
+                    <div class="pay-method" onclick="selecionarMetodo('pix')">
+                        <i class="fa-brands fa-pix"></i>
+                        PIX
+                    </div>
+                    <div class="pay-method" onclick="selecionarMetodo('boleto')">
+                        <i class="fa-solid fa-barcode"></i>
+                        Boleto
+                    </div>
+                </div>
+
+                <div id="form-cartao" class="pay-details active">
+                    <div class="form-grid full">
+                        <div class="input-group">
+                            <label>Número do Cartão</label>
+                            <input type="text" placeholder="0000 0000 0000 0000">
+                        </div>
+                    </div>
+                    <div class="form-grid" style="margin-top: 20px;">
+                        <div class="input-group">
+                            <label>Nome no Cartão</label>
+                            <input type="text" placeholder="JOAO S SILVA">
+                        </div>
+                        <div class="input-group">
+                            <label>Validade (MM/AA)</label>
+                            <input type="text" placeholder="12/28">
+                        </div>
+                        <div class="input-group">
+                            <label>CVV</label>
+                            <input type="text" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="form-pix" class="pay-details">
+                    <div style="text-align: center; padding: 20px;">
+                        <p style="color: var(--text-muted); margin-bottom: 15px;">Escaneie o QR Code abaixo pelo aplicativo do seu banco para finalizar a compra instantaneamente.</p>
+                        <div style="width: 200px; height: 200px; background: #fff; margin: 0 auto; display:flex; align-items:center; justify-content:center; border-radius:10px;">
+                            <i class="fa-solid fa-qrcode" style="font-size: 6rem; color: #000;"></i>
+                        </div>
+                        <p style="margin-top: 15px; color: var(--primary); font-weight:bold;">Aprovação imediata!</p>
+                    </div>
+                </div>
+
+                <div id="form-boleto" class="pay-details">
+                    <div style="text-align: center; padding: 20px;">
+                        <i class="fa-solid fa-barcode" style="font-size: 4rem; color: var(--text-muted); margin-bottom: 15px;"></i>
+                        <p style="color: var(--text-muted);">O boleto será gerado após a confirmação do pedido.</p>
+                        <p style="color: #fff; font-size: 0.9rem;">Pode levar até 2 dias úteis para compensação após o pagamento.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Direita: Resumo -->
+        <div class="checkout-right">
+            <div class="checkout-section">
+                <h3>Resumo do Pedido</h3>
+                
+                <div class="summary-items" id="checkout-items">
+                    <!-- Itens carregados via JS -->
+                </div>
+
+                <div class="totals-row">
+                    <span>Subtotal</span>
+                    <span id="checkout-subtotal">R$ 0,00</span>
+                </div>
+                <div class="totals-row">
+                    <span>Frete</span>
+                    <span style="color: #4ade80;">GRÁTIS</span>
+                </div>
+                <div class="totals-row grand-total">
+                    <span>Total</span>
+                    <span id="checkout-total">R$ 0,00</span>
+                </div>
+
+                <button class="btn-pay" onclick="finalizarCompra()">
+                    <i class="fa-solid fa-lock"></i> Finalizar Compra
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Sucesso -->
+    <div id="modal-sucesso" style="display:none; position:fixed; top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9); z-index:9999; justify-content:center; align-items:center;">
+        <div style="background:#111; padding:50px; border-radius:12px; text-align:center; border: 1px solid var(--primary); max-width:500px;">
+            <i class="fa-solid fa-circle-check" style="font-size: 5rem; color: #4ade80; margin-bottom: 20px;"></i>
+            <h2 style="color:#fff; margin-bottom:15px;">Pedido Realizado!</h2>
+            <p style="color:var(--text-muted); margin-bottom: 25px;">Sua compra foi processada com sucesso. Em breve você receberá o código de rastreio no seu email.</p>
+            <a href="../index.html" class="btn-pay" style="display:inline-block; text-decoration:none; width:auto; padding: 12px 30px;">Voltar para Loja</a>
+        </div>
+    </div>
+
+    <script>
+        // Logica simples de abas
+        function selecionarMetodo(metodo) {
+            document.querySelectorAll('.pay-method').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.pay-details').forEach(el => el.classList.remove('active'));
+            
+            event.currentTarget.classList.add('active');
+            document.getElementById('form-' + metodo).classList.add('active');
+        }
+
+        // Carregar Itens do LocalStorage
+        function carregarResumo() {
+            const cart = localStorage.getItem('hagon_cart');
+            const items = cart ? JSON.parse(cart) : [];
+            const container = document.getElementById('checkout-items');
+            
+            if (items.length === 0) {
+                container.innerHTML = '<p style="color:var(--text-muted)">Carrinho vazio.</p>';
+                document.querySelector('.btn-pay').style.display = 'none';
+                return;
+            }
+
+            let total = 0;
+            container.innerHTML = '';
+            
+            items.forEach(item => {
+                const itemTotal = item.preco * item.quantidade;
+                total += itemTotal;
+                container.innerHTML += `
+                    <div class="summary-item">
+                        <img src="${item.imagem}" alt="${item.nome}">
+                        <div class="summary-info">
+                            <h4>${item.nome}</h4>
+                            <span>Qtd: ${item.quantidade}</span>
+                            <p>R$ ${itemTotal.toFixed(2).replace('.', ',')}</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            const totalFormatado = 'R$ ' + total.toFixed(2).replace('.', ',');
+            document.getElementById('checkout-subtotal').innerText = totalFormatado;
+            document.getElementById('checkout-total').innerText = totalFormatado;
+        }
+
+        function finalizarCompra() {
+            // Simulando processamento
+            const btn = document.querySelector('.btn-pay');
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processando...';
+            btn.style.opacity = '0.7';
+            
+            setTimeout(() => {
+                // Limpa o carrinho
+                localStorage.removeItem('hagon_cart');
+                
+                // Mostra Modal
+                document.getElementById('modal-sucesso').style.display = 'flex';
+            }, 1500);
+        }
+
+        document.addEventListener('DOMContentLoaded', carregarResumo);
+    </script>
+</body>
+</html>

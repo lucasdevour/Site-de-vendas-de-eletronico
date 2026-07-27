@@ -7,7 +7,7 @@
     
     <link rel="stylesheet" href="../design/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
+    <link rel="stylesheet" href="../design/cart.css">\n</head>
 
   <div class="header-logo">
             
@@ -163,7 +163,7 @@
         <button type="button" class="btn-count" onclick="alterarQtd(1)">+</button>
     </div>
 
-    <button class="btn-comprar-jbl">Comprar</button>
+    <button class="btn-comprar-jbl" onclick="adicionarAoCarrinho('teclado-k551', 'Teclado Redragon K551-RGB', 289.9, '../assets/teclado.webp', parseInt(document.getElementById('quantidade').value))">Comprar</button>
 </div>
 
             <div class="icones-suporte">
@@ -676,5 +676,5 @@ function verificarLoginParaAvaliar() {
 
 </script>
 
-</body>
+    <script src="../logic/cart.js"></script>\n</body>
 </html>
