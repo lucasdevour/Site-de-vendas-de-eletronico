@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hagon Store</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <link rel="stylesheet" href="design/style.css">
+</head>
+<body>
+
+    <div class="header-logo">
+        <a href="index.html">
+            <img src="assets/logo.png" alt="Hagon Store" class="logo-img">
+        </a>
+    </div>
+
+    <header class="header-gamma">
+        <div class="container-header">
+            <div class="header-busca">
+                <form action="#">
+                    <input type="text" placeholder="Buscar na Hagon Store...">
+                    <button type="submit" class="btn-lupa">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="header-usuario">
+                <div class="usuario-perfil">
+                    <div class="icone-user-bw">
+                        <i class="fa-regular fa-circle-user"></i>
+                    </div>
+
+                    <div class="usuario-links" id="area-auth">
+                        </div>
+                </div>
+
+                <div class="carrinho-box-bw">
+                    <span class="icone-sacola-bw">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </span>
+                    <span class="contador-carrinho-bw">0</span>
+                </div>
+            </div>
+        </div>
+
+        <nav class="nav-categorias">
+            <a href="index.html" class="link-nav ativo">Inicio</a>
+            <a href="#">Lançamentos</a>
+            <a href="#">Caixas de Som</a>
+            <a href="#">Fones de Ouvido</a>
+            <a href="#">Gamer</a>
+            <a href="#">Carregadores</a>
+            <a href="#">Smartwatch</a>
+            <a href="#">Acessórios</a>
+        </nav>
+    </header>
+
+    <div class="swiper meuCarrossel">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide banner-1">
+                <div class="texto-banner">
+                    <h2>PÁSCOA TECH</h2>
+                    <p>Os melhores periféricos com descontos reais.</p>
+                    <button>Comprar Agora</button>
+                </div>
+            </div>
+            <div class="swiper-slide banner-2">
+                <div class="texto-banner">
+                    <h2>SETUP GAMER</h2>
+                    <p>Teclados e mouses para subir de nível.</p>
+                    <button>Ver Ofertas</button>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <main class="container-principal">
+        <h2>Destaques da Semana</h2>
+        <section class="vitrine">
+            <div class="produto">
+                <img src="https://picsum.photos/id/1/300/300" alt="Fone Gamer">
+                <h3>Fone Gamer Surround 7.1</h3>
+                <p class="preco">R$ 249,90</p>
+                <button class="btn-comprar" onclick="adicionarAoCarrinho()">Comprar</button>
+            </div>
+            <div class="produto">
+                <img src="https://static.wixstatic.com/media/71a6c2_65e64316536546bfa9a34fbe35cfbfcd~mv2.jpg/v1/fill/w_604,h_604,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/71a6c2_65e64316536546bfa9a34fbe35cfbfcd~mv2.jpg" alt="Teclado Gamer Redragon Mitra K551">
+                <h3>Teclado Gamer Redragon Mitra K551</h3>
+                <p class="preco">R$ 289,90</p>
+                <a href="pages/produto-teclado.html" class="btn-saiba-mais">Saiba Mais</a>
+            </div>
+            <div class="produto">
+                <img src="https://picsum.photos/id/2/300/300" alt="Mouse Gamer">
+                <h3>Mouse Gamer 12k DPI</h3>
+                <p class="preco">R$ 159,00</p>
+                <button class="btn-comprar" onclick="adicionarAoCarrinho()">Comprar</button>
+            </div>
+            <div class="produto">
+                <img src="https://picsum.photos/id/11/300/300" alt="Caixa de Som">
+                <h3>Caixa de Som Bluetooth RGB</h3>
+                <p class="preco">R$ 189,00</p>
+                <button class="btn-comprar" onclick="adicionarAoCarrinho()">Comprar</button>
+            </div>
+            <div class="produto">
+                <img src="https://picsum.photos/id/119/300/300" alt="Carregador">
+                <h3>Carregador Turbo 20W USB-C</h3>
+                <p class="preco">R$ 79,90</p>
+                <button class="btn-comprar" onclick="adicionarAoCarrinho()">Comprar</button>
+            </div>
+            <div class="produto">
+                <img src="https://picsum.photos/id/48/300/300" alt="Powerbank">
+                <h3>Powerbank 20.000mAh Ultra</h3>
+                <p class="preco">R$ 199,00</p>
+                <button class="btn-comprar" onclick="adicionarAoCarrinho()">Comprar</button>
+            </div>
+            <div class="produto">
+                <img src="https://picsum.photos/id/250/300/300" alt="Webcam">
+                <h3>Webcam Full HD 1080p</h3>
+                <p class="preco">R$ 210,00</p>
+                <button class="btn-comprar" onclick="adicionarAoCarrinho()">Comprar</button>
+            </div>
+            <div class="produto">
+                <img src="https://picsum.photos/id/20/300/300" alt="Projetor">
+                <h3>Projetor Smart Portátil</h3>
+                <p class="preco">R$ 850,00</p>
+                <button class="btn-comprar" onclick="adicionarAoCarrinho()">Comprar</button>
+            </div>
+            <div class="produto">
+                <img src="https://picsum.photos/id/175/300/300" alt="Smartwatch">
+                <h3>Smartwatch Ultra Series</h3>
+                <p class="preco">R$ 299,00</p>
+                <button class="btn-comprar" onclick="adicionarAoCarrinho()">Comprar</button>
+            </div>
+            <div class="produto">
+                <img src="https://picsum.photos/id/0/300/300" alt="Cabo USB">
+                <h3>Cabo USB-C Nylon 2 metros</h3>
+                <p class="preco">R$ 35,00</p>
+                <button class="btn-comprar" onclick="adicionarAoCarrinho()">Comprar</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-hg">
+        <div class="newsletter-faixa">
+            <div class="container-news">
+                <h2>CADASTRE-SE E RECEBA NOVIDADES</h2>
+                <form class="form-news">
+                    <input type="email" placeholder="Digite seu e-mail">
+                    <button type="submit">➔</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-principal">
+            <div class="coluna-footer">
+                <h3>CATEGORIAS</h3>
+                <ul>
+                    <li><a href="#">Gamer</a></li>
+                    <li><a href="#">Fones de Ouvido</a></li>
+                    <li><a href="#">Caixas de Som</a></li>
+                    <li><a href="#">Smartwatch</a></li>
+                </ul>
+            </div>
+
+            <div class="coluna-footer">
+                <h3>SUPORTE</h3>
+                <ul>
+                    <li><a href="#suporte">Fale Conosco</a></li>
+                    <li><a href="#">Garantia</a></li>
+                    <li><a href="#">Políticas de Troca</a></li>
+                    <li><a href="#">Situação do Pedido</a></li>
+                </ul>
+            </div>
+
+            <div class="coluna-footer">
+                <h3>SIGA-NOS</h3>
+                <div class="redes-sociais">
+                    <span>📸</span> <span>📘</span> <span>🐦</span> <span>🎥</span>
+                </div>
+            </div>
+            <div class="coluna-footer">
+                <h3>PAGAMENTO</h3>
+                <div class="footer-pagamentos">
+                    <img src="assets/formas de pagamento.webp" alt="Formas de Pagamento" class="img-pagamentos">
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copy">
+            <p>&copy; 2026 HG TECNOLOGIA - Itajaí, SC. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="logic/script.js"></script>
+    <script type="module" src="logic/auth.js"></script>
+</body>
+</html>

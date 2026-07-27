@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Hagon Store</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 0px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            padding: 1px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #ff4500;
+            margin-bottom: 1px;
+            border-bottom: 2px solid #ff4500;
+            padding-bottom: 0px;
+            font-size: 1.0rem;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            padding: 0px 1px;
+            margin-bottom: 1px;
+            border-radius: 5px;
+            border-left: 4px solid #ff4500;
+            font-size: 0.6rem;
+        }
+
+        .info-box strong {
+            color: #ff4500;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2px;
+            font-size: 0.7rem;
+        }
+
+        thead {
+            background-color: #ff4500;
+            color: white;
+        }
+
+        th {
+            padding: 6px 4px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 0.75rem;
+        }
+
+        td {
+            padding: 4px 3px;
+            border-bottom: 1px solid #ddd;
+            font-size: 0.8rem;
+        }
+
+        tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .btn-delete {
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            padding: 3px 6px;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 0.7rem;
+        }
+
+        .btn-delete:hover {
+            background-color: #b71c1c;
+        }
+
+        .loading {
+            text-align: center;
+            color: #ff4500;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        .error {
+            background-color: #ffebee;
+            color: #c62828;
+            padding: 1px 2px;
+            border-radius: 4px;
+            margin-bottom: 2px;
+            font-size: 0.65rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1px;
+            color: #ff4500;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.6rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .stats {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 2px;
+        }
+
+        .stat-card {
+            flex: 1;
+            background: linear-gradient(135deg, #ff4500, #ff6b35);
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 2px;
+        }
+
+        .stat-card p {
+            font-size: 0.75rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1px;">
+            <a href="../index.html" class="back-link">← Voltar para Home</a>
+            <div>
+                <button onclick="changePassword()" style="background-color: #ff9800; color: white; border: none; padding: 4px 8px; border-radius: 3px; cursor: pointer; font-size: 0.75rem; margin-right: 5px;">🔑 Mudar Senha</button>
+                <button onclick="logout()" style="background-color: #d32f2f; color: white; border: none; padding: 4px 8px; border-radius: 3px; cursor: pointer; font-size: 0.75rem;">🚪 Sair</button>
+            </div>
+        </div>
+
+        <h1>📊 Painel de Administração</h1>
+
+        <div class="info-box">
+            <strong>ℹ️ Informação:</strong> Esta página exibe todos os usuários cadastrados no Node.js e Firebase.
+        </div>
+
+        <div id="error" class="error" style="display: none;"></div>
+
+        <div id="stats" class="stats">
+            <div class="stat-card">
+                <h3 id="total">0</h3>
+                <p>Usuários Cadastrados</p>
+            </div>
+        </div>
+
+        <div id="loading" class="loading">⏳ Carregando dados...</div>
+
+        <table id="usuariosTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Email</th>
+                    <th>Tipo Pessoa</th>
+                    <th>Documento</th>
+                    <th>Data Cadastro</th>
+                    <th>Horário de Registro</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="usuariosBody">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Verificar se está autenticado
+        function verificarAutenticacao() {
+            const adminToken = localStorage.getItem('admin_token');
+            const userToken = localStorage.getItem('user_token');
+            const userType = localStorage.getItem('user_type');
+
+            // Aceita tanto token admin quanto token geral se for admin
+            if (adminToken || (userToken && userType === 'admin')) {
+                return true;
+            }
+
+            alert('Você precisa fazer login como administrador para acessar esta página.');
+            window.location.href = 'login-geral.html';
+            return false;
+        }
+
+        async function carregarUsuarios() {
+            const adminToken = localStorage.getItem('admin_token');
+            const userToken = localStorage.getItem('user_token');
+            const token = adminToken || userToken;
+
+            try {
+                const response = await fetch('/api/usuarios/listar', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                const text = await response.text();
+                const data = text ? JSON.parse(text) : null;
+
+                if (response.status === 401) {
+                    alert('Sessão expirada. Faça login novamente.');
+                    logout();
+                    return;
+                }
+
+                if (!response.ok) {
+                    throw new Error((data && data.erro) || 'Erro ao carregar usuários');
+                }
+
+                // Atualizar contagem
+                document.getElementById('total').textContent = data.total;
+
+                // Preencher tabela
+                const tbody = document.getElementById('usuariosBody');
+                tbody.innerHTML = '';
+
+                data.usuarios.forEach(usuario => {
+                    const dataCadastro = new Date(usuario.createdAt || usuario.dataCadastro);
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${usuario.id || usuario.uid || '-'}</td>
+                        <td>${usuario.nome || '-'}</td>
+                        <td>${usuario.sobrenome || '-'}</td>
+                        <td>${usuario.email}</td>
+                        <td>${usuario.tipoPessoa || '-'}</td>
+                        <td>${usuario.documento || '-'}</td>
+                        <td>${dataCadastro.toLocaleDateString('pt-BR')}</td>
+                        <td>${dataCadastro.toLocaleString('pt-BR')}</td>
+                        <td>
+                            <button class="btn-delete" onclick="deletarUsuario('${usuario.id || usuario.uid}')">Deletar</button>
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+                });
+
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('usuariosTable').style.display = 'table';
+
+            } catch (error) {
+                console.error('Erro:', error);
+                document.getElementById('loading').style.display = 'none';
+                const errorDiv = document.getElementById('error');
+                errorDiv.textContent = `❌ ${error.message}`;
+                errorDiv.style.display = 'block';
+            }
+        }
+
+        function deletarUsuario(id) {
+            if (confirm('Tem certeza que deseja deletar este usuário? Esta ação não pode ser desfeita.')) {
+                const adminToken = localStorage.getItem('admin_token');
+                const userToken = localStorage.getItem('user_token');
+                const token = adminToken || userToken;
+
+                fetch(`/api/usuarios/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                .then(async response => {
+                    const text = await response.text();
+                    const data = text ? JSON.parse(text) : null;
+                    return { response, data };
+                })
+                .then(({ response, data }) => {
+                    if (!response.ok) {
+                        alert(`Erro: ${(data && data.erro) || 'Erro ao deletar usuário.'}`);
+                        return;
+                    }
+
+                    alert(data.mensagem);
+                    carregarUsuarios(); // Recarregar a lista
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    alert('Erro ao deletar usuário.');
+                });
+            }
+        }
+
+        function changePassword() {
+            const senhaAtual = prompt('Digite sua senha atual:');
+            if (!senhaAtual) return;
+
+            const novaSenha = prompt('Digite sua nova senha:');
+            if (!novaSenha) return;
+
+            const confirmarSenha = prompt('Confirme sua nova senha:');
+            if (novaSenha !== confirmarSenha) {
+                alert('As senhas não coincidem!');
+                return;
+            }
+
+            const token = localStorage.getItem('admin_token') || localStorage.getItem('user_token');
+            if (!token) {
+                alert('Você não está logado!');
+                return;
+            }
+
+            fetch('/api/admin/change-password', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    senhaAtual: senhaAtual,
+                    novaSenha: novaSenha
+                })
+            })
+            .then(async response => {
+                const text = await response.text();
+                const data = text ? JSON.parse(text) : null;
+                return { response, data };
+            })
+            .then(({ response, data }) => {
+                if (!response.ok) {
+                    alert(`❌ ${(data && data.erro) || 'Erro ao alterar senha'}`);
+                    return;
+                }
+
+                alert('✅ Senha alterada com sucesso! Faça login novamente.');
+                logout(); // Desloga o usuário
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('❌ Erro ao alterar senha. Tente novamente.');
+            });
+        }
+
+        function logout() {
+            localStorage.removeItem('admin_token');
+            localStorage.removeItem('user_token');
+            localStorage.removeItem('user_type');
+            localStorage.removeItem('user_data');
+            window.location.href = 'login-geral.html';
+        }
+
+        // Verificar autenticação ao abrir a página
+        window.addEventListener('load', function() {
+            if (verificarAutenticacao()) {
+                carregarUsuarios();
+            }
+        });
+
+        // Recarregar a cada 10 segundos (opcional)
+        setInterval(function() {
+            if (verificarAutenticacao()) {
+                carregarUsuarios();
+            }
+        }, 10000);
+    </script>
+</body>
+</html>

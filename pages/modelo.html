@@ -1,0 +1,569 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hagon Store</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    </head>
+<body>
+
+     <div class="header-logo">
+            <a href="../index.html">
+                <img src="../assets/logo.png" alt="Hagon Store" class="logo-img">
+            </a>
+        </div>
+
+   <header class="header-gamma">
+    <div class="container-header">
+        
+
+        <div class="header-busca">
+            <form action="#">
+                <input type="text" placeholder="Buscar na Hagon Store...">
+                <button type="submit" class="btn-lupa">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+
+        <div class="header-usuario">
+            <div class="usuario-perfil">
+                <div class="icone-user-bw">
+                    <i class="fa-regular fa-circle-user"></i>
+                </div>
+                <div class="usuario-links">
+                    <a href="cadastro.html" class="link-nav">Cadastre-se</a>
+                    <a href="#" class=>|</a>
+                    <a href="#" class="link-login">Fazer login</a>
+                </div>
+            </div>
+
+            <div class="carrinho-box-bw">
+    <span class="icone-sacola-bw">
+        <i class="fa-solid fa-cart-shopping"></i>
+    </span>
+    <span class="contador-carrinho-bw">0</span>
+</div>
+
+ </header>
+
+<nav class="nav-categorias">
+    <a href="../index.html" class="link-nav">Inicio</a>
+    <a href="#">Lançamentos</a>
+    <a href="#">Caixas de Som</a>
+    <a href="#">Fones de Ouvido</a>
+    <a href="#">Gamer</a>
+    <a href="#">Carregadores</a>
+    <a href="#">Smartwatch</a>
+    <a href="#">Acessoriós</a>
+</nav>
+</header>
+
+<footer class="footer-hg">
+    <div class="newsletter-faixa">
+        <div class="container-news">
+            <h2>CADASTRE-SE E RECEBA NOVIDADES</h2>
+            <form class="form-news">
+                <input type="email" placeholder="Digite seu e-mail">
+                <button type="submit">➔</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-principal">
+        <div class="coluna-footer">
+            <h3>CATEGORIAS</h3>
+            <ul>
+                <li><a href="#">Gamer</a></li>
+                <li><a href="#">Fones de Ouvido</a></li>
+                <li><a href="#">Caixas de Som</a></li>
+                <li><a href="#">Smartwatch</a></li>
+            </ul>
+        </div>
+
+        <div class="coluna-footer">
+            <h3>SUPORTE</h3>
+            <ul>
+                <li><a href="#suporte">Fale Conosco</a></li>
+                <li><a href="#">Garantia</a></li>
+                <li><a href="#">Políticas de Troca</a></li>
+                <li><a href="#">Situação do Pedido</a></li>
+            </ul>
+        </div>
+
+        <div class="coluna-footer">
+            <h3>SIGA-NOS</h3>
+            <div class="redes-sociais">
+                <span>📸</span> <span>📘</span> <span>🐦</span> <span>🎥</span>
+            </div>
+            <div class="coluna-footer">
+        <h3>PAGAMENTO</h3>
+        <div class="footer-pagamentos">
+            <img src="../assets/formas de pagamento.webp" alt="Formas de Pagamento" class="img-pagamentos">
+        </div>
+    </div>
+        </div>
+    </div>
+
+    <div class="footer-copy">
+        <p>&copy; 2026 HG TECNOLOGIA - Itajaí, SC. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+    <style>
+    body {
+        text-align: center; 
+        font-family: sans-serif; 
+        margin: 0; 
+    }
+
+    .header-logo {
+        flex: 1;             
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+    }
+
+    .logo-img {
+        height: 130px;       
+        width: auto;
+        display: block;
+        image-rendering: -webkit-optimize-contrast; 
+        transition: transform 0.3s ease;
+    }
+
+    .logo-img:hover {
+        transform: scale(1.08);
+    }
+
+   .header-gamma {
+    background-color: #fff;
+    padding: 10px 5%;
+    border-bottom: 1px solid #f0f0f0;
+}
+.container-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;            
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.header-busca, .header-logo, .header-usuario {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo { justify-content: center; }
+.header-usuario { justify-content: flex-end; gap: 25px; }
+
+.usuario-perfil {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+}
+
+.usuario-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.header-busca {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.header-busca form {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.header-busca input {
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background-color: #fff;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn-lupa {
+    position: absolute;
+    right: 5px; 
+    top: 50%;
+    transform: translateY(-50%); 
+    
+    background: transparent !important;
+    border: none !important; 
+    color: #ff4500;
+    cursor: pointer;
+    font-size: 1.1rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 35px;  
+    height: 35px;
+    padding: 0;
+    
+    outline: none !important;
+    box-shadow: none !important;
+    appearance: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent; 
+}
+.btn-lupa {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #000; 
+    cursor: pointer;
+    font-size: 1rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none !important;
+}
+
+.btn-lupa:hover {
+    color: #ff4500; 
+}
+
+.btn-lupa:focus, 
+.btn-lupa:active, 
+.btn-lupa:focus-visible,
+.btn-lupa::-moz-focus-inner {
+    outline: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+.header-busca input:focus {
+    border-color: #ff4500 !important;
+}
+
+.header-logo {
+    flex: 1; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.header-usuario {
+    flex: 1; 
+    display: flex;
+    justify-content: flex-end; 
+    gap: 20px;
+}
+
+.header-usuario {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 25px;
+    font-size: 0.85rem;
+}
+
+.icone-user-bw i {
+    font-size: 1.8rem; 
+    color: #000;       
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.usuario-perfil:hover .icone-user-bw i {
+    color: #ff4500; 
+}
+
+.usuario-links {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    gap: 8px;           
+    white-space: nowrap; 
+}
+
+.usuario-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.usuario-links a:hover {
+    color: #ff4500; 
+}
+
+.divisor-v {
+    color: #ccc;
+    font-size: 0.9rem;
+    user-select: none; 
+}
+.carrinho-box-bw {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.icone-sacola-bw i {
+    font-size: 1.6rem; 
+    color: #000;       
+    transition: color 0.3s ease;
+}
+
+
+.contador-carrinho-bw {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background-color: #ff4500; /* Laranja Hagon */
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    display: none; /* <--- O SEGREDO ESTÁ AQUI: Ele começa escondido */
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+}
+
+.carrinho-box-bw:hover i {
+    color: #ff4500; 
+}
+
+.nav-categorias {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px 0;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.nav-categorias a {
+    text-decoration: none;
+    color: #000;         
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    
+       transition: color 0.3s ease; 
+}
+
+
+.nav-categorias a:hover {
+    color: #ff4500;       
+    cursor: pointer;      
+}
+
+.nav-categorias a.ativo {
+    color: #ff4500;
+}
+
+.btn-saiba-mais {
+    display: block; 
+    background-color: #333; 
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.btn-saiba-mais {
+    display: block; 
+    background-color: #1bbd31e1; 
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.btn-saiba-mais:hover {
+    background-color: #555;
+}
+.footer-hg {
+    background-color: #000;
+    color: #fff;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.newsletter-faixa {
+    background-color: #ff4500;
+    padding: 30px 5%;
+}
+
+.container-news {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.form-news {
+    display: flex;
+    border-bottom: 2px solid #fff;
+}
+
+.form-news input {
+    background: none;
+    border: none;
+    color: #ff4500;
+    padding: 10px;
+    width: 300px;
+    outline: none;
+}
+
+.form-news input::placeholder { color: rgba(255,255,255,0.7); }
+
+.form-news button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.footer-principal {
+    background-color: #000;
+    color: #ff4500;
+    display: flex;
+    flex-wrap: wrap; /* Importante para as seções de baixo quebrarem a linha */
+    justify-content: space-between;
+    padding: 60px 10% 20px 10%; /* Mais respiro nas laterais */
+}
+
+/* Colunas de Categoria, Suporte e Redes */
+.coluna-footer {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 30px;
+}
+
+/* Cor padrão dos links no footer */
+.coluna-footer ul li a {
+    color: #ffffff !important; /* Força o branco */
+    text-decoration: none;     /* Remove o sublinhado */
+    transition: 0.3s;          /* Deixa a transição suave */
+    font-size: 16px;
+}
+
+/* Cor quando passar o mouse (Hover) */
+.coluna-footer ul li a:hover {
+    color: #ff4500 !important; /* Laranja da sua marca */
+}
+
+/* Remove as bolinhas da lista se elas estiverem azuis/roxas */
+.coluna-footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Forçar a seção de Pagamento a ocupar a largura total (100%) embaixo das outras */
+.secao-pagamento-full {
+    flex: 1 1 100%; 
+    text-align: center;
+    border-top: 1px solid #222; /* Linha sutil para separar */
+    margin-top: 20px;
+    padding-top: 40px;
+}
+
+.img-pagamentos {
+    max-width: 400px; /* Ajuste o tamanho conforme sua imagem real */
+    width: 90%;
+    height: auto;
+    filter: grayscale(100%) invert(1); /* Inverti para o fundo preto */
+    transition: 0.3s;
+}
+
+.img-pagamentos:hover {
+    filter: grayscale(0%) invert(0%);
+}
+
+.footer-copy {
+    flex: 1 1 100%;
+    text-align: center;
+    padding: 20px;
+    background: #000; /* Mantendo o padrão */
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* 1. Largura da barra (mais fina para ficar elegante) */
+::-webkit-scrollbar {
+    width: 10px;               /* Largura da barra vertical */
+    height: 10px;              /* Altura da barra horizontal */
+}
+
+/* 2. Fundo da barra (Track) - Deixamos preto para sumir no site */
+::-webkit-scrollbar-track {
+    background: #ffffff; 
+}
+
+/* 3. O "Pegador" da barra (Thumb) - Laranja Escuro */
+::-webkit-scrollbar-thumb {
+    background: #cc3700;       /* Laranja mais escuro/fechado */
+    border-radius: 10px;       /* Deixa as pontas arredondadas */
+    border: 2px solid #cc3700; /* Cria um respiro em volta do laranja */
+}
+
+/* 4. Quando o usuário passa o mouse - Laranja Brilhante */
+::-webkit-scrollbar-thumb:hover {
+    background: #ff4500;       /* Volta para o seu laranja padrão ao interagir */
+}
+
+    </style>
+
+<script>
+    let itensNoCarrinho = 0;
+
+    function adicionarAoCarrinho() {
+        const contador = document.querySelector('.contador-carrinho-bw');
+        
+        itensNoCarrinho++; 
+        
+        contador.innerText = itensNoCarrinho;
+        
+        if (itensNoCarrinho > 0) {
+            contador.style.display = 'flex';
+        }
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Hagon Store</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff4500, #ff6b35);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #ff4500;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #ff4500;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff6b35;
+        }
+
+        .error {
+            background-color: #ffebee;
+            color: #c62828;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #ff4500;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            color: #ff4500;
+            margin-top: 10px;
+        }
+
+        .user-type {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>🔐 Login</h1>
+
+        <div class="user-type">
+            Digite seu email e senha para acessar o sistema
+        </div>
+
+        <div id="error" class="error"></div>
+        <div id="success" class="success"></div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="seu@email.com">
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" required placeholder="Sua senha">
+            </div>
+
+            <button type="submit">Entrar</button>
+            <div id="loading" class="loading">⏳ Conectando...</div>
+        </form>
+
+        <div class="back-link">
+            <a href="../index.html">← Voltar para Home</a> |
+            <a href="cadastro.html">Criar conta</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+            const errorDiv = document.getElementById('error');
+            const successDiv = document.getElementById('success');
+            const loading = document.getElementById('loading');
+
+            errorDiv.style.display = 'none';
+            successDiv.style.display = 'none';
+            loading.style.display = 'block';
+
+            try {
+                // Primeiro tenta login via API Node.js
+                const response = await fetch('/api/login/geral', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, senha })
+                });
+
+                const text = await response.text();
+                const data = text ? JSON.parse(text) : null;
+
+                if (response.ok) {
+                    // Login via API funcionou
+                    localStorage.setItem('user_token', data.token);
+                    localStorage.setItem('user_type', data.userType);
+                    localStorage.setItem('user_data', JSON.stringify(data.user));
+
+                    successDiv.textContent = '✅ Login realizado com sucesso!';
+                    successDiv.style.display = 'block';
+
+                    setTimeout(() => {
+                        if (data.userType === 'admin') {
+                            window.location.href = 'admin.html';
+                        } else {
+                            window.location.href = 'index.html';
+                        }
+                    }, 1500);
+                    return;
+                }
+
+                // Se API falhou mas sugeriu tentar Firebase
+                if (data?.tryFirebase) {
+                    await tryFirebaseLogin(email, senha);
+                    return;
+                }
+
+                // Outro erro da API
+                errorDiv.textContent = `❌ ${(data && data.erro) || 'Erro ao fazer login'}`;
+                errorDiv.style.display = 'block';
+
+            } catch (error) {
+                loading.style.display = 'none';
+                errorDiv.textContent = `❌ Erro: ${error.message}`;
+                errorDiv.style.display = 'block';
+            }
+        });
+
+        // Função para tentar login via Firebase
+        async function tryFirebaseLogin(email, senha) {
+            const errorDiv = document.getElementById('error');
+            const successDiv = document.getElementById('success');
+            const loading = document.getElementById('loading');
+
+            try {
+                // Importar Firebase Auth dinamicamente
+                const { getAuth, signInWithEmailAndPassword } = await import('https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js');
+                const { initializeApp } = await import('https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js');
+                const { getFirestore, doc, getDoc } = await import('https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js');
+
+                // Firebase Config
+                const firebaseConfig = {
+                    apiKey: "AIzaSyAhPVplbeCbaQFy-4Oi9KEmsZaAYHO7i9Y",
+                    authDomain: "hagon-store.firebaseapp.com",
+                    projectId: "hagon-store",
+                    storageBucket: "hagon-store.firebasestorage.app",
+                    messagingSenderId: "681640518412",
+                    appId: "1:681640518412:web:e55ba45b33d999e1f81f29",
+                    measurementId: "G-XH6TJX5XNS"
+                };
+
+                const app = initializeApp(firebaseConfig);
+                const auth = getAuth(app);
+                const db = getFirestore(app);
+
+                // Tentar login no Firebase
+                const userCredential = await signInWithEmailAndPassword(auth, email, senha);
+                const user = userCredential.user;
+
+                // Carregar dados do usuário do Firestore
+                let userData = {
+                    uid: user.uid,
+                    email: user.email,
+                    nome: user.displayName || 'Usuário',
+                    tipo: 'user'
+                };
+
+                try {
+                    const docSnap = await getDoc(doc(db, 'usuarios', user.uid));
+                    if (docSnap.exists()) {
+                        userData = { ...userData, ...docSnap.data() };
+                    }
+                } catch (err) {
+                    console.error('Erro ao carregar do Firestore:', err);
+                }
+
+                // Salvar dados no localStorage
+                localStorage.setItem('user_token', 'firebase_' + user.uid); // Token simples para Firebase
+                localStorage.setItem('user_type', 'user');
+                localStorage.setItem('user_data', JSON.stringify(userData));
+
+                loading.style.display = 'none';
+                successDiv.textContent = '✅ Login realizado com sucesso!';
+                successDiv.style.display = 'block';
+
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1500);
+
+            } catch (firebaseError) {
+                loading.style.display = 'none';
+                errorDiv.textContent = `❌ E-mail ou senha incorretos.`;
+                errorDiv.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hagon Store</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js';
+        import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
+
+        // Firebase Config
+        const firebaseConfig = {
+            apiKey: "AIzaSyAhPVplbeCbaQFy-4Oi9KEmsZaAYHO7i9Y",
+            authDomain: "hagon-store.firebaseapp.com",
+            projectId: "hagon-store",
+            storageBucket: "hagon-store.firebasestorage.app",
+            messagingSenderId: "681640518412",
+            appId: "1:681640518412:web:e55ba45b33d999e1f81f29",
+            measurementId: "G-XH6TJX5XNS"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        window.firebaseAuth = auth;
+        window.firebaseDb = db;
+        window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
+        window.signInWithEmailAndPassword = signInWithEmailAndPassword;
+        window.setDoc = setDoc;
+        window.doc = doc;
+    </script>
+</head>
+<body>
+
+    <div class="header-logo">
+        <a href="../index.html">
+            <img src="../assets/logo.png" alt="Hagon Store" class="logo-img">
+        </a>
+    </div>
+
+    <header class="header-gamma">
+        <div class="container-header">
+            
+            <div class="header-busca">
+                <form action="#">
+                    <input type="text" id="busca-header" name="busca" placeholder="Buscar na Hagon Store..." autocomplete="off">
+                    <button type="submit" class="btn-lupa">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="header-usuario">
+                <div class="usuario-perfil">
+                    <div class="icone-user-bw">
+                        <i class="fa-regular fa-circle-user"></i>
+                    </div>
+                    <div class="usuario-links">
+                        <a href="cadastro.html" class="link-nav">Cadastre-se</a>
+                        <span class="divisor-v">|</span>
+                        <a href="login.html" class="link-login">Fazer login</a>
+                    </div>
+                </div>
+
+                
+                <div class="carrinho-box-bw">
+                    <span class="icone-sacola-bw">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </span>
+                    <span class="contador-carrinho-bw">0</span>
+                </div>
+            </div>
+        </div>
+
+        <nav class="nav-categorias">
+            <a href="../index.html" class="link-nav">Inicio</a>
+            <a href="#">Lançamentos</a>
+            <a href="#">Caixas de Som</a>
+            <a href="#">Fones de Ouvido</a>
+            <a href="#">Gamer</a>
+            <a href="#">Carregadores</a>
+            <a href="#">Smartwatch</a>
+            <a href="#">Acessoriós</a>
+        </nav>
+    </header>
+
+    <main class="container-cadastro">
+        <div class="card-cadastro">
+            <div class="cabecalho-form">
+                <h2>CRIAR MINHA CONTA</h2>
+                <p>Informe os seus dados abaixo para criar sua conta.</p>
+            </div>
+
+            <form id="form-cadastro" class="form-hagon">
+                <div class="duas-colunas">
+                    <div class="grupo-input">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Ex: João" autocomplete="given-name" required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="sobrenome">Sobrenome</label>
+                        <input type="text" id="sobrenome" name="sobrenome" placeholder="Ex: Silva" autocomplete="family-name" required>
+                    </div>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="tipoPessoa">Quero me cadastrar como: *</label>
+                    <select id="tipoPessoa" name="tipoPessoa" class="input-hagon" autocomplete="off">
+                        <option value="fisica">Pessoa Física</option>
+                        <option value="juridica">Pessoa Jurídica</option>
+                    </select>
+                </div>
+
+                <div class="duas-colunas">
+                    <div class="grupo-input">
+                        <label for="documento" id="labelDocumento">CPF *</label>
+                        <input type="text" id="documento" name="documento" placeholder="000.000.000-00" autocomplete="cc-number" required>
+                    </div>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com" autocomplete="email" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="senha">Senha *</label>
+                    <input type="password" id="senha" name="senha" placeholder="Crie uma senha forte" autocomplete="new-password" required>
+                </div>
+
+                <div class="grupo-checkbox">
+                    <label class="container-check" for="marketing">
+                        <input type="checkbox" id="marketing" name="marketing">
+                        <span class="checkmark"></span>
+                        Aceito receber comunicação de marketing da Hagon Store
+                    </label>
+                    
+                    <label class="container-check" for="termos">
+                        <input type="checkbox" id="termos" name="termos" required>
+                        <span class="checkmark"></span>
+                        Estou ciente e CONCORDO com os <a href="#">termos de aceite</a> e <a href="#">políticas de privacidade</a>.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-cadastrar">CRIAR MINHA CONTA</button>
+                <div id="cadastroErro" class="erro-mensagem" style="color:red; margin-top:12px; text-align:left;"></div>
+                <div class="voltar-login">
+                    <a href="login.html">Voltar para o login</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <div id="modal-sucesso" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">✅</div>
+            <h2>Cadastro realizado!</h2>
+            <p>Seja bem-vindo à HG Tecnologia. Vamos preparar o seu acesso.</p>
+            <button class="btn-login-redirect" onclick="irParaLogin()">Ir para o Login</button>
+        </div>
+    </div>
+
+    <footer class="footer-hg">
+        <div class="newsletter-faixa">
+            <div class="container-news">
+                <h2>CADASTRE-SE E RECEBA NOVIDADES</h2>
+                <form class="form-news">
+                    <label for="email-newsletter" style="display:none;">Email Newsletter</label>
+                    <input type="email" id="email-newsletter" name="email-newsletter" placeholder="Digite seu e-mail" autocomplete="email">
+                    <button type="submit">➔</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-principal">
+            <div class="coluna-footer">
+                <h3>CATEGORIAS</h3>
+                <ul>
+                    <li><a href="#">Gamer</a></li>
+                    <li><a href="#">Fones de Ouvido</a></li>
+                    <li><a href="#">Caixas de Som</a></li>
+                    <li><a href="#">Smartwatch</a></li>
+                </ul>
+            </div>
+
+            <div class="coluna-footer">
+                <h3>SUPORTE</h3>
+                <ul>
+                    <li><a href="#suporte">Fale Conosco</a></li>
+                    <li><a href="#">Garantia</a></li>
+                    <li><a href="#">Políticas de Troca</a></li>
+                    <li><a href="#">Situação do Pedido</a></li>
+                </ul>
+            </div>
+
+            <div class="coluna-footer">
+                <h3>SIGA-NOS</h3>
+                <div class="redes-sociais">
+                    <span>📸</span> <span>📘</span> <span>🐦</span> <span>🎥</span>
+                </div>
+                <h3 style="margin-top: 20px;">PAGAMENTO</h3>
+                <div class="pagamentos">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg" width="30" alt="Mastercard">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" width="30" alt="Visa">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo%E2%80%94Pix.svg" width="30" alt="Pix">
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copy">
+            <p>&copy; 2026 HG TECNOLOGIA - Itajaí, SC. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Controle do carrinho
+            let itensNoCarrinho = 0;
+
+            function adicionarAoCarrinho() {
+                const contador = document.querySelector('.contador-carrinho-bw');
+                if (contador) {
+                    itensNoCarrinho++;
+                    contador.innerText = itensNoCarrinho;
+                    if (itensNoCarrinho > 0) {
+                        contador.style.display = 'flex';
+                    }
+                }
+            }
+
+            // Mudar entre CPF/CNPJ
+            const selectTipo = document.getElementById('tipoPessoa');
+            const labelDoc = document.getElementById('labelDocumento');
+            const inputDoc = document.getElementById('documento');
+
+            if (selectTipo) {
+                selectTipo.addEventListener('change', function() {
+                    if (this.value === 'juridica') {
+                        labelDoc.innerText = 'CNPJ *';
+                        inputDoc.placeholder = '00.000.000/0000-00';
+                    } else {
+                        labelDoc.innerText = 'CPF *';
+                        inputDoc.placeholder = '000.000.000-00';
+                    }
+                });
+            }
+
+            // Formulário - criar usuário no Firebase
+            const form = document.getElementById('form-cadastro');
+            const modal = document.getElementById('modal-sucesso');
+            const errorBox = document.getElementById('cadastroErro');
+
+            if (form && modal) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+
+                    const email = document.getElementById('email').value.trim();
+                    const password = document.getElementById('senha').value.trim();
+                    const nome = document.getElementById('nome').value.trim();
+                    const sobrenome = document.getElementById('sobrenome').value.trim();
+
+                    const authInstance = window.firebaseAuth;
+                    const createUser = window.createUserWithEmailAndPassword;
+
+                    if (!email || !password) {
+                        if (errorBox) errorBox.textContent = 'Email e senha são obrigatórios.';
+                        return;
+                    }
+
+                    if (!authInstance || !createUser) {
+                        if (errorBox) errorBox.textContent = 'Firebase não carregado corretamente.';
+                        return;
+                    }
+
+                    createUser(authInstance, email, password)
+                        .then((userCredential) => {
+                            const user = userCredential.user;
+                            const userData = {
+                                uid: user.uid,
+                                nome,
+                                sobrenome,
+                                email,
+                                tipoPessoa: document.getElementById('tipoPessoa').value,
+                                documento: document.getElementById('documento').value,
+                                dataCadastro: new Date().toISOString()
+                            };
+
+                            // 1. Salvar no Firestore
+                            const db = window.firebaseDb;
+                            const setDocFn = window.setDoc;
+                            const docFn = window.doc;
+
+                            if (db && setDocFn && docFn) {
+                                setDocFn(docFn(db, 'usuarios', user.uid), userData)
+                                    .catch(err => console.error('Erro ao salvar no Firestore:', err));
+                            }
+
+                            // 2. Salvar no Node.js backend
+                            fetch('/api/usuarios', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(userData)
+                            }).catch(err => console.error('Erro ao salvar no backend:', err));
+
+                            // 3. Salvar no localStorage
+                            localStorage.setItem('hagon_user', JSON.stringify(userData));
+                            localStorage.setItem('hagon_logado', 'true');
+
+                            if (errorBox) errorBox.textContent = '';
+                            modal.style.display = 'flex';
+                        })
+                        .catch((error) => {
+                            if (errorBox) {
+                                errorBox.textContent = error.message;
+                            } else {
+                                alert(error.message);
+                            }
+                        });
+                });
+            }
+
+            // Fechar modal ao clicar no botão
+            window.irParaLogin = function() {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+
+ <style>
+    * {
+    box-sizing: border-box; /* Garante que o padding não aumente a largura do elemento */
+    margin: 0;
+    padding: 0;
+}
+    body {
+        text-align: center; 
+        font-family: sans-serif; 
+        margin: 0; 
+    }
+
+    .header-logo {
+        flex: 1;             
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+    }
+
+    .logo-img {
+        height: 130px;       
+        width: auto;
+        display: block;
+        image-rendering: -webkit-optimize-contrast; 
+        transition: transform 0.3s ease;
+    }
+
+    .logo-img:hover {
+        transform: scale(1.08);
+    }
+
+   .header-gamma {
+    background-color: #fff;
+    padding: 10px 5%;
+    border-bottom: 1px solid #f0f0f0;
+}
+.container-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;            
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.header-busca, .header-logo, .header-usuario {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo { justify-content: center; }
+.header-usuario { justify-content: flex-end; gap: 25px; }
+
+.usuario-perfil {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+}
+
+.usuario-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.header-busca {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.header-busca form {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.header-busca input {
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background-color: #fff;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn-lupa {
+    position: absolute;
+    right: 5px; 
+    top: 50%;
+    transform: translateY(-50%); 
+    
+    background: transparent !important;
+    border: none !important; 
+    color: #ff4500;
+    cursor: pointer;
+    font-size: 1.1rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 35px;  
+    height: 35px;
+    padding: 0;
+    
+    outline: none !important;
+    box-shadow: none !important;
+    appearance: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent; 
+}
+.btn-lupa {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #000; 
+    cursor: pointer;
+    font-size: 1rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none !important;
+}
+
+.btn-lupa:hover {
+    color: #ff4500; 
+}
+
+.btn-lupa:focus, 
+.btn-lupa:active, 
+.btn-lupa:focus-visible,
+.btn-lupa::-moz-focus-inner {
+    outline: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+.header-busca input:focus {
+    border-color: #ff4500 !important;
+}
+
+.header-logo {
+    flex: 1; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.header-usuario {
+    flex: 1; 
+    display: flex;
+    justify-content: flex-end; 
+    gap: 20px;
+}
+
+.header-usuario {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 25px;
+    font-size: 0.85rem;
+}
+
+.icone-user-bw i {
+    font-size: 1.8rem; 
+    color: #000;       
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.usuario-perfil:hover .icone-user-bw i {
+    color: #ff4500; 
+}
+
+.usuario-links {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    gap: 8px;           
+    white-space: nowrap; 
+}
+
+.usuario-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.usuario-links a:hover {
+    color: #ff4500; 
+}
+
+.divisor-v {
+    color: #ccc;
+    font-size: 0.9rem;
+    user-select: none; 
+}
+.carrinho-box-bw {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.icone-sacola-bw i {
+    font-size: 1.6rem; 
+    color: #000;       
+    transition: color 0.3s ease;
+}
+
+
+.contador-carrinho-bw {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background-color: #ff4500; /* Laranja Hagon */
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    display: none; /* <--- O SEGREDO ESTÁ AQUI: Ele começa escondido */
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+}
+
+.carrinho-box-bw:hover i {
+    color: #ff4500; 
+}
+
+.nav-categorias {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px 0;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.nav-categorias a {
+    text-decoration: none;
+    color: #000;         
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    
+       transition: color 0.3s ease; 
+}
+
+
+.nav-categorias a:hover {
+    color: #ff4500;       
+    cursor: pointer;      
+}
+
+.nav-categorias a.ativo {
+    color: #ff4500;
+}
+
+
+/* Fundo da página de cadastro */
+.container-cadastro {
+    background-color: #f7f7f7; /* Preto profundo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 50px;
+    min-height: 100vh;
+}
+
+/* O "Card" inspirado na Pichau/JBL */
+.card-cadastro {
+    background-color: #141414; /* Cinza bem escuro */
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    border: 1px solid #222; /* Borda sutil */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.cabecalho-form h2 {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.cabecalho-form p {
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.cabecalho-form a {
+    color: #ff4500; /* Seu Laranja */
+    text-decoration: none;
+}
+
+/* Estilo dos Inputs (Pegada Gamer) */
+.grupo-input {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.grupo-input label {
+    display: block;
+    color: #ccc;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.grupo-input input {
+    width: 100%;
+    padding: 12px 15px;
+    background: #0b0b0b;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: #fff;
+    outline: none;
+    transition: 0.3s;
+}
+
+.grupo-input input:focus {
+    border-color: #ff4500; /* Brilha laranja ao clicar */
+}
+
+
+
+/* Botão Estilo JBL (Sólido e Forte) */
+.btn-cadastrar {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff4500;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn-cadastrar:hover {
+    background-color: #e03e00;
+    transform: translateY(-2px);
+}
+
+/* Layout de duas colunas para senha */
+.duas-colunas {
+    display: flex;
+    gap: 15px;
+}
+
+@media (max-width: 480px) {
+    .duas-colunas { flex-direction: column; }
+}
+
+select.input-hagon {
+    width: 100%;
+    padding: 12px 15px;
+    background: #0b0b0b;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: #fff;
+    appearance: none; /* Remove a seta padrão */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg%20xmlns="http://www.w3.org/2000/svg"%20width="24"%20height="24"%20viewBox="0%200%2024%2024" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline%20points="6%209%2012%2015%2018%209"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 15px;
+    cursor: pointer;
+}
+
+select.input-hagon:focus {
+    border-color: #ff4500;
+}
+
+/* --- CHECKBOX CUSTOMIZADO (ATUALIZADO PARA ÍCONE BRANCO) --- */
+
+.grupo-checkbox {
+    margin: 20px 0;
+    text-align: left;
+}
+
+/* Container do Checkbox (o label) */
+.container-check {
+    display: block;
+    position: relative;
+    padding-left: 35px; /* Mais espaço para o ícone */
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: #aaa; /* Cor do texto padrão */
+    line-height: 1.4;
+    user-select: none; /* Impede selecionar o texto */
+}
+
+/* Esconde o input original do navegador */
+.container-check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* O quadrado do checkbox (estado padrão) */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #0b0b0b; /* Preto profundo */
+    border: 1px solid #333; /* Borda sutil */
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+/* Quando marcado, o fundo fica LARANJA */
+.container-check input:checked ~ .checkmark {
+    background-color: #ff4500;
+    border-color: #ff4500;
+}
+
+/* Cria o ícone de check (o "corrigido") - Invisível por padrão */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Mostra o ícone quando está marcado */
+.container-check input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Estilo do Ícone "Corrigido" (Símbolo de V) - AGORA EM BRANCO */
+.container-check .checkmark:after {
+    left: 7px; /* Centraliza horizontalmente */
+    top: 3px;  /* Centraliza verticalmente */
+    width: 5px;  /* Largura da "perna" menor do V */
+    height: 10px; /* Altura da "perna" maior do V */
+    border: solid #ffffff; /* COR DO ÍCONE: BRANCO */
+    border-width: 0 2px 2px 0; /* Cria as bordas do V */
+    transform: rotate(45deg); /* Gira 45 graus para formar o V */
+}
+
+/* Estilo dos links de Termos em Laranja */
+.container-check a {
+    color: #ff4500;
+    text-decoration: none;
+}
+.container-check a:hover {
+    text-decoration: underline;
+}
+
+.voltar-login {
+    margin-top: 25px;
+    border-top: 1px solid #222;
+    padding-top: 20px;
+}
+
+.voltar-login a {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.voltar-login a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Deixa os links de termos em laranja */
+.container-check a {
+    color: #ff4500;
+    text-decoration: none;
+}
+
+/* Fundo escurecido */
+.modal-overlay {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Caixa branca central */
+.modal-content {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-icon { font-size: 3rem; margin-bottom: 20px; }
+
+.btn-login-redirect {
+    background-color: #ff4500; /* Laranja HG */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-login-redirect:hover { background-color: #000; }
+
+.btn-saiba-mais {
+    display: block; 
+    background-color: #333; 
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.btn-saiba-mais {
+    display: block; 
+    background-color: #1bbd31e1; 
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.btn-saiba-mais:hover {
+    background-color: #555;
+}
+.footer-hg {
+    background-color: #000;
+    color: #fff;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.newsletter-faixa {
+    background-color: #ff4500;
+    padding: 30px 5%;
+}
+
+.container-news {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.form-news {
+    display: flex;
+    border-bottom: 2px solid #fff;
+}
+
+.form-news input {
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    width: 300px;
+    outline: none;
+}
+
+.form-news input::placeholder { color: rgba(255,255,255,0.7); }
+
+.form-news button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.footer-principal {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap; /* Importante para as seções de baixo quebrarem a linha */
+    justify-content: space-between;
+    padding: 60px 10% 20px 10%; /* Mais respiro nas laterais */
+}
+
+/* Colunas de Categoria, Suporte e Redes */
+.coluna-footer {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 30px;
+}
+
+/* Cor padrão dos links no footer */
+.coluna-footer ul li a {
+    color: #ffffff !important; /* Força o branco */
+    text-decoration: none;     /* Remove o sublinhado */
+    transition: 0.3s;          /* Deixa a transição suave */
+    font-size: 16px;
+}
+
+/* Cor quando passar o mouse (Hover) */
+.coluna-footer ul li a:hover {
+    color: #ff4500 !important; /* Laranja da sua marca */
+}
+
+/* Remove as bolinhas da lista se elas estiverem azuis/roxas */
+.coluna-footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Forçar a seção de Pagamento a ocupar a largura total (100%) embaixo das outras */
+.secao-pagamento-full {
+    flex: 1 1 100%; 
+    text-align: center;
+    border-top: 1px solid #222; /* Linha sutil para separar */
+    margin-top: 20px;
+    padding-top: 40px;
+}
+
+.img-pagamentos {
+    max-width: 400px; /* Ajuste o tamanho conforme sua imagem real */
+    width: 90%;
+    height: auto;
+    filter: grayscale(100%) invert(1); /* Inverti para o fundo preto */
+    transition: 0.3s;
+}
+
+.img-pagamentos:hover {
+    filter: grayscale(0%) invert(0%);
+}
+
+.footer-copy {
+    flex: 1 1 100%;
+    text-align: center;
+    padding: 20px;
+    background: #000; /* Mantendo o padrão */
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* 1. Largura da barra (mais fina para ficar elegante) */
+::-webkit-scrollbar {
+    width: 10px;               /* Largura da barra vertical */
+    height: 10px;              /* Altura da barra horizontal */
+}
+
+/* 2. Fundo da barra (Track) - Deixamos preto para sumir no site */
+::-webkit-scrollbar-track {
+    background: #ffffff; 
+}
+
+/* 3. O "Pegador" da barra (Thumb) - Laranja Escuro */
+::-webkit-scrollbar-thumb {
+    background: #cc3700;       /* Laranja mais escuro/fechado */
+    border-radius: 10px;       /* Deixa as pontas arredondadas */
+    border: 2px solid #cc3700; /* Cria um respiro em volta do laranja */
+}
+
+/* 4. Quando o usuário passa o mouse - Laranja Brilhante */
+::-webkit-scrollbar-thumb:hover {
+    background: #ff4500;       /* Volta para o seu laranja padrão ao interagir */
+}
+
+</style>
+
+</body>
+</html>
