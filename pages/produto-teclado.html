@@ -127,87 +127,7 @@
         <td>Modelo detalhado</td>
         <td>K551-RGB</td>
     </tr>
-</table>
-    </div>
-
-    <aside class="coluna-direita-fixa">
-        <div class="card-compra-sticky">
-            <h1 class="nome-produto-sticky">Redragon Mitra K551</h1>
-            <div class="stars-mini">☆☆☆☆☆ <span>(0) Escreva uma avaliação</span></div>
-            
-            <ul class="lista-beneficios">
-                <li>✓ Switches Mecânicos Outemu Blue</li>
-                <li>✓ Layout ABNT2 com teclado numérico</li>
-                <li>✓ Construção em metal de alta resistência</li>
-            </ul>
-
-            <div class="secao-cor">
-                <p>Cor: Black</p>
-                <div class="quadrado-cor"></div>
-            </div>
-
-            <h2 class="preco-sticky">R$ 289,90</h2>
-            <p class="parcelas-sticky">Até 10x de R$ 28,99 sem juros no cartão ou 10% de desconto no PIX</p>
-
-          <div class="acoes-compra">
-    <div class="contador-container">
-        <button type="button" class="btn-count" onclick="alterarQtd(-1)">-</button>
-        <input type="number" id="quantidade" value="1" min="1" readonly>
-        <button type="button" class="btn-count" onclick="alterarQtd(1)">+</button>
-    </div>
-
-    <button class="btn-comprar-jbl">Comprar</button>
-</div>
-
-            <div class="icones-suporte">
-                <div><strong>FRETE GRÁTIS</strong></div>
-                <div><strong>DEVOLUÇÃO GRÁTIS</strong></div>
-                <div><strong>SUPORTE TÉCNICO</strong></div>
-            </div>
-        </div>
-  <main class="pagina-produto-container">
-    
-    <aside class="coluna-direita-fixa">
-        </aside>
-</main>
-
-<script>
-    var acc = document.getElementsByClassName("acordeao-btn");
-    var i;
-
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            var span = this.querySelector("span");
-            
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-                span.innerHTML = "+";
-            } else {
-                panel.style.display = "block";
-                span.innerHTML = "-";
-            }
-        });
-    }
-    function alterarQtd(valor) {
-    const campoQtd = document.getElementById('quantidade');
-    let valorAtual = parseInt(campoQtd.value);
-    
-    let novoValor = valorAtual + valor;
-    
-    if (novoValor < 1) {
-        novoValor = 1;
-    }
-    
-    campoQtd.value = novoValor;
-}
-
-
-</script>
-</main>
-
-</main> <section id="avaliacoes" class="secao-avaliacoes">
+</table>\n\n<section id="avaliacoes" class="secao-avaliacoes">
     <div class="container-central-avaliacoes">
 
         <div class="conteudo-comentarios">
@@ -340,7 +260,87 @@
     </div>
 </section>
  
- <footer class="footer-hg">
+
+    </div>
+
+    <aside class="coluna-direita-fixa">
+        <div class="card-compra-sticky">
+            <h1 class="nome-produto-sticky">Redragon Mitra K551</h1>
+            <div class="stars-mini">☆☆☆☆☆ <span>(0) Escreva uma avaliação</span></div>
+            
+            <ul class="lista-beneficios">
+                <li>✓ Switches Mecânicos Outemu Blue</li>
+                <li>✓ Layout ABNT2 com teclado numérico</li>
+                <li>✓ Construção em metal de alta resistência</li>
+            </ul>
+
+            <div class="secao-cor">
+                <p>Cor: Black</p>
+                <div class="quadrado-cor"></div>
+            </div>
+
+            <h2 class="preco-sticky">R$ 289,90</h2>
+            <p class="parcelas-sticky">Até 10x de R$ 28,99 sem juros no cartão ou 10% de desconto no PIX</p>
+
+          <div class="acoes-compra">
+    <div class="contador-container">
+        <button type="button" class="btn-count" onclick="alterarQtd(-1)">-</button>
+        <input type="number" id="quantidade" value="1" min="1" readonly>
+        <button type="button" class="btn-count" onclick="alterarQtd(1)">+</button>
+    </div>
+
+    <button class="btn-comprar-jbl">Comprar</button>
+</div>
+
+            <div class="icones-suporte">
+                <div><strong>FRETE GRÁTIS</strong></div>
+                <div><strong>DEVOLUÇÃO GRÁTIS</strong></div>
+                <div><strong>SUPORTE TÉCNICO</strong></div>
+            </div>
+        </div>
+  <main class="pagina-produto-container">
+    
+    <aside class="coluna-direita-fixa">
+        </aside>
+</main>
+
+<script>
+    var acc = document.getElementsByClassName("acordeao-btn");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            var span = this.querySelector("span");
+            
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+                span.innerHTML = "+";
+            } else {
+                panel.style.display = "block";
+                span.innerHTML = "-";
+            }
+        });
+    }
+    function alterarQtd(valor) {
+    const campoQtd = document.getElementById('quantidade');
+    let valorAtual = parseInt(campoQtd.value);
+    
+    let novoValor = valorAtual + valor;
+    
+    if (novoValor < 1) {
+        novoValor = 1;
+    }
+    
+    campoQtd.value = novoValor;
+}
+
+
+</script>
+</main>
+
+</main>  <footer class="footer-hg">
     <div class="newsletter-faixa">
         <div class="container-news">
             <h2>CADASTRE-SE E RECEBA NOVIDADES</h2>
