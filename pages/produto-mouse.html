@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hagon Store</title>
+    
+    <link rel="stylesheet" href="../design/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../design/cart.css">\n</head>
+
+  <div class="header-logo">
+            
+            <a href="../index.html" class="logo-link">
+                <div class="logo-hagon">
+                    <span class="logo-icon"><i class="fa-solid fa-gamepad"></i></span>
+                    <span class="logo-text">HAGON</span><span class="logo-highlight">STORE</span>
+                </div>
+            </a>
+
+        </div>
+
+<body>
+   
+    <header class="header-gamma">
+    <div class="container-header">
+        
+
+        <div class="header-busca">
+            <form action="#">
+                <input type="text" placeholder="Buscar na Hagon Store...">
+                <button type="submit" class="btn-lupa">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+
+        <div class="header-usuario">
+            <div class="usuario-perfil">
+                <div class="icone-user-bw">
+                    <i class="fa-regular fa-circle-user"></i>
+                </div>
+                <div class="usuario-links">
+                    <a href="cadastro.html" class="link-cadastro">Cadastre-se</a>
+                    <a href="#" class=>|</a>
+                    <a href="login.html" class="link-login">Fazer login</a>
+                </div>
+            </div>
+
+            <div class="carrinho-box-bw">
+    <span class="icone-sacola-bw">
+        <i class="fa-solid fa-cart-shopping"></i>
+    </span>
+    <span class="contador-carrinho-bw">0</span>
+</div>
+
+ </header>
+
+<nav class="nav-categorias">
+    <a href="../index.html" class="link-nav">Inicio</a>
+    <a href="#">Lançamentos</a>
+    <a href="#">Caixas de Som</a>
+    <a href="#">Fones de Ouvido</a>
+    <a href="#">Gamer</a>
+    <a href="#">Carregadores</a>
+    <a href="#">Smartwatch</a>
+    <a href="#">Acessoriós</a>
+</nav>
+</header>
+   
+   <main class="pagina-produto-container">
+    
+    <div class="coluna-esquerda">
+        <section class="sessao-foto">
+  <img src="https://picsum.photos/id/2/300/300" alt="Teclado Gamer Mouse Gamer 12k DPI">
+        </section>
+<nav class="sub-nav-hg">
+    <ul>
+        <li><a href="#descricao">Descrição</a></li>
+        <li><a href="#especificacoes">Especificações</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#suporte">Suporte</a></li>
+    </ul>
+</nav>
+        <section id="descricao" class="sessao-texto">
+            <h2>DESCRIÇÃO</h2>
+            <hr>
+            <p>
+                Os teclados Mouse Gamer 12k DPI apresentam tecnologia de switches mecânicos Outemu Blue com feedback tátil e sonoro que proporciona uma experiência de digitação detalhada. O design robusto em aço e plástico ABS oferece durabilidade para o dia todo, garantindo estabilidade perfeita para sessões intensas de jogo e trabalho.
+            </p>
+            <p>
+                Além disso, o sistema de anti-ghosting em todas as teclas permite que você execute comandos complexos simultaneamente sem falhas. Um setup gamer exige resistência, e o Mitra entrega isso com sua proteção contra respingos e construção reforçada. Personalize sua experiência e domine o campo de batalha.
+            </p>
+        </section>
+
+        <section id="especificacoes" class="sessao-texto">
+            <h2>ESPECIFICAÇÕES</h2>
+            <hr>
+            <div class="grade-especs">
+            </div>
+        </section>
+        <table class="tabela-especs">
+    <tr class="">
+        <td>Marca</td>
+        <td>Redragon</td>
+    </tr>
+    <tr>
+        <td>Linha</td>
+        <td>Mitra</td>
+    </tr>
+    <tr class="">
+        <td>Modelo</td>
+        <td>K551</td>
+    </tr>
+    <tr>
+        <td>Cor do teclado</td>
+        <td>Preto</td>
+    </tr>
+    <tr class="">
+        <td>Layout</td>
+        <td>ABNT2 (QWERTY)</td>
+    </tr>
+    <tr>
+        <td>Idioma</td>
+        <td>Português Brasil</td>
+    </tr>
+    <tr class="">
+        <td>Tipo de switch</td>
+        <td>Outemu Blue</td>
+    </tr>
+    <tr>
+        <td>Modelo detalhado</td>
+        <td>K551-RGB</td>
+    </tr>
+</table>
+ 
+
+    </div>
+
+    <aside class="coluna-direita-fixa">
+        <div class="card-compra-sticky">
+            <h1 class="nome-produto-sticky">Mouse Gamer 12k DPI</h1>
+            <div class="stars-mini">☆☆☆☆☆ <span>(0) Escreva uma avaliação</span></div>
+            
+            <ul class="lista-beneficios">
+                <li>✓ Switches Mecânicos Outemu Blue</li>
+                <li>✓ Layout ABNT2 com teclado numérico</li>
+                <li>✓ Construção em metal de alta resistência</li>
+            </ul>
+
+            <div class="secao-cor">
+                <p>Cor: Black</p>
+                <div class="quadrado-cor"></div>
+            </div>
+
+            <h2 class="preco-sticky">R$ 159,00</h2>
+            <p class="parcelas-sticky">Até 10x de R$ 15,90 sem juros no cartão ou 10% de desconto no PIX</p>
+
+          <div class="acoes-compra">
+    <div class="contador-container">
+        <button type="button" class="btn-count" onclick="alterarQtd(-1)">-</button>
+        <input type="number" id="quantidade" value="1" min="1" readonly>
+        <button type="button" class="btn-count" onclick="alterarQtd(1)">+</button>
+    </div>
+
+    <button class="btn-comprar-jbl" onclick="adicionarAoCarrinho('mouse-gamer', 'Mouse Gamer 12k DPI', 159, 'https://picsum.photos/id/2/300/300', parseInt(document.getElementById('quantidade').value))">Comprar</button>
+</div>
+
+            <div class="icones-suporte">
+                <div><strong>FRETE GRÁTIS</strong></div>
+                <div><strong>DEVOLUÇÃO GRÁTIS</strong></div>
+                <div><strong>SUPORTE TÉCNICO</strong></div>
+            </div>
+        </div>
+  <main class="pagina-produto-container">
+    
+    <aside class="coluna-direita-fixa">
+        </aside>
+</main>
+
+<script>
+    var acc = document.getElementsByClassName("acordeao-btn");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            var span = this.querySelector("span");
+            
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+                span.innerHTML = "+";
+            } else {
+                panel.style.display = "block";
+                span.innerHTML = "-";
+            }
+        });
+    }
+    function alterarQtd(valor) {
+    const campoQtd = document.getElementById('quantidade');
+    let valorAtual = parseInt(campoQtd.value);
+    
+    let novoValor = valorAtual + valor;
+    
+    if (novoValor < 1) {
+        novoValor = 1;
+    }
+    
+    campoQtd.value = novoValor;
+}
+
+
+</script>
+</main>
+
+</main><div class="pagina-produto-container" style="margin-top: 0; padding-top: 0;">    <div class="coluna-esquerda"><section id="avaliacoes" class="secao-avaliacoes">
+    <div class="container-central-avaliacoes">
+
+        <div class="conteudo-comentarios">
+            <h1 class="titulo-sessao-esquerda">AVALIAÇÕES</h1>
+            <hr class="divisor-suave">
+
+            <div class="resumo-avaliacoes">
+                <div class="coluna-barras">
+                    <h3>Avaliações de consumidores</h3>
+                    <div class="linha-stat"><span>5 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 0%;"></div></div> <span>0</span></div>
+                    <div class="linha-stat"><span>4 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 0%;"></div></div> <span>0</span></div>
+                    <div class="linha-stat"><span>3 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 0%;"></div></div> <span>0</span></div>
+                    <div class="linha-stat"><span>2 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 0%;"></div></div> <span>0</span></div>
+                    <div class="linha-stat"><span>1 estrela</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 0%;"></div></div> <span>0</span></div>
+                </div>
+        
+
+                <div class="nota-geral">
+                    <p>Classificação geral</p>
+                    <div class="valor-nota">0</div>
+                    <div class="estrelas-amarelas">★★★★★</div>
+                    <p>0 avaliações</p>
+                </div>
+            </div> <div class="busca-comentarios">
+                <input type="text" placeholder="Pesquisar tópicos e avaliações">
+                <button type="submit" class="btn-lupa-comentario">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+                
+            <div class="seletores-filtro">
+                <div class="dropdown-classificacao">
+                    <button class="dropbtn" onclick="toggleMenu('drop-estrelas')">Classificação ▼</button>
+                    <div id="drop-estrelas" class="dropdown-content">
+                        <a href="#">Todas as estrelas</a>
+                        <a href="#">5 estrelas</a>
+                        <a href="#">4 estrelas</a>
+                        <a href="#">3 estrelas</a>
+                        <a href="#">2 estrelas</a>
+                        <a href="#">1 estrelas</a>
+                    </div>
+                </div>
+
+                <div class="dropdown-classificacao">
+                    <button class="dropbtn" onclick="toggleMenu('drop-idioma')">Idioma/País ▼</button>
+                    <div id="drop-idioma" class="dropdown-content">
+                        <a href="#">Português (Brasil)</a>
+                        <a href="#">espanhol</a>
+                        <a href="#">Inglês</a>
+                    </div>
+                </div>
+
+                <div class="dropdown-classificacao">
+                    <button class="dropbtn" onclick="toggleMenu('drop-ordem')">Ordenar por ▼</button>
+                    <div id="drop-ordem" class="dropdown-content">
+                        <a href="#">Classificação mais alta</a>
+                        <a href="#">Classificação mais baixa</a>
+                        <a href="#">Mais recente</a>
+                        <a href="#">Mais antiga</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lista-comentarios">
+                <p class="contador-vendas">1 – 4 de 64 Avaliações</p>
+                <hr>
+                <div class="comentario-item">
+                    <div class="comentario-estrelas">⭐⭐⭐⭐⭐</div>
+                    <h3>Incrível para o setup gamer!</h3>
+                    <p class="comentario-autor"><strong>Hiago Silva</strong> • 2 dias atrás</p>
+                    <div class="fotos-comentario-cliente">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_906806-MLB45607633216_042021-O.webp" alt="Foto do cliente" class="foto-feedback">
+                    </div>
+                    <p class="comentario-texto">O teclado Redragon Mitra superou minhas expectativas. A iluminação é bem forte!</p>
+                    <div class="comentario-util">
+                        <span>Esta avaliação foi útil?</span>
+                        <button>Sim (12)</button> <button>Não (0)</button>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        
+        <button class="btn-avaliar-hagon" onclick="verificarLoginParaAvaliar()">
+            Avaliar este produto
+        </button>
+        
+        </div> </div> </section>
+<section id="suporte" class="secao-suporte">
+    <div class="container-suporte">
+        <h2>SUPORTE AO CLIENTE</h2>
+        <p class="subtitulo-suporte">Preencha os campos abaixo e nossa equipe técnica responderá em até 24h.</p>
+
+        <form class="form-suporte-hg" action="https://formspree.io/f/mgopgwwp" method="POST">
+    
+    <div class="linha-form">
+        <div class="campo">
+            <label>Nome Completo</label>
+            <input type="text" name="nome" placeholder="Ex: Hiago Silva" required>
+        </div>
+        <div class="campo">
+            <label>Seu E-mail</label>
+            <input type="email" name="email" placeholder="email@exemplo.com" required>
+        </div>
+    </div>
+
+    <div class="linha-form">
+        <div class="campo">
+            <label>Número do Pedido</label>
+            <input type="text" name="pedido" placeholder="Ex: #12345">
+        </div>
+        <div class="campo">
+            <label>Assunto</label>
+            <select name="assunto" required>
+                <option value="">Selecione um assunto</option>
+                <option value="tecnico">Dúvida Técnica</option>
+                <option value="entrega">Status da Entrega</option>
+                <option value="garantia">Acionar Garantia</option>
+                <option value="outro">Outros</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="campo">
+        <label>Sua Mensagem / Queixa</label>
+        <textarea name="mensagem" rows="6" placeholder="Descreva detalhadamente o que aconteceu..." required></textarea>
+    </div>
+
+    <button type="submit" class="btn-enviar-suporte">Enviar Solicitação</button>
+</form>
+    </div>
+</section>    </div>    <div class="coluna-direita-fixa" style="position: static; opacity: 0; pointer-events: none; height: 0; min-height: 0; padding: 0; overflow: hidden;">    </div></div>  <footer class="footer-hg">
+    <div class="newsletter-faixa">
+        <div class="container-news">
+            <h2>CADASTRE-SE E RECEBA NOVIDADES</h2>
+            <form class="form-news">
+                <input type="email" placeholder="Digite seu e-mail">
+                <button type="submit">➔</button>
+            </form>
+        </div>
+    </div>
+<footer class="footer-principal">
+    <div class="coluna-footer">
+        <h3>CATEGORIAS</h3>
+        <ul>
+            <li><a href="#">Gamer</a></li>
+            <li><a href="#">Fones de Ouvido</a></li>
+            <li><a href="#">Caixas de Som</a></li>
+            <li><a href="#">Smartwatch</a></li>
+        </ul>
+    </div>
+
+    <div class="coluna-footer">
+        <h3>SUPORTE</h3>
+        <ul>
+            <li><a href="#suporte">Fale Conosco</a></li>
+            <li><a href="#">Garantia</a></li>
+            <li><a href="#">Políticas de Troca</a></li>
+            <li><a href="#">Situação do Pedido</a></li>
+        </ul>
+    </div>
+
+    <div class="coluna-footer">
+        <h3>SIGA-NOS</h3>
+        <div class="redes-sociais">
+            <a href="#">📸</a> 
+            <a href="#">📘</a> 
+            <a href="#">🐦</a> 
+            <a href="#">🎥</a>
+        </div>
+    </div>
+
+    <div class="coluna-footer">
+        <h3>PAGAMENTO</h3>
+        <div class="footer-pagamentos">
+            <p>Formas de Pagamento</p>
+            <img src="../assets/formas de pagamento.webp" alt="Formas de Pagamento" class="img-pagamentos">
+        </div>
+    </div>
+
+    <div class="footer-copy">
+        <p>&copy; 2026 HG TECNOLOGIA - Itajaí, SC.<br>Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<div id="modalAvaliacao" class="modal-overlay">
+    <div class="modal-content">
+        <span class="fechar-modal" onclick="fecharModal()">&times;</span>
+        <div id="conteudoModal">
+            </div>
+    </div>
+</div>
+
+
+  
+<script>
+function toggleMenu(id) {
+    // Fecha todos os menus abertos
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.id !== id) {
+            openDropdown.classList.remove('show');
+        }
+    }
+    // Abre ou fecha o menu atual
+    var target = document.getElementById(id);
+    if (target) {
+        target.classList.toggle("show");
+    }
+}
+
+// Fecha se clicar fora
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+    let usuarioEstaLogado = true; 
+
+    function verificarLoginParaAvaliar() {
+        const modal = document.getElementById('modalAvaliacao');
+        const conteudo = document.getElementById('conteudoModal');
+        
+        if (!modal || !conteudo) return; // Evita erro se a modal não existir na página
+
+        modal.style.display = 'block';
+
+        if (usuarioEstaLogado) {
+            conteudo.innerHTML = `
+                <div class="form-avaliacao-scroll">
+                    <h2 class="titulo-modal">Minha avaliação</h2>
+                    <p class="produto-nome">Mouse Gamer 12k DPI</p>
+                    <p class="aviso-obrigatorio">Os campos obrigatórios estão marcados com *</p>
+
+                    <div class="sessao-form">
+                        <label>Classificação geral*</label>
+                        <div class="estrelas-rating">
+                            <span onclick="rate(1)">★</span><span onclick="rate(2)">★</span><span onclick="rate(3)">★</span><span onclick="rate(4)">★</span><span onclick="rate(5)">★</span>
+                        </div>
+                        <p id="status-estrela" class="status-texto">Selecione uma nota</p>
+                    </div>
+
+                    <div class="sessao-form">
+                        <label>Avaliação*</label>
+                        <textarea id="textoAvaliacao" maxlength="50" placeholder="O que você achou do produto?" oninput="contarChars()"></textarea>
+                        <div class="counter"><span id="charCount">0</span>/50 caracteres</div>
+                    </div>
+
+                    <div class="sessao-form">
+                        <label>Título da avaliação</label>
+                        <input type="text" maxlength="50" placeholder="Resuma sua opinião">
+                    </div>
+
+                    <div class="duas-colunas-form">
+                        <div class="sessao-form">
+                            <label>Apelido*</label>
+                            <input type="text" placeholder="Ex: João123">
+                        </div>
+                        <div class="sessao-form">
+                            <label>E-mail*</label>
+                            <input type="email" placeholder="seu@email.com">
+                        </div>
+                    </div>
+
+                    <label class="container-check">
+                        <input type="checkbox" required>
+                        <span class="checkmark"></span>
+                        <span class="texto-termos">Concordo com os termos e condições</span>
+                    </label>
+                    <div class="sessao-form">
+                        <label>Anexar Foto 📷</label>
+                        <input type="file" id="fotoAvaliacao" accept="image/*" style="padding: 10px; background: rgba(0,0,0,0.5); border-radius: 8px; border: 1px dashed var(--primary); color: #fff; width: 100%; cursor: pointer;">
+                    </div>
+
+                    <button type="button" class="btn-enviar-avaliacao" onclick="enviarNovaAvaliacao()">ENVIAR</button>
+                </div>
+            `;
+        } else {
+            conteudo.innerHTML = `
+                <h2 style="color: #ff4500;">ACESSO RESTRITO</h2>
+                <p>Você precisa estar logado para avaliar.</p>
+                <a href="login.html" class="btn-modal-login">FAZER LOGIN</a>
+            `;
+        }
+    }
+
+    // Função das Estrelas
+    function rate(n) {
+        const stars = document.querySelectorAll('.estrelas-rating span');
+        const status = document.getElementById('status-estrela');
+        const textos = ["Péssimo", "Ruim", "Regular", "Bom", "Excelente"];
+
+        stars.forEach((star, index) => {
+            if (index < n) {
+                star.style.color = "#ff4500"; // Laranja Hagon
+            } else {
+                star.style.color = "#444"; // Cor apagada
+            }
+        });
+
+        if (status) {
+            status.innerText = `${n} de 5 estrelas. O produto é ${textos[n-1]}`;
+            status.style.color = "#ff4500";
+        }
+    }
+
+    // Função do Contador
+    function contarChars() {
+        const input = document.getElementById('textoAvaliacao');
+        const count = document.getElementById('charCount');
+        if (input && count) {
+            count.innerText = input.value.length;
+        }
+    }
+
+    // Fechar Modal
+    function fecharModal() {
+        document.getElementById('modalAvaliacao').style.display = 'none';
+    }
+
+    function enviarNovaAvaliacao() {
+        const texto = document.getElementById('textoAvaliacao').value;
+        if (!texto) {
+            alert('Por favor, escreva uma avaliação.');
+            return;
+        }
+
+        // Pega os dados logados
+        let nomeUsuario = "Visitante";
+        try {
+            const userData = JSON.parse(localStorage.getItem('hagon_user'));
+            if (userData && userData.nome) {
+                nomeUsuario = userData.nome + (userData.sobrenome ? ' ' + userData.sobrenome : '');
+            }
+        } catch(e) {}
+
+        const hoje = new Date();
+        const dataFormatada = hoje.toLocaleDateString('pt-BR');
+
+        // Cria o HTML do novo comentário
+        const novoComentario = `
+            <div class="comentario-item">
+                <div class="comentario-estrelas">⭐⭐⭐⭐⭐</div>
+                <h3>Avaliação do Cliente</h3>
+                <p class="comentario-autor"><strong>${nomeUsuario}</strong> • ${dataFormatada}</p>
+                <div class="fotos-comentario-cliente">
+                    <div style="width: 150px; height: 150px; background: #333; display: flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px dashed #666; margin-bottom: 15px; color: #aaa; font-size: 0.8rem; text-align: center;">
+                        [Imagem Simulada] <br> Upload Feito
+                    </div>
+                </div>
+                <p class="comentario-texto">${texto}</p>
+                <div class="comentario-util">
+                    <span>Esta avaliação foi útil?</span>
+                    <button>Sim (0)</button> <button>Não (0)</button>
+                </div>
+            </div>
+            <hr>
+        `;
+
+        // Adiciona na lista
+        const lista = document.querySelector('.lista-comentarios');
+        
+        // Inserir logo após o contador (ou no início)
+        const titulo = lista.querySelector('.contador-vendas');
+        if(titulo) {
+            titulo.insertAdjacentHTML('afterend', novoComentario);
+        } else {
+            lista.innerHTML = novoComentario + lista.innerHTML;
+        }
+
+        fecharModal();
+        alert('Obrigado! Sua avaliação foi adicionada com sucesso.');
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('modalAvaliacao');
+        if (event.target == modal) fecharModal();
+    }
+
+function verificarLoginParaAvaliar() {
+    // Simulamos a checagem de um token de login
+    const usuarioLogado = localStorage.getItem('hagon_sessao'); 
+
+    if (usuarioLogado) {
+        exibirModalAvaliacao(); // Função que abre o form que criamos
+    } else {
+        // Guarda a URL atual para saber para onde voltar
+        localStorage.setItem('url_retorno', window.location.href);
+        // Avisa que o usuário quer avaliar após logar
+        localStorage.setItem('pendencia_avaliacao', 'true');
+        
+        // Abre a modal de "Ops!" que você já tem, ou redireciona direto
+        window.location.href = 'login.html'; 
+    }
+}
+    function verificarLoginParaAvaliar() {
+    const modal = document.getElementById('modalAvaliacao');
+    const conteudo = document.getElementById('conteudoModal');
+    
+    // 1. Salva a URL atual para o sistema saber para onde voltar depois do login
+    localStorage.setItem('url_retorno', window.location.href);
+
+    // 2. Abre a modal com a mensagem de bloqueio
+    modal.style.display = 'block';
+    conteudo.innerHTML = `
+        <h2 style="color: #ff4500; margin-bottom: 15px;">AVISO</h2>
+        <p style="color: #fff; margin-bottom: 25px;">Você precisa estar cadastrado para realizar uma avaliação.</p>
+        
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <a href="login.html" class="btn-modal-hagon">FAZER LOGIN</a>
+            <a href="cadastro.html" class="btn-modal-hagon" style="background: transparent; border: 1px solid #ff4500;">CADASTRE-SE</a>
+        </div>
+        
+        <p style="margin-top: 20px; font-size: 0.8rem; color: #666; cursor: pointer;" onclick="fecharModal()">Continuar navegando</p>
+    `;
+}
+    window.onload = function() {
+    const logado = localStorage.getItem('hagon_logado');
+    const urlOriginal = window.location.href;
+
+    // Se ele acabou de logar e voltou para cá, abrimos a modal de avaliação direto
+    if (logado === 'true') {
+        // Aqui você chamaria a função que abre o FORMULÁRIO real de avaliação
+        // Para teste, vamos apenas abrir a modal:
+        console.log("Usuário voltou logado! Abrindo formulário...");
+        // abrirFormularioAvaliacao(); 
+    }
+};
+
+
+    function checkLoginStatus() {
+        const isLoggedIn = localStorage.getItem('hagon_logado') === 'true';
+        const areaAuth = document.getElementById('area-auth'); // O ID que colocamos no header
+        
+        if (isLoggedIn) {
+            // Muda o conteúdo do menu para "Meu Perfil"
+            areaAuth.innerHTML = `
+                <a href="perfil.html" style="color: #ff4500; font-weight: bold;">MEU PERFIL</a>
+                <span>|</span>
+                <a href="#" onclick="logout()" style="color: #666; font-size: 0.8rem;">Sair</a>
+            `;
+        }
+    }
+
+    function logout() {
+        localStorage.removeItem('hagon_logado');
+        location.reload(); // Atualiza a página e volta para "Cadastre-se | Login"
+    }
+
+    // Executa ao carregar a página
+    window.onload = checkLoginStatus;
+
+</script>
+
+    <script src="../logic/cart.js"></script>\n</body>
+</html>
