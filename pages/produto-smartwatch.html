@@ -47,7 +47,7 @@
                     <div class="usuario-links" id="area-auth">
                         <a href="cadastro.html" class="link-nav">Cadastre-se</a>
                         <span>|</span>
-                        <a href="login-geral.html" class="link-login">Fazer login</a>
+                        <a href="login.html" class="link-login">Fazer login</a>
                     </div>
                 </div>
 
@@ -85,7 +85,7 @@
                     <li><a href="#descricao">Descrição</a></li>
                     <li><a href="#especificacoes">Especificações</a></li>
                     <li><a href="#na-caixa">O Que Vem na Caixa</a></li>
-                    <li><a href="#avaliacoes">Avaliações (4.9)</a></li>
+                    <li><a href="#avaliacoes">Avaliações</a></li>
                 </ul>
             </nav>
 
@@ -154,72 +154,35 @@
                 </ul>
             </section>
 
-            <!-- Seção Avaliações Sem Contradição -->
-            <section id="avaliacoes" class="secao-avaliacoes" style="margin-top: 40px; max-width: 100%;">
+            <!-- Seção Avaliações Dinâmica -->
+            <section id="avaliacoes" class="secao-avaliacoes">
                 <div class="conteudo-comentarios">
                     <h2 class="titulo-sessao-esquerda" style="margin-bottom: 15px;">AVALIAÇÕES DE CLIENTES</h2>
                     <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 25px;">
 
                     <div class="resumo-avaliacoes" style="margin-bottom: 30px;">
-                        <div class="nota-geral" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px;">
-                            <div class="valor-nota" style="font-size: 3.5rem; color: #fff; font-weight: 800;">4.9</div>
+                        <div class="nota-geral" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 14px; padding: 25px;">
+                            <div class="valor-nota" id="valor-nota-media" style="font-size: 3.5rem; color: #fff; font-weight: 800;">5.0</div>
                             <div class="estrelas-amarelas" style="color: #FBBF24; font-size: 1.4rem; margin: 8px 0;">★★★★★</div>
-                            <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">Baseado em avaliações verificadas</p>
+                            <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;" id="total-avaliacoes-texto">2 avaliações verificadas</p>
                         </div>
                         <div class="coluna-barras" style="flex: 2; min-width: 280px;">
-                            <div class="linha-stat"><span>5 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 92%;"></div></div> <span>92%</span></div>
-                            <div class="linha-stat"><span>4 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 8%;"></div></div> <span>8%</span></div>
-                            <div class="linha-stat"><span>3 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 0%;"></div></div> <span>0%</span></div>
-                            <div class="linha-stat"><span>2 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 0%;"></div></div> <span>0%</span></div>
-                            <div class="linha-stat"><span>1 estrela</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 0%;"></div></div> <span>0%</span></div>
+                            <div class="linha-stat"><span>5 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" id="barra-star-5" style="width: 100%;"></div></div> <span id="pct-star-5">100%</span></div>
+                            <div class="linha-stat"><span>4 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" id="barra-star-4" style="width: 0%;"></div></div> <span id="pct-star-4">0%</span></div>
+                            <div class="linha-stat"><span>3 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" id="barra-star-3" style="width: 0%;"></div></div> <span id="pct-star-3">0%</span></div>
+                            <div class="linha-stat"><span>2 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" id="barra-star-2" style="width: 0%;"></div></div> <span id="pct-star-2">0%</span></div>
+                            <div class="linha-stat"><span>1 estrela</span> <div class="barra-fundo"><div class="barra-preenchida" id="barra-star-1" style="width: 0%;"></div></div> <span id="pct-star-1">0%</span></div>
                         </div>
                     </div>
 
-                    <!-- Lista de Comentários Reais -->
-                    <div class="lista-comentarios" id="lista-avaliacoes-container">
-                        
-        <div class="comentario-item" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; margin-bottom: 16px;">
-            <div style="color: #FBBF24; font-size: 1rem; margin-bottom: 6px;">
-                ★★★★★
-            </div>
-            <p style="margin: 0 0 10px 0; color: var(--text-muted); font-size: 0.85rem;">
-                <strong style="color: #fff;">Leandro Moura</strong> • Há 4 dias • <span style="color: #22C55E;">✓ Compra Verificada</span>
-            </p>
-            <p style="margin: 0; color: var(--text-main); font-size: 0.95rem; line-height: 1.6;">Lindo no pulso, acabamento muito robusto e a bateria dura fácil 5 dias inteiros. Notificações chegam na hora.</p>
-        </div>
-    
-                    </div>
+                    <!-- Lista de Comentários Dinâmica -->
+                    <div class="lista-comentarios" id="lista-avaliacoes-container"></div>
 
-                    <!-- Formulário interativo de avaliação -->
+                    <!-- Botão para abrir o Modal de Avaliação -->
                     <div style="text-align: center; margin-top: 30px;">
-                        <button class="btn-avaliar-hagon" onclick="abrirFormAvaliacao()" style="width: auto; padding: 14px 30px; font-size: 0.95rem;">
-                            <i class="fa-regular fa-pen-to-square" style="margin-right: 8px;"></i> Escrever uma Avaliação
+                        <button type="button" class="btn-avaliar-hagon" onclick="abrirFormAvaliacao()" style="width: auto; padding: 14px 32px; font-size: 0.95rem;">
+                            <i class="fa-regular fa-pen-to-square" style="margin-right: 8px;"></i> ESCREVER UMA AVALIAÇÃO
                         </button>
-                    </div>
-
-                    <div id="box-form-avaliacao" style="display: none; background: rgba(0,0,0,0.5); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; margin-top: 25px;">
-                        <h3 style="color: #fff; margin-top: 0;">Sua Opinião Sobre o Produto</h3>
-                        <form onsubmit="salvarNovaAvaliacao(event)">
-                            <div style="margin-bottom: 15px;">
-                                <label style="display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 6px;">Sua Nota:</label>
-                                <select id="nova-nota" style="background: var(--bg-card); border: 1px solid var(--border-color); color: #fff; padding: 10px; border-radius: 6px; width: 100%;">
-                                    <option value="5">★★★★★ - Excelente (5 estrelas)</option>
-                                    <option value="4">★★★★☆ - Muito Bom (4 estrelas)</option>
-                                    <option value="3">★★★☆☆ - Regular (3 estrelas)</option>
-                                </select>
-                            </div>
-                            <div style="margin-bottom: 15px;">
-                                <label style="display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 6px;">Seu Nome:</label>
-                                <input type="text" id="novo-autor" placeholder="Ex: Lucas M." required style="background: var(--bg-card); border: 1px solid var(--border-color); color: #fff; padding: 10px; border-radius: 6px; width: 100%; box-sizing: border-box;">
-                            </div>
-                            <div style="margin-bottom: 15px;">
-                                <label style="display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 6px;">Seu Comentário:</label>
-                                <textarea id="novo-texto" rows="4" placeholder="Conte como foi sua experiência..." required style="background: var(--bg-card); border: 1px solid var(--border-color); color: #fff; padding: 10px; border-radius: 6px; width: 100%; box-sizing: border-box;"></textarea>
-                            </div>
-                            <button type="submit" class="btn-comprar-agora" style="padding: 12px 25px; font-size: 0.95rem; width: auto;">
-                                Publicar Avaliação
-                            </button>
-                        </form>
                     </div>
                 </div>
             </section>
@@ -231,7 +194,7 @@
                 <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); font-weight: 700;">Smartwatch</span>
                 <h1 class="nome-produto-sticky">Smartwatch Ultra Titan Resistente à Água</h1>
                 <div class="stars-mini" style="margin-bottom: 15px;">
-                    ★★★★★ <span>4.9 (Avaliações verificadas)</span>
+                    ★★★★★ <span id="mini-stars-rating">5.0 (2 avaliações)</span>
                 </div>
 
                 <ul class="lista-beneficios">
@@ -307,6 +270,51 @@
             </div>
         </aside>
     </main>
+
+    <!-- MODAL INTERATIVO DE AVALIAÇÃO -->
+    <div id="modal-avaliacao" class="modal-overlay">
+        <div class="modal-card">
+            <button type="button" class="modal-close-btn" onclick="fecharModalAvaliacao()" aria-label="Fechar">&times;</button>
+            <h2 style="color: #fff; margin: 0 0 6px 0; font-size: 1.45rem;">Escrever uma Avaliação</h2>
+            <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 20px;">Compartilhe sua opinião sobre este produto com outros clientes.</p>
+
+            <form onsubmit="salvarNovaAvaliacao(event)" id="form-avaliacao-modal">
+                <div style="margin-bottom: 14px;">
+                    <label style="display: block; color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;">Sua Classificação:</label>
+                    <div class="estrelas-seletor" id="estrelas-seletor">
+                        <i class="fa-solid fa-star ativa" data-nota="1" onclick="selecionarNota(1)"></i>
+                        <i class="fa-solid fa-star ativa" data-nota="2" onclick="selecionarNota(2)"></i>
+                        <i class="fa-solid fa-star ativa" data-nota="3" onclick="selecionarNota(3)"></i>
+                        <i class="fa-solid fa-star ativa" data-nota="4" onclick="selecionarNota(4)"></i>
+                        <i class="fa-solid fa-star ativa" data-nota="5" onclick="selecionarNota(5)"></i>
+                    </div>
+                    <input type="hidden" id="nota-selecionada" value="5">
+                </div>
+
+                <div style="margin-bottom: 14px;">
+                    <label style="display: block; color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">Seu Nome Completo:</label>
+                    <input type="text" id="autor-avaliacao" placeholder="Ex: Carolina Ferreira" required style="width: 100%; box-sizing: border-box; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px 14px; color: #fff; font-family: var(--font-body); font-size: 0.95rem;">
+                </div>
+
+                <div style="margin-bottom: 14px;">
+                    <label style="display: block; color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">Título da Avaliação:</label>
+                    <input type="text" id="titulo-avaliacao" placeholder="Ex: Produto excelente, superou as expectativas!" required style="width: 100%; box-sizing: border-box; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px 14px; color: #fff; font-family: var(--font-body); font-size: 0.95rem;">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">Sua Opinião Detalhada:</label>
+                    <textarea id="texto-avaliacao" rows="4" placeholder="Conte como foi sua experiência com o produto..." required style="width: 100%; box-sizing: border-box; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px 14px; color: #fff; font-family: var(--font-body); font-size: 0.95rem; resize: vertical;"></textarea>
+                </div>
+
+                <div style="display: flex; gap: 12px; justify-content: flex-end;">
+                    <button type="button" onclick="fecharModalAvaliacao()" style="background: transparent; border: 1px solid var(--border-color); color: var(--text-muted); border-radius: 8px; padding: 12px 20px; font-weight: 600; cursor: pointer;">Cancelar</button>
+                    <button type="submit" class="btn-comprar-agora" style="width: auto; padding: 12px 28px; font-size: 0.95rem;">
+                        Publicar Avaliação <i class="fa-solid fa-check" style="margin-left: 6px;"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- RODAPÉ INSTITUCIONAL PROFISSIONAL -->
     <footer class="footer-hg">
@@ -401,7 +409,7 @@
         </div>
 
         <div class="footer-copy-institucional">
-            <p><strong>HG TECNOLOGIA LTDA</strong> — Itajaí, SC | CNPJ: 45.123.890/0001-44</p>
+            <p><strong>HG TECNOLOGIA</strong> — Itajaí, SC</p>
             <p>© 2026 HAGON STORE. Todos os direitos reservados. Preços, promoções e condições de pagamento são válidos exclusivamente para compras realizadas neste site.</p>
         </div>
     </footer>
@@ -418,6 +426,128 @@
             preco: 299,
             imagem: 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=600&q=80'
         };
+
+        const DEFAULT_REVIEWS = [{"name":"Leandro Moura","time":"Há 3 dias","rating":5,"title":"Bateria dura muito!","comment":"Relógio lindo demais, a coroa giratória responde bem e as notificações do WhatsApp chegam instantaneamente. Bateria dura 5 dias tranquilo."},{"name":"Tatiane Barbosa","time":"Há 1 semana","rating":5,"title":"Perfeito para corridas","comment":"Monitora os batimentos com precisão nos treinos e a tela é visível até sob sol forte. Super recomendo."}];
+        const STORAGE_KEY = 'hagon_reviews_' + PRODUTO_ATUAL.id;
+
+        function getStoredReviews() {
+            try {
+                const data = localStorage.getItem(STORAGE_KEY);
+                return data ? JSON.parse(data) : [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveStoredReviews(reviews) {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
+            } catch (e) {}
+        }
+
+        function renderizarAvaliacoes() {
+            const customReviews = getStoredReviews();
+            const allReviews = [...customReviews, ...DEFAULT_REVIEWS];
+
+            let totalScore = 0;
+            const starCounts = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
+
+            allReviews.forEach(r => {
+                const rating = Math.min(5, Math.max(1, parseInt(r.rating) || 5));
+                totalScore += rating;
+                starCounts[rating] = (starCounts[rating] || 0) + 1;
+            });
+
+            const totalCount = allReviews.length;
+            const media = totalCount > 0 ? (totalScore / totalCount).toFixed(1) : '5.0';
+
+            const valorNotaEl = document.getElementById('valor-nota-media');
+            if (valorNotaEl) valorNotaEl.innerText = media;
+
+            const totalAvaliacoesEl = document.getElementById('total-avaliacoes-texto');
+            if (totalAvaliacoesEl) totalAvaliacoesEl.innerText = `${totalCount} ${totalCount === 1 ? 'avaliação verificada' : 'avaliações verificadas'}`;
+
+            const miniStarsEl = document.getElementById('mini-stars-rating');
+            if (miniStarsEl) miniStarsEl.innerText = `${media} (${totalCount} avaliações)`;
+
+            for (let star = 5; star >= 1; star--) {
+                const barFill = document.getElementById(`barra-star-${star}`);
+                const pctEl = document.getElementById(`pct-star-${star}`);
+                const pct = totalCount > 0 ? Math.round((starCounts[star] / totalCount) * 100) : 0;
+                if (barFill) barFill.style.width = pct + '%';
+                if (pctEl) pctEl.innerText = pct + '%';
+            }
+
+            const container = document.getElementById('lista-avaliacoes-container');
+            if (container) {
+                container.innerHTML = allReviews.map(r => `
+                    <div class="comentario-item" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; margin-bottom: 16px;">
+                        <div style="color: #FBBF24; font-size: 1rem; margin-bottom: 6px;">
+                            ${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}
+                        </div>
+                        ${r.title ? `<h4 style="margin: 0 0 6px 0; color: #fff; font-size: 1.05rem;">${r.title}</h4>` : ''}
+                        <p style="margin: 0 0 10px 0; color: var(--text-muted); font-size: 0.85rem;">
+                            <strong style="color: #fff;">${r.name}</strong> • ${r.time || 'Recente'} • <span style="color: #22C55E;">✓ Compra Verificada</span>
+                        </p>
+                        <p style="margin: 0; color: var(--text-main); font-size: 0.95rem; line-height: 1.6;">${r.comment}</p>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function abrirFormAvaliacao() {
+            const modal = document.getElementById('modal-avaliacao');
+            if (modal) modal.classList.add('open');
+        }
+
+        function fecharModalAvaliacao() {
+            const modal = document.getElementById('modal-avaliacao');
+            if (modal) modal.classList.remove('open');
+        }
+
+        function selecionarNota(nota) {
+            document.getElementById('nota-selecionada').value = nota;
+            const estrelas = document.querySelectorAll('#estrelas-seletor i');
+            estrelas.forEach((star, idx) => {
+                if (idx < nota) {
+                    star.classList.add('ativa');
+                } else {
+                    star.classList.remove('ativa');
+                }
+            });
+        }
+
+        function salvarNovaAvaliacao(e) {
+            e.preventDefault();
+            const nome = document.getElementById('autor-avaliacao').value.trim();
+            const titulo = document.getElementById('titulo-avaliacao').value.trim();
+            const texto = document.getElementById('texto-avaliacao').value.trim();
+            const nota = parseInt(document.getElementById('nota-selecionada').value) || 5;
+
+            if (!nome || !texto) {
+                alert('Por favor, preencha seu nome e comentário.');
+                return;
+            }
+
+            const novaAvaliacao = {
+                name: nome,
+                title: titulo,
+                rating: nota,
+                comment: texto,
+                time: 'Hoje'
+            };
+
+            const stored = getStoredReviews();
+            stored.unshift(novaAvaliacao);
+            saveStoredReviews(stored);
+
+            renderizarAvaliacoes();
+            fecharModalAvaliacao();
+
+            document.getElementById('form-avaliacao-modal').reset();
+            selecionarNota(5);
+            alert('Muito obrigado! Sua avaliação foi enviada e publicada com sucesso.');
+        }
 
         function alterarQtd(val) {
             const input = document.getElementById('quantidade');
@@ -498,37 +628,9 @@
             }
         }
 
-        function abrirFormAvaliacao() {
-            const box = document.getElementById('box-form-avaliacao');
-            box.style.display = box.style.display === 'none' ? 'block' : 'none';
-        }
-
-        function salvarNovaAvaliacao(e) {
-            e.preventDefault();
-            const autor = document.getElementById('novo-autor').value;
-            const texto = document.getElementById('novo-texto').value;
-            const nota = parseInt(document.getElementById('nova-nota').value);
-
-            const container = document.getElementById('lista-avaliacoes-container');
-            const novoItem = document.createElement('div');
-            novoItem.className = 'comentario-item';
-            novoItem.style = 'background: rgba(255,255,255,0.03); border: 1px solid var(--primary); border-radius: 12px; padding: 20px; margin-bottom: 16px; animation: fadeIn 0.5s ease;';
-            novoItem.innerHTML = `
-                <div style="color: #FBBF24; font-size: 1rem; margin-bottom: 6px;">
-                    ${'★'.repeat(nota)}${'☆'.repeat(5 - nota)}
-                </div>
-                <p style="margin: 0 0 10px 0; color: var(--text-muted); font-size: 0.85rem;">
-                    <strong style="color: #fff;">${autor}</strong> • Agora mesmo • <span style="color: #22C55E;">✓ Avaliação enviada</span>
-                </p>
-                <p style="margin: 0; color: var(--text-main); font-size: 0.95rem; line-height: 1.6;">${texto}</p>
-            `;
-            container.prepend(novoItem);
-
-            document.getElementById('novo-autor').value = '';
-            document.getElementById('novo-texto').value = '';
-            document.getElementById('box-form-avaliacao').style.display = 'none';
-            alert('Muito obrigado! Sua avaliação foi enviada e publicada com sucesso.');
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            renderizarAvaliacoes();
+        });
     </script>
 </body>
 </html>

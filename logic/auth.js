@@ -22,13 +22,17 @@ function checkLoginStatus() {
     
     if (!areaAuth) return;
 
+    // Detect if we are inside the /pages/ directory or at the root
+    const isPagesSubdir = window.location.pathname.includes('/pages/');
+    const prefix = isPagesSubdir ? '' : 'pages/';
+
     if (isLoggedIn) {
         const userData = localStorage.getItem('hagon_user');
         const nome = userData ? JSON.parse(userData).nome : 'Usuário';
         areaAuth.innerHTML = `
-            <a href="pages/perfil.html" style="color: #ff4500; font-weight: bold;">Olá, ${nome}!</a>
+            <span style="color: var(--primary); font-weight: bold;">Olá, ${nome}!</span>
             <span>|</span>
-            <a href="#" id="btn-sair" style="color: #666; font-size: 0.8rem;">Sair</a>
+            <a href="#" id="btn-sair" style="color: var(--text-muted); font-size: 0.85rem;">Sair</a>
         `;
         
         // Adiciona o evento de clique ao botão "Sair" dinâmico
@@ -38,9 +42,9 @@ function checkLoginStatus() {
         });
     } else {
         areaAuth.innerHTML = `
-            <a href="pages/cadastro.html" class="link-nav">Cadastre-se</a>
+            <a href="${prefix}cadastro.html" class="link-nav">Cadastre-se</a>
             <span>|</span>
-            <a href="pages/login-geral.html" class="link-login">Fazer login</a>
+            <a href="${prefix}login.html" class="link-login">Fazer login</a>
         `;
     }
 }
