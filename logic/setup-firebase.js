@@ -4,7 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log('🔧 Configurador Firebase - Hagon Store\n');
+console.log('🔧 Configurador Firebase - Hagon Store');
 
 // Verificar se foram passados argumentos
 if (process.argv.length < 8) {
@@ -35,7 +35,7 @@ if (measurementId) {
         'teste-firebase.html'
     ];
 
-    console.log('\n📝 Atualizando arquivos...\n');
+    console.log('📝 Atualizando arquivos...');
 
     arquivos.forEach(arquivo => {
         const caminhoArquivo = path.join(__dirname, arquivo);
@@ -52,7 +52,7 @@ if (measurementId) {
             projectId: "${config.projectId}",
             storageBucket: "${config.storageBucket}",
             messagingSenderId: "${config.messagingSenderId}",
-            appId: "${config.appId}"${config.measurementId ? `,\n            measurementId: "${config.measurementId}"` : ''}
+            appId: "${config.appId}"${config.measurementId ? `,            measurementId: "${config.measurementId}"` : ''}
         };`
             );
 
@@ -63,6 +63,6 @@ if (measurementId) {
         }
     });
 
-    console.log('\n🎉 Configuração concluída!');
-    console.log('\n🧪 Teste abrindo: teste-firebase.html');
+    console.log('🎉 Configuração concluída!');
+    console.log('🧪 Teste abrindo: teste-firebase.html');
     console.log('📱 Para testar login/cadastro: cadastro.html e login.html');

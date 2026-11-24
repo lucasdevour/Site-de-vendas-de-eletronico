@@ -3,61 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hagon Store</title>
+    <title>Webcam Streamer Full HD 1080p com Microfone - Hagon Store</title>
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="../design/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../design/cart.css">\n</head>
-
-  <div class="header-logo">
-            
-            <a href="../index.html" class="logo-link">
-                <div class="logo-hagon">
-                    <span class="logo-icon"><i class="fa-solid fa-gamepad"></i></span>
-                    <span class="logo-text">HAGON</span><span class="logo-highlight">STORE</span>
-                </div>
-            </a>
-
-        </div>
-
+    <link rel="stylesheet" href="../design/cart.css">
+</head>
 <body>
-   
+
+    <div class="header-logo">
+        <a href="../index.html" class="logo-link">
+            <div class="logo-hagon">
+                <span class="logo-icon"><i class="fa-solid fa-gamepad"></i></span>
+                <span class="logo-text">HAGON</span><span class="logo-highlight">STORE</span>
+            </div>
+        </a>
+    </div>
+
     <header class="header-gamma">
-    <div class="container-header">
-        
-
-        <div class="header-busca">
-            <form action="#">
-                <input type="text" placeholder="Buscar na Hagon Store...">
-                <button type="submit" class="btn-lupa">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </form>
-        </div>
-
-        <div class="header-usuario">
-            <div class="usuario-perfil">
-                <div class="icone-user-bw">
-                    <i class="fa-regular fa-circle-user"></i>
-                </div>
-                <div class="usuario-links">
-                    <a href="cadastro.html" class="link-cadastro">Cadastre-se</a>
-                    <a href="#" class=>|</a>
-                    <a href="login.html" class="link-login">Fazer login</a>
-                </div>
+        <div class="container-header">
+            <div class="header-busca">
+                <form action="#">
+                    <input type="text" placeholder="Buscar na Hagon Store...">
+                    <button type="submit" class="btn-lupa" aria-label="Buscar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
             </div>
 
-            <div class="carrinho-box-bw">
-    <span class="icone-sacola-bw">
-        <i class="fa-solid fa-cart-shopping"></i>
-    </span>
-    <span class="contador-carrinho-bw">0</span>
-</div>
+            <div class="header-usuario">
+                <div class="usuario-perfil">
+                    <div class="icone-user-bw">
+                        <i class="fa-regular fa-circle-user"></i>
+                    </div>
+                    <div class="usuario-links" id="area-auth">
+                        <a href="cadastro.html" class="link-nav">Cadastre-se</a>
+                        <span>|</span>
+                        <a href="login-geral.html" class="link-login">Fazer login</a>
+                    </div>
+                </div>
 
- </header>
+                <div class="carrinho-box-bw" onclick="abrirCarrinho()" title="Ver Carrinho">
+                    <span class="icone-sacola-bw">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </span>
+                    <span class="contador-carrinho-bw">0</span>
+                </div>
+            </div>
+        </div>
 
-<nav class="nav-categorias">
-            <a href="../index.html" class="link-nav">Inicio</a>
+        <nav class="nav-categorias">
+            <a href="../index.html" class="link-nav">Início</a>
             <a href="categoria-lancamentos.html">Lançamentos</a>
             <a href="categoria-caixas-som.html">Caixas de Som</a>
             <a href="categoria-fones.html">Fones de Ouvido</a>
@@ -66,615 +70,463 @@
             <a href="categoria-smartwatch.html">Smartwatch</a>
             <a href="categoria-acessorios.html">Acessórios</a>
         </nav>
-</header>
-   
-   <main class="pagina-produto-container">
-    
-    <div class="coluna-esquerda">
-        <section class="sessao-foto">
-  <img src="https://picsum.photos/id/250/300/300" alt="Teclado Gamer Webcam Full HD 1080p">
-        </section>
-<nav class="sub-nav-hg">
-    <ul>
-        <li><a href="#descricao">Descrição</a></li>
-        <li><a href="#especificacoes">Especificações</a></li>
-        <li><a href="#avaliacoes">Avaliações</a></li>
-        <li><a href="#suporte">Suporte</a></li>
-    </ul>
-</nav>
-        <section id="descricao" class="sessao-texto">
-            <h2>DESCRIÇÃO</h2>
-            <hr>
-            <p>
-                Os teclados Webcam Full HD 1080p apresentam tecnologia de switches mecânicos Outemu Blue com feedback tátil e sonoro que proporciona uma experiência de digitação detalhada. O design robusto em aço e plástico ABS oferece durabilidade para o dia todo, garantindo estabilidade perfeita para sessões intensas de jogo e trabalho.
-            </p>
-            <p>
-                Além disso, o sistema de anti-ghosting em todas as teclas permite que você execute comandos complexos simultaneamente sem falhas. Um setup gamer exige resistência, e o Mitra entrega isso com sua proteção contra respingos e construção reforçada. Personalize sua experiência e domine o campo de batalha.
-            </p>
-        </section>
+    </header>
 
-        <section id="especificacoes" class="sessao-texto">
-            <h2>ESPECIFICAÇÕES</h2>
-            <hr>
-            <div class="grade-especs">
-            </div>
-        </section>
-        <table class="tabela-especs">
-    <tr class="">
-        <td>Marca</td>
-        <td>Redragon</td>
-    </tr>
-    <tr>
-        <td>Linha</td>
-        <td>Mitra</td>
-    </tr>
-    <tr class="">
-        <td>Modelo</td>
-        <td>K551</td>
-    </tr>
-    <tr>
-        <td>Cor do teclado</td>
-        <td>Preto</td>
-    </tr>
-    <tr class="">
-        <td>Layout</td>
-        <td>ABNT2 (QWERTY)</td>
-    </tr>
-    <tr>
-        <td>Idioma</td>
-        <td>Português Brasil</td>
-    </tr>
-    <tr class="">
-        <td>Tipo de switch</td>
-        <td>Outemu Blue</td>
-    </tr>
-    <tr>
-        <td>Modelo detalhado</td>
-        <td>K551-RGB</td>
-    </tr>
-</table>
- 
+    <main class="pagina-produto-container">
+        <!-- Coluna Esquerda: Foto e Detalhes Estruturados -->
+        <div class="coluna-esquerda">
+            <section class="sessao-foto">
+                <img src="https://images.unsplash.com/photo-1587826080692-f439cd0b70da?auto=format&fit=crop&w=600&q=80" alt="Webcam Streamer Full HD 1080p com Microfone" id="foto-principal-produto" style="max-height: 480px; width: 100%; object-fit: contain;">
+            </section>
 
-    </div>
+            <!-- Sub-navegação interna -->
+            <nav class="sub-nav-hg">
+                <ul>
+                    <li><a href="#descricao">Descrição</a></li>
+                    <li><a href="#especificacoes">Especificações</a></li>
+                    <li><a href="#na-caixa">O Que Vem na Caixa</a></li>
+                    <li><a href="#avaliacoes">Avaliações (4.9)</a></li>
+                </ul>
+            </nav>
 
-    <aside class="coluna-direita-fixa">
-        <div class="card-compra-sticky">
-            <h1 class="nome-produto-sticky">Webcam Full HD 1080p</h1>
-            <div class="stars-mini">☆☆☆☆☆ <span>(0) Escreva uma avaliação</span></div>
-            
-            <ul class="lista-beneficios">
-                <li>✓ Switches Mecânicos Outemu Blue</li>
-                <li>✓ Layout ABNT2 com teclado numérico</li>
-                <li>✓ Construção em metal de alta resistência</li>
-            </ul>
-
-            <div class="secao-cor">
-                <p>Cor: Black</p>
-                <div class="quadrado-cor"></div>
-            </div>
-
-            <h2 class="preco-sticky">R$ 210,00</h2>
-            <p class="parcelas-sticky">Até 10x de R$ 21,00 sem juros no cartão ou 10% de desconto no PIX</p>
-
-          <div class="acoes-compra">
-    <div class="contador-container">
-        <button type="button" class="btn-count" onclick="alterarQtd(-1)">-</button>
-        <input type="number" id="quantidade" value="1" min="1" readonly>
-        <button type="button" class="btn-count" onclick="alterarQtd(1)">+</button>
-    </div>
-
-    <button class="btn-comprar-jbl" onclick="adicionarAoCarrinho('webcam', 'Webcam Full HD 1080p', 210, 'https://picsum.photos/id/250/300/300', parseInt(document.getElementById('quantidade').value))">Comprar</button>
-</div>
-
-            <div class="icones-suporte">
-                <div><strong>FRETE GRÁTIS</strong></div>
-                <div><strong>DEVOLUÇÃO GRÁTIS</strong></div>
-                <div><strong>SUPORTE TÉCNICO</strong></div>
-            </div>
-        </div>
-  <main class="pagina-produto-container">
-    
-    <aside class="coluna-direita-fixa">
-        </aside>
-</main>
-
-<script>
-    var acc = document.getElementsByClassName("acordeao-btn");
-    var i;
-
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            var span = this.querySelector("span");
-            
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-                span.innerHTML = "+";
-            } else {
-                panel.style.display = "block";
-                span.innerHTML = "-";
-            }
-        });
-    }
-    function alterarQtd(valor) {
-    const campoQtd = document.getElementById('quantidade');
-    let valorAtual = parseInt(campoQtd.value);
-    
-    let novoValor = valorAtual + valor;
-    
-    if (novoValor < 1) {
-        novoValor = 1;
-    }
-    
-    campoQtd.value = novoValor;
-}
-
-
-</script>
-</main>
-
-</main><div class="pagina-produto-container" style="margin-top: 0; padding-top: 0;">    <div class="coluna-esquerda"><section id="avaliacoes" class="secao-avaliacoes">
-    <div class="container-central-avaliacoes">
-
-        <div class="conteudo-comentarios">
-            <h1 class="titulo-sessao-esquerda">AVALIAÇÕES</h1>
-            <hr class="divisor-suave">
-
-            <div class="resumo-avaliacoes">
-                <div class="coluna-barras">
-                    <h3>Avaliações de consumidores</h3>
-                    <div class="linha-stat"><span>5 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 0%;"></div></div> <span>0</span></div>
-                    <div class="linha-stat"><span>4 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 0%;"></div></div> <span>0</span></div>
-                    <div class="linha-stat"><span>3 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 0%;"></div></div> <span>0</span></div>
-                    <div class="linha-stat"><span>2 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 0%;"></div></div> <span>0</span></div>
-                    <div class="linha-stat"><span>1 estrela</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 0%;"></div></div> <span>0</span></div>
-                </div>
-        
-
-                <div class="nota-geral">
-                    <p>Classificação geral</p>
-                    <div class="valor-nota">0</div>
-                    <div class="estrelas-amarelas">★★★★★</div>
-                    <p>0 avaliações</p>
-                </div>
-            </div> <div class="busca-comentarios">
-                <input type="text" placeholder="Pesquisar tópicos e avaliações">
-                <button type="submit" class="btn-lupa-comentario">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
+            <!-- Descrição Real -->
+            <section id="descricao" class="sessao-texto">
+                <h2>DESCRIÇÃO DO PRODUTO</h2>
+                <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 25px;">
                 
-            <div class="seletores-filtro">
-                <div class="dropdown-classificacao">
-                    <button class="dropbtn" onclick="toggleMenu('drop-estrelas')">Classificação ▼</button>
-                    <div id="drop-estrelas" class="dropdown-content">
-                        <a href="#">Todas as estrelas</a>
-                        <a href="#">5 estrelas</a>
-                        <a href="#">4 estrelas</a>
-                        <a href="#">3 estrelas</a>
-                        <a href="#">2 estrelas</a>
-                        <a href="#">1 estrelas</a>
-                    </div>
-                </div>
-
-                <div class="dropdown-classificacao">
-                    <button class="dropbtn" onclick="toggleMenu('drop-idioma')">Idioma/País ▼</button>
-                    <div id="drop-idioma" class="dropdown-content">
-                        <a href="#">Português (Brasil)</a>
-                        <a href="#">espanhol</a>
-                        <a href="#">Inglês</a>
-                    </div>
-                </div>
-
-                <div class="dropdown-classificacao">
-                    <button class="dropbtn" onclick="toggleMenu('drop-ordem')">Ordenar por ▼</button>
-                    <div id="drop-ordem" class="dropdown-content">
-                        <a href="#">Classificação mais alta</a>
-                        <a href="#">Classificação mais baixa</a>
-                        <a href="#">Mais recente</a>
-                        <a href="#">Mais antiga</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lista-comentarios">
-                <p class="contador-vendas">1 – 4 de 64 Avaliações</p>
-                <hr>
-                <div class="comentario-item">
-                    <div class="comentario-estrelas">⭐⭐⭐⭐⭐</div>
-                    <h3>Incrível para o setup gamer!</h3>
-                    <p class="comentario-autor"><strong>Hiago Silva</strong> • 2 dias atrás</p>
-                    <div class="fotos-comentario-cliente">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_906806-MLB45607633216_042021-O.webp" alt="Foto do cliente" class="foto-feedback">
-                    </div>
-                    <p class="comentario-texto">O teclado Redragon Mitra superou minhas expectativas. A iluminação é bem forte!</p>
-                    <div class="comentario-util">
-                        <span>Esta avaliação foi útil?</span>
-                        <button>Sim (12)</button> <button>Não (0)</button>
-                    </div>
-                </div>
-                <hr>
-            </div>
+            <p>A <strong>Webcam Streamer Full HD 1080p</strong> é a escolha definitiva para streamers, criadores de conteúdo e profissionais em home office. Sua lente de cristal óptico de 6 camadas proporciona cores vívidas e correção automática de baixa iluminação.</p>
+            <p>A instalação é 100% Plug & Play: basta plugar o cabo USB no computador e começar suas reuniões ou lives no OBS, Zoom, Google Meet ou Discord sem precisar instalar drivers complicados.</p>
         
-        <button class="btn-avaliar-hagon" onclick="verificarLoginParaAvaliar()">
-            Avaliar este produto
-        </button>
-        
-        </div> </div> </section>
-<section id="suporte" class="secao-suporte">
-    <div class="container-suporte">
-        <h2>SUPORTE AO CLIENTE</h2>
-        <p class="subtitulo-suporte">Preencha os campos abaixo e nossa equipe técnica responderá em até 24h.</p>
+            </section>
 
-        <form class="form-suporte-hg" action="https://formspree.io/f/mgopgwwp" method="POST">
+            <!-- Especificações Técnicas Reais -->
+            <section id="especificacoes" class="sessao-texto">
+                <h2>ESPECIFICAÇÕES TÉCNICAS</h2>
+                <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 20px;">
+                <table class="tabela-especs">
+                    
+        <tr>
+            <td style="font-weight: 600; color: var(--text-muted); width: 35%; padding: 12px 16px; border-bottom: 1px solid var(--border-color);">Resolução de Vídeo</td>
+            <td style="color: var(--text-main); padding: 12px 16px; border-bottom: 1px solid var(--border-color);">Full HD 1080p (1920x1080) @ 30 FPS</td>
+        </tr>
     
-    <div class="linha-form">
-        <div class="campo">
-            <label>Nome Completo</label>
-            <input type="text" name="nome" placeholder="Ex: Hiago Silva" required>
-        </div>
-        <div class="campo">
-            <label>Seu E-mail</label>
-            <input type="email" name="email" placeholder="email@exemplo.com" required>
-        </div>
-    </div>
-
-    <div class="linha-form">
-        <div class="campo">
-            <label>Número do Pedido</label>
-            <input type="text" name="pedido" placeholder="Ex: #12345">
-        </div>
-        <div class="campo">
-            <label>Assunto</label>
-            <select name="assunto" required>
-                <option value="">Selecione um assunto</option>
-                <option value="tecnico">Dúvida Técnica</option>
-                <option value="entrega">Status da Entrega</option>
-                <option value="garantia">Acionar Garantia</option>
-                <option value="outro">Outros</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="campo">
-        <label>Sua Mensagem / Queixa</label>
-        <textarea name="mensagem" rows="6" placeholder="Descreva detalhadamente o que aconteceu..." required></textarea>
-    </div>
-
-    <button type="submit" class="btn-enviar-suporte">Enviar Solicitação</button>
-</form>
-    </div>
-</section>    </div>    <div class="coluna-direita-fixa" style="position: static; opacity: 0; pointer-events: none; height: 0; min-height: 0; padding: 0; overflow: hidden;">    </div></div>  <footer class="footer-hg">
-    <div class="newsletter-faixa">
-        <div class="container-news">
-            <h2>CADASTRE-SE E RECEBA NOVIDADES</h2>
-            <form class="form-news">
-                <input type="email" placeholder="Digite seu e-mail">
-                <button type="submit">➔</button>
-            </form>
-        </div>
-    </div>
-<footer class="footer-principal">
-    <div class="coluna-footer">
-        <h3>CATEGORIAS</h3>
-        <ul>
-            <li><a href="#">Gamer</a></li>
-            <li><a href="#">Fones de Ouvido</a></li>
-            <li><a href="#">Caixas de Som</a></li>
-            <li><a href="#">Smartwatch</a></li>
-        </ul>
-    </div>
-
-    <div class="coluna-footer">
-        <h3>SUPORTE</h3>
-        <ul>
-            <li><a href="#suporte">Fale Conosco</a></li>
-            <li><a href="#">Garantia</a></li>
-            <li><a href="#">Políticas de Troca</a></li>
-            <li><a href="#">Situação do Pedido</a></li>
-        </ul>
-    </div>
-
-    <div class="coluna-footer">
-        <h3>SIGA-NOS</h3>
-        <div class="redes-sociais">
-            <a href="#">📸</a> 
-            <a href="#">📘</a> 
-            <a href="#">🐦</a> 
-            <a href="#">🎥</a>
-        </div>
-    </div>
-
-    <div class="coluna-footer">
-        <h3>PAGAMENTO</h3>
-        <div class="footer-pagamentos">
-            <p>Formas de Pagamento</p>
-            <img src="../assets/formas de pagamento.webp" alt="Formas de Pagamento" class="img-pagamentos">
-        </div>
-    </div>
-
-    <div class="footer-copy">
-        <p>&copy; 2026 HG TECNOLOGIA - Itajaí, SC.<br>Todos os direitos reservados.</p>
-    </div>
-</footer>
-
-<div id="modalAvaliacao" class="modal-overlay">
-    <div class="modal-content">
-        <span class="fechar-modal" onclick="fecharModal()">&times;</span>
-        <div id="conteudoModal">
-            </div>
-    </div>
-</div>
-
-
-  
-<script>
-function toggleMenu(id) {
-    // Fecha todos os menus abertos
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    for (var i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.id !== id) {
-            openDropdown.classList.remove('show');
-        }
-    }
-    // Abre ou fecha o menu atual
-    var target = document.getElementById(id);
-    if (target) {
-        target.classList.toggle("show");
-    }
-}
-
-// Fecha se clicar fora
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-}
-
-    let usuarioEstaLogado = true; 
-
-    function verificarLoginParaAvaliar() {
-        const modal = document.getElementById('modalAvaliacao');
-        const conteudo = document.getElementById('conteudoModal');
-        
-        if (!modal || !conteudo) return; // Evita erro se a modal não existir na página
-
-        modal.style.display = 'block';
-
-        if (usuarioEstaLogado) {
-            conteudo.innerHTML = `
-                <div class="form-avaliacao-scroll">
-                    <h2 class="titulo-modal">Minha avaliação</h2>
-                    <p class="produto-nome">Webcam Full HD 1080p</p>
-                    <p class="aviso-obrigatorio">Os campos obrigatórios estão marcados com *</p>
-
-                    <div class="sessao-form">
-                        <label>Classificação geral*</label>
-                        <div class="estrelas-rating">
-                            <span onclick="rate(1)">★</span><span onclick="rate(2)">★</span><span onclick="rate(3)">★</span><span onclick="rate(4)">★</span><span onclick="rate(5)">★</span>
-                        </div>
-                        <p id="status-estrela" class="status-texto">Selecione uma nota</p>
-                    </div>
-
-                    <div class="sessao-form">
-                        <label>Avaliação*</label>
-                        <textarea id="textoAvaliacao" maxlength="50" placeholder="O que você achou do produto?" oninput="contarChars()"></textarea>
-                        <div class="counter"><span id="charCount">0</span>/50 caracteres</div>
-                    </div>
-
-                    <div class="sessao-form">
-                        <label>Título da avaliação</label>
-                        <input type="text" maxlength="50" placeholder="Resuma sua opinião">
-                    </div>
-
-                    <div class="duas-colunas-form">
-                        <div class="sessao-form">
-                            <label>Apelido*</label>
-                            <input type="text" placeholder="Ex: João123">
-                        </div>
-                        <div class="sessao-form">
-                            <label>E-mail*</label>
-                            <input type="email" placeholder="seu@email.com">
-                        </div>
-                    </div>
-
-                    <label class="container-check">
-                        <input type="checkbox" required>
-                        <span class="checkmark"></span>
-                        <span class="texto-termos">Concordo com os termos e condições</span>
-                    </label>
-                    <div class="sessao-form">
-                        <label>Anexar Foto 📷</label>
-                        <input type="file" id="fotoAvaliacao" accept="image/*" style="padding: 10px; background: rgba(0,0,0,0.5); border-radius: 8px; border: 1px dashed var(--primary); color: #fff; width: 100%; cursor: pointer;">
-                    </div>
-
-                    <button type="button" class="btn-enviar-avaliacao" onclick="enviarNovaAvaliacao()">ENVIAR</button>
-                </div>
-            `;
-        } else {
-            conteudo.innerHTML = `
-                <h2 style="color: #ff4500;">ACESSO RESTRITO</h2>
-                <p>Você precisa estar logado para avaliar.</p>
-                <a href="login.html" class="btn-modal-login">FAZER LOGIN</a>
-            `;
-        }
-    }
-
-    // Função das Estrelas
-    function rate(n) {
-        const stars = document.querySelectorAll('.estrelas-rating span');
-        const status = document.getElementById('status-estrela');
-        const textos = ["Péssimo", "Ruim", "Regular", "Bom", "Excelente"];
-
-        stars.forEach((star, index) => {
-            if (index < n) {
-                star.style.color = "#ff4500"; // Laranja Hagon
-            } else {
-                star.style.color = "#444"; // Cor apagada
-            }
-        });
-
-        if (status) {
-            status.innerText = `${n} de 5 estrelas. O produto é ${textos[n-1]}`;
-            status.style.color = "#ff4500";
-        }
-    }
-
-    // Função do Contador
-    function contarChars() {
-        const input = document.getElementById('textoAvaliacao');
-        const count = document.getElementById('charCount');
-        if (input && count) {
-            count.innerText = input.value.length;
-        }
-    }
-
-    // Fechar Modal
-    function fecharModal() {
-        document.getElementById('modalAvaliacao').style.display = 'none';
-    }
-
-    function enviarNovaAvaliacao() {
-        const texto = document.getElementById('textoAvaliacao').value;
-        if (!texto) {
-            alert('Por favor, escreva uma avaliação.');
-            return;
-        }
-
-        // Pega os dados logados
-        let nomeUsuario = "Visitante";
-        try {
-            const userData = JSON.parse(localStorage.getItem('hagon_user'));
-            if (userData && userData.nome) {
-                nomeUsuario = userData.nome + (userData.sobrenome ? ' ' + userData.sobrenome : '');
-            }
-        } catch(e) {}
-
-        const hoje = new Date();
-        const dataFormatada = hoje.toLocaleDateString('pt-BR');
-
-        // Cria o HTML do novo comentário
-        const novoComentario = `
-            <div class="comentario-item">
-                <div class="comentario-estrelas">⭐⭐⭐⭐⭐</div>
-                <h3>Avaliação do Cliente</h3>
-                <p class="comentario-autor"><strong>${nomeUsuario}</strong> • ${dataFormatada}</p>
-                <div class="fotos-comentario-cliente">
-                    <div style="width: 150px; height: 150px; background: #333; display: flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px dashed #666; margin-bottom: 15px; color: #aaa; font-size: 0.8rem; text-align: center;">
-                        [Imagem Simulada] <br> Upload Feito
-                    </div>
-                </div>
-                <p class="comentario-texto">${texto}</p>
-                <div class="comentario-util">
-                    <span>Esta avaliação foi útil?</span>
-                    <button>Sim (0)</button> <button>Não (0)</button>
-                </div>
-            </div>
-            <hr>
-        `;
-
-        // Adiciona na lista
-        const lista = document.querySelector('.lista-comentarios');
-        
-        // Inserir logo após o contador (ou no início)
-        const titulo = lista.querySelector('.contador-vendas');
-        if(titulo) {
-            titulo.insertAdjacentHTML('afterend', novoComentario);
-        } else {
-            lista.innerHTML = novoComentario + lista.innerHTML;
-        }
-
-        fecharModal();
-        alert('Obrigado! Sua avaliação foi adicionada com sucesso.');
-    }
-
-    window.onclick = function(event) {
-        const modal = document.getElementById('modalAvaliacao');
-        if (event.target == modal) fecharModal();
-    }
-
-function verificarLoginParaAvaliar() {
-    // Simulamos a checagem de um token de login
-    const usuarioLogado = localStorage.getItem('hagon_sessao'); 
-
-    if (usuarioLogado) {
-        exibirModalAvaliacao(); // Função que abre o form que criamos
-    } else {
-        // Guarda a URL atual para saber para onde voltar
-        localStorage.setItem('url_retorno', window.location.href);
-        // Avisa que o usuário quer avaliar após logar
-        localStorage.setItem('pendencia_avaliacao', 'true');
-        
-        // Abre a modal de "Ops!" que você já tem, ou redireciona direto
-        window.location.href = 'login.html'; 
-    }
-}
-    function verificarLoginParaAvaliar() {
-    const modal = document.getElementById('modalAvaliacao');
-    const conteudo = document.getElementById('conteudoModal');
+        <tr>
+            <td style="font-weight: 600; color: var(--text-muted); width: 35%; padding: 12px 16px; border-bottom: 1px solid var(--border-color);">Sensor de Imagem</td>
+            <td style="color: var(--text-main); padding: 12px 16px; border-bottom: 1px solid var(--border-color);">CMOS de Alta Definição</td>
+        </tr>
     
-    // 1. Salva a URL atual para o sistema saber para onde voltar depois do login
-    localStorage.setItem('url_retorno', window.location.href);
+        <tr>
+            <td style="font-weight: 600; color: var(--text-muted); width: 35%; padding: 12px 16px; border-bottom: 1px solid var(--border-color);">Campo de Visão (FOV)</td>
+            <td style="color: var(--text-main); padding: 12px 16px; border-bottom: 1px solid var(--border-color);">90° grande-angular sem distorção olho de peixe</td>
+        </tr>
+    
+        <tr>
+            <td style="font-weight: 600; color: var(--text-muted); width: 35%; padding: 12px 16px; border-bottom: 1px solid var(--border-color);">Tipo de Foco</td>
+            <td style="color: var(--text-main); padding: 12px 16px; border-bottom: 1px solid var(--border-color);">Autofoco contínuo rápido</td>
+        </tr>
+    
+        <tr>
+            <td style="font-weight: 600; color: var(--text-muted); width: 35%; padding: 12px 16px; border-bottom: 1px solid var(--border-color);">Microfone</td>
+            <td style="color: var(--text-main); padding: 12px 16px; border-bottom: 1px solid var(--border-color);">Duplo estéreo com redução de ruídos de fundo</td>
+        </tr>
+    
+        <tr>
+            <td style="font-weight: 600; color: var(--text-muted); width: 35%; padding: 12px 16px; border-bottom: 1px solid var(--border-color);">Interface</td>
+            <td style="color: var(--text-main); padding: 12px 16px; border-bottom: 1px solid var(--border-color);">USB 2.0 Plug & Play (Cabo de 1.5m)</td>
+        </tr>
+    
+                </table>
+            </section>
 
-    // 2. Abre a modal com a mensagem de bloqueio
-    modal.style.display = 'block';
-    conteudo.innerHTML = `
-        <h2 style="color: #ff4500; margin-bottom: 15px;">AVISO</h2>
-        <p style="color: #fff; margin-bottom: 25px;">Você precisa estar cadastrado para realizar uma avaliação.</p>
-        
-        <div style="display: flex; flex-direction: column; gap: 15px;">
-            <a href="login.html" class="btn-modal-hagon">FAZER LOGIN</a>
-            <a href="cadastro.html" class="btn-modal-hagon" style="background: transparent; border: 1px solid #ff4500;">CADASTRE-SE</a>
+            <!-- Bloco O Que Vem na Caixa -->
+            <section id="na-caixa" class="bloco-na-caixa">
+                <h3><i class="fa-solid fa-box-open"></i> O QUE VEM NA CAIXA</h3>
+                <ul class="lista-na-caixa">
+                    
+        <li><i class="fa-solid fa-box-open"></i> 1x Webcam Full HD 1080p Streamer</li>
+    
+        <li><i class="fa-solid fa-box-open"></i> 1x Tampa de Privacidade instalada</li>
+    
+        <li><i class="fa-solid fa-box-open"></i> 1x Mini Tripé metálico ajustável de mesa</li>
+    
+        <li><i class="fa-solid fa-box-open"></i> 1x Manual de Instruções</li>
+    
+                </ul>
+            </section>
+
+            <!-- Seção Avaliações Sem Contradição -->
+            <section id="avaliacoes" class="secao-avaliacoes" style="margin-top: 40px; max-width: 100%;">
+                <div class="conteudo-comentarios">
+                    <h2 class="titulo-sessao-esquerda" style="margin-bottom: 15px;">AVALIAÇÕES DE CLIENTES</h2>
+                    <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 25px;">
+
+                    <div class="resumo-avaliacoes" style="margin-bottom: 30px;">
+                        <div class="nota-geral" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px;">
+                            <div class="valor-nota" style="font-size: 3.5rem; color: #fff; font-weight: 800;">4.9</div>
+                            <div class="estrelas-amarelas" style="color: #FBBF24; font-size: 1.4rem; margin: 8px 0;">★★★★★</div>
+                            <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">Baseado em avaliações verificadas</p>
+                        </div>
+                        <div class="coluna-barras" style="flex: 2; min-width: 280px;">
+                            <div class="linha-stat"><span>5 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 92%;"></div></div> <span>92%</span></div>
+                            <div class="linha-stat"><span>4 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 8%;"></div></div> <span>8%</span></div>
+                            <div class="linha-stat"><span>3 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 0%;"></div></div> <span>0%</span></div>
+                            <div class="linha-stat"><span>2 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 0%;"></div></div> <span>0%</span></div>
+                            <div class="linha-stat"><span>1 estrela</span> <div class="barra-fundo"><div class="barra-preenchida" style="width: 0%;"></div></div> <span>0%</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Lista de Comentários Reais -->
+                    <div class="lista-comentarios" id="lista-avaliacoes-container">
+                        
+        <div class="comentario-item" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; margin-bottom: 16px;">
+            <div style="color: #FBBF24; font-size: 1rem; margin-bottom: 6px;">
+                ★★★★★
+            </div>
+            <p style="margin: 0 0 10px 0; color: var(--text-muted); font-size: 0.85rem;">
+                <strong style="color: #fff;">Juliana Pires</strong> • Há 3 dias • <span style="color: #22C55E;">✓ Compra Verificada</span>
+            </p>
+            <p style="margin: 0; color: var(--text-main); font-size: 0.95rem; line-height: 1.6;">Imagem muito nítida para reuniões do trabalho e o foco automático é super ágil. Valeu cada centavo.</p>
         </div>
-        
-        <p style="margin-top: 20px; font-size: 0.8rem; color: #666; cursor: pointer;" onclick="fecharModal()">Continuar navegando</p>
-    `;
-}
-    window.onload = function() {
-    const logado = localStorage.getItem('hagon_logado');
-    const urlOriginal = window.location.href;
+    
+                    </div>
 
-    // Se ele acabou de logar e voltou para cá, abrimos a modal de avaliação direto
-    if (logado === 'true') {
-        // Aqui você chamaria a função que abre o FORMULÁRIO real de avaliação
-        // Para teste, vamos apenas abrir a modal:
-        console.log("Usuário voltou logado! Abrindo formulário...");
-        // abrirFormularioAvaliacao(); 
-    }
-};
+                    <!-- Formulário interativo de avaliação -->
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button class="btn-avaliar-hagon" onclick="abrirFormAvaliacao()" style="width: auto; padding: 14px 30px; font-size: 0.95rem;">
+                            <i class="fa-regular fa-pen-to-square" style="margin-right: 8px;"></i> Escrever uma Avaliação
+                        </button>
+                    </div>
 
+                    <div id="box-form-avaliacao" style="display: none; background: rgba(0,0,0,0.5); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; margin-top: 25px;">
+                        <h3 style="color: #fff; margin-top: 0;">Sua Opinião Sobre o Produto</h3>
+                        <form onsubmit="salvarNovaAvaliacao(event)">
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 6px;">Sua Nota:</label>
+                                <select id="nova-nota" style="background: var(--bg-card); border: 1px solid var(--border-color); color: #fff; padding: 10px; border-radius: 6px; width: 100%;">
+                                    <option value="5">★★★★★ - Excelente (5 estrelas)</option>
+                                    <option value="4">★★★★☆ - Muito Bom (4 estrelas)</option>
+                                    <option value="3">★★★☆☆ - Regular (3 estrelas)</option>
+                                </select>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 6px;">Seu Nome:</label>
+                                <input type="text" id="novo-autor" placeholder="Ex: Lucas M." required style="background: var(--bg-card); border: 1px solid var(--border-color); color: #fff; padding: 10px; border-radius: 6px; width: 100%; box-sizing: border-box;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 6px;">Seu Comentário:</label>
+                                <textarea id="novo-texto" rows="4" placeholder="Conte como foi sua experiência..." required style="background: var(--bg-card); border: 1px solid var(--border-color); color: #fff; padding: 10px; border-radius: 6px; width: 100%; box-sizing: border-box;"></textarea>
+                            </div>
+                            <button type="submit" class="btn-comprar-agora" style="padding: 12px 25px; font-size: 0.95rem; width: auto;">
+                                Publicar Avaliação
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-    function checkLoginStatus() {
-        const isLoggedIn = localStorage.getItem('hagon_logado') === 'true';
-        const areaAuth = document.getElementById('area-auth'); // O ID que colocamos no header
-        
-        if (isLoggedIn) {
-            // Muda o conteúdo do menu para "Meu Perfil"
-            areaAuth.innerHTML = `
-                <a href="perfil.html" style="color: #ff4500; font-weight: bold;">MEU PERFIL</a>
-                <span>|</span>
-                <a href="#" onclick="logout()" style="color: #666; font-size: 0.8rem;">Sair</a>
-            `;
+        <!-- Coluna Direita: Card de Compra Focado em Alta Conversão (CRO) -->
+        <aside class="coluna-direita-fixa">
+            <div class="card-compra-sticky">
+                <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); font-weight: 700;">Gamer</span>
+                <h1 class="nome-produto-sticky">Webcam Streamer Full HD 1080p com Microfone</h1>
+                <div class="stars-mini" style="margin-bottom: 15px;">
+                    ★★★★★ <span>4.9 (Avaliações verificadas)</span>
+                </div>
+
+                <ul class="lista-beneficios">
+                    <li><i class="fa-solid fa-check" style="color: var(--primary);"></i> Resolução nativa Full HD 1080p a 30 FPS com foco automático instantâneo</li><li><i class="fa-solid fa-check" style="color: var(--primary);"></i> Microfone duplo estéreo com captação omnidirecional e filtro de ruído</li><li><i class="fa-solid fa-check" style="color: var(--primary);"></i> Tampa física de privacidade integrada para bloqueio manual da lente</li><li><i class="fa-solid fa-check" style="color: var(--primary);"></i> Clipe universal para fixação em monitores, notebooks ou tripé</li>
+                </ul>
+
+                <!-- Seletores de Variação -->
+                
+        <div class="secao-variacao">
+            <label>Kit:</label>
+            <div class="opcoes-variacao">
+                
+                    <div class="chip-variacao ativo" onclick="selecionarVariacao(this)">Com Tripé Incluso</div>
+                
+                    <div class="chip-variacao " onclick="selecionarVariacao(this)">Padrão</div>
+                
+            </div>
+        </div>
+    
+
+                <!-- Preço e Desconto PIX -->
+                <div class="bloco-preco-principal">
+                    <div class="preco-antigo">De R$ 269,90</div>
+                    <div class="preco-pix-destaque">
+                        R$ 189,00
+                        <span class="badge-pix-off">10% OFF NO PIX</span>
+                    </div>
+                    <p class="preco-cartao-detalhe">
+                        ou <strong>R$ 210,00</strong> em até <strong>10x de R$ 21,00 sem juros</strong>
+                    </p>
+                </div>
+
+                <!-- Quantidade + Duplo CTA -->
+                <div class="acoes-compra-dupla">
+                    <div class="linha-qtd-comprar">
+                        <div class="contador-container">
+                            <button type="button" class="btn-count" onclick="alterarQtd(-1)" aria-label="Diminuir">-</button>
+                            <input type="number" id="quantidade" value="1" min="1" readonly>
+                            <button type="button" class="btn-count" onclick="alterarQtd(1)" aria-label="Aumentar">+</button>
+                        </div>
+
+                        <button class="btn-comprar-agora" onclick="comprarAgora()">
+                            COMPRAR AGORA <i class="fa-solid fa-bolt"></i>
+                        </button>
+                    </div>
+
+                    <button class="btn-adicionar-carrinho" onclick="adicionarProduto()">
+                        <i class="fa-solid fa-cart-plus"></i> ADICIONAR AO CARRINHO
+                    </button>
+                </div>
+
+                <!-- Microcopy de Segurança -->
+                <div class="microcopy-confianca">
+                    <span><i class="fa-solid fa-lock" style="color: #22C55E;"></i> Compra 100% Segura</span>
+                    <span><i class="fa-solid fa-shield-halved" style="color: var(--primary);"></i> 1 Ano de Garantia</span>
+                    <span><i class="fa-solid fa-truck" style="color: #38BDF8;"></i> Envio Rastreado</span>
+                </div>
+
+                <!-- Calculadora de Frete Integrada (ViaCEP) -->
+                <div class="calculadora-frete">
+                    <div class="frete-titulo">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <span>Calcular Frete e Prazo de Entrega:</span>
+                    </div>
+                    <div class="frete-input-group">
+                        <input type="text" id="cep-input" placeholder="00000-000" maxlength="9" oninput="mascaraCep(this)">
+                        <button type="button" class="btn-calc-frete" onclick="calcularFrete()">Calcular</button>
+                    </div>
+                    <div id="frete-resultado" class="frete-resultado"></div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- RODAPÉ INSTITUCIONAL PROFISSIONAL -->
+    <footer class="footer-hg">
+        <div class="newsletter-faixa">
+            <div class="container-news">
+                <h2>CADASTRE-SE E RECEBA OFERTAS VIP</h2>
+                <form class="form-news" onsubmit="event.preventDefault(); alert('E-mail cadastrado com sucesso!');">
+                    <input type="email" placeholder="Digite seu melhor e-mail..." required>
+                    <button type="submit" aria-label="Cadastrar">➔</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-principal">
+            <div class="coluna-footer">
+                <h3>CATEGORIAS</h3>
+                <ul>
+                    <li><a href="categoria-gamer.html">Gamer & Periféricos</a></li>
+                    <li><a href="categoria-fones.html">Fones & Headsets</a></li>
+                    <li><a href="categoria-caixas-som.html">Caixas de Som RGB</a></li>
+                    <li><a href="categoria-smartwatch.html">Smartwatches</a></li>
+                    <li><a href="categoria-carregadores.html">Carregadores & Cabos</a></li>
+                    <li><a href="categoria-lancamentos.html">Lançamentos</a></li>
+                </ul>
+            </div>
+
+            <div class="coluna-footer">
+                <h3>INSTITUCIONAL & AJUDA</h3>
+                <ul>
+                    <li><a href="suporte.html">Central de Suporte</a></li>
+                    <li><a href="suporte.html#faq">Perguntas Frequentes (FAQ)</a></li>
+                    <li><a href="sobre.html">Sobre a Hagon Store</a></li>
+                    <li><a href="suporte.html#garantia">Políticas de Garantia & Troca</a></li>
+                    <li><a href="suporte.html#rastreio">Rastrear Meu Pedido</a></li>
+                </ul>
+            </div>
+
+            <div class="coluna-footer">
+                <h3>ATENDIMENTO & REDES</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px;">
+                    Seg. a Sex. das 09h às 18h<br>
+                    <strong>WhatsApp:</strong> (47) 99234-5678<br>
+                    <strong>E-mail:</strong> contato@hagonstore.com.br
+                </p>
+                <div class="redes-sociais">
+                    <a href="https://instagram.com" target="_blank" rel="noopener" style="text-decoration: none;" title="Instagram">
+                        <span><i class="fa-brands fa-instagram"></i></span>
+                    </a>
+                    <a href="https://wa.me/5547992345678" target="_blank" rel="noopener" style="text-decoration: none;" title="WhatsApp">
+                        <span><i class="fa-brands fa-whatsapp"></i></span>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener" style="text-decoration: none;" title="YouTube">
+                        <span><i class="fa-brands fa-youtube"></i></span>
+                    </a>
+                    <a href="https://tiktok.com" target="_blank" rel="noopener" style="text-decoration: none;" title="TikTok">
+                        <span><i class="fa-brands fa-tiktok"></i></span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="coluna-footer">
+                <h3>PAGAMENTO SEGURO</h3>
+                <div class="footer-grade-badges">
+                    <span class="badge-pagamento-svg" title="PIX - Desconto de 10%">
+                        <svg viewBox="0 0 512 512" fill="#32BCAD"><path d="M383.6 371.6l-67.7-67.7c15.7-18.7 25.1-42.8 25.1-69.1 0-26.3-9.4-50.4-25.1-69.1l67.7-67.7c33.5 36.9 53.9 86 53.9 136.8 0 50.8-20.4 99.9-53.9 136.8zm-255.2 0C94.9 334.7 74.5 285.6 74.5 234.8c0-50.8 20.4-99.9 53.9-136.8l67.7 67.7c-15.7 18.7-25.1 42.8-25.1 69.1 0 26.3 9.4 50.4 25.1 69.1l-67.7 67.7zm86.5-67.7c11.7 11.7 27.2 18.1 43.6 18.1s31.9-6.4 43.6-18.1l20.4-20.4c5.7-5.7 5.7-15 0-20.7l-20.4-20.4c-11.7-11.7-27.2-18.1-43.6-18.1s-31.9 6.4-43.6 18.1l-20.4 20.4c-5.7 5.7-5.7 15 0 20.7l20.4 20.4z"/></svg>
+                    </span>
+                    <span class="badge-pagamento-svg" title="Visa">
+                        <svg viewBox="0 0 100 32" fill="#fff"><path d="M39.6 1.8L26.1 30.2H17.2L10.5 8.3C10.1 6.8 9.8 6.3 8.7 5.7C6.7 4.7 3.3 3.8 0 3.1L0.2 1.8H14.4C16.2 1.8 17.9 3 18.3 5.2L21.7 21.6L30.7 1.8H39.6ZM75.2 21.1C75.2 13.5 64.2 13.1 64.3 9.7C64.4 8.7 65.4 7.6 67.7 7.3C68.9 7.2 72.1 7.1 75.4 8.6L76.9 2.2C75 1.5 72.5 0.9 69.4 0.9C61 0.9 55.1 5.2 55 11.3C54.8 15.8 59 18.3 62.2 19.8C65.5 21.3 66.6 22.3 66.6 23.7C66.5 25.8 63.9 26.8 61.6 26.8C57.4 26.9 54.9 25.7 52.9 24.8L51.3 31.4C53.4 32.3 57.2 33.1 61.1 33.1C70.1 33.1 75.3 28.9 75.2 21.1ZM97.6 30.2H105L98.6 1.8H91.9C90.3 1.8 89 2.7 88.4 4.1L75.5 30.2H84.4L86.2 25.3H96.9L97.6 30.2ZM88.7 18.8L93.1 7.2L95.6 18.8H88.7ZM51.3 1.8L44.4 30.2H35.9L42.8 1.8H51.3Z"/></svg>
+                    </span>
+                    <span class="badge-pagamento-svg" title="Mastercard">
+                        <svg viewBox="0 0 100 60"><circle cx="36" cy="30" r="24" fill="#EB001B"/><circle cx="64" cy="30" r="24" fill="#F79E1B"/><path d="M50 13.6c-4.4 4.5-7.2 10.7-7.2 16.4 0 5.7 2.8 11.9 7.2 16.4 4.4-4.5 7.2-10.7 7.2-16.4 0-5.7-2.8-11.9-7.2-16.4z" fill="#FF5F00"/></svg>
+                    </span>
+                    <span class="badge-pagamento-svg" title="Boleto Bancário">
+                        <i class="fa-solid fa-barcode" style="color: #fff; font-size: 1.1rem;"></i>
+                    </span>
+                    <span class="badge-pagamento-svg" title="Elo & Hipercard">
+                        <i class="fa-regular fa-credit-card" style="color: #FF5500; font-size: 1.1rem;"></i>
+                    </span>
+                </div>
+
+                <div class="footer-selos">
+                    <div class="selo-seguranca">
+                        <i class="fa-solid fa-lock"></i>
+                        <span>SSL 256-Bit<br><strong style="color: #fff;">Compra Segura</strong></span>
+                    </div>
+                    <div class="selo-seguranca">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Empresa Verificada<br><strong style="color: #fff;">100% Confiável</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copy-institucional">
+            <p><strong>HG TECNOLOGIA LTDA</strong> — Itajaí, SC | CNPJ: 45.123.890/0001-44</p>
+            <p>© 2026 HAGON STORE. Todos os direitos reservados. Preços, promoções e condições de pagamento são válidos exclusivamente para compras realizadas neste site.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts de Interatividade e Compra -->
+    <script src="../logic/script.js"></script>
+    <script type="module" src="../logic/auth.js"></script>
+    <script src="../logic/cart.js"></script>
+
+    <script>
+        const PRODUTO_ATUAL = {
+            id: 'webcam-1080p',
+            nome: 'Webcam Streamer Full HD 1080p com Microfone',
+            preco: 210,
+            imagem: 'https://images.unsplash.com/photo-1587826080692-f439cd0b70da?auto=format&fit=crop&w=600&q=80'
+        };
+
+        function alterarQtd(val) {
+            const input = document.getElementById('quantidade');
+            let q = parseInt(input.value) + val;
+            if (q < 1) q = 1;
+            input.value = q;
         }
-    }
 
-    function logout() {
-        localStorage.removeItem('hagon_logado');
-        location.reload(); // Atualiza a página e volta para "Cadastre-se | Login"
-    }
+        function selecionarVariacao(el) {
+            const container = el.parentElement;
+            container.querySelectorAll('.chip-variacao').forEach(c => c.classList.remove('ativo'));
+            el.classList.add('ativo');
+        }
 
-    // Executa ao carregar a página
-    window.onload = checkLoginStatus;
+        function getQtd() {
+            return parseInt(document.getElementById('quantidade').value) || 1;
+        }
 
-</script>
+        function adicionarProduto() {
+            if (typeof adicionarAoCarrinho === 'function') {
+                adicionarAoCarrinho(PRODUTO_ATUAL.id, PRODUTO_ATUAL.nome, PRODUTO_ATUAL.preco, PRODUTO_ATUAL.imagem, getQtd());
+            }
+        }
 
-    <script src="../logic/cart.js"></script>\n</body>
+        function comprarAgora() {
+            adicionarProduto();
+            if (typeof abrirCarrinho === 'function') {
+                abrirCarrinho();
+            }
+        }
+
+        function mascaraCep(input) {
+            let v = input.value.replace(/\D/g, '');
+            if (v.length > 5) v = v.substring(0, 5) + '-' + v.substring(5, 8);
+            input.value = v;
+        }
+
+        async function calcularFrete() {
+            const input = document.getElementById('cep-input');
+            const resEl = document.getElementById('frete-resultado');
+            const cep = input.value.replace(/\D/g, '');
+
+            if (cep.length !== 8) {
+                resEl.innerHTML = '<div class="frete-erro">Digite um CEP válido com 8 números.</div>';
+                return;
+            }
+
+            resEl.innerHTML = '<div style="color: var(--text-muted); padding: 8px;"><i class="fa-solid fa-spinner fa-spin"></i> Consultando prazos...</div>';
+
+            try {
+                const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+                const data = await response.json();
+
+                if (data.erro) {
+                    resEl.innerHTML = '<div class="frete-erro">CEP não encontrado na base dos Correios.</div>';
+                    return;
+                }
+
+                resEl.innerHTML = `
+                    <div class="frete-cidade">📍 Envio para <strong>${data.localidade} - ${data.uf}</strong> (${data.bairro || 'Centro'}):</div>
+                    <div class="frete-opcao">
+                        <div>
+                            <div class="frete-opcao-nome">Sedex Expresso</div>
+                            <div class="frete-opcao-prazo">Chega em 2 a 4 dias úteis</div>
+                        </div>
+                        <div class="frete-opcao-valor">R$ 18,90</div>
+                    </div>
+                    <div class="frete-opcao">
+                        <div>
+                            <div class="frete-opcao-nome">PAC Econômico</div>
+                            <div class="frete-opcao-prazo">Chega em 5 a 8 dias úteis</div>
+                        </div>
+                        <div class="frete-opcao-valor" style="color: #22C55E;">GRÁTIS</div>
+                    </div>
+                `;
+            } catch (err) {
+                resEl.innerHTML = '<div class="frete-erro">Serviço de CEP temporariamente indisponível.</div>';
+            }
+        }
+
+        function abrirFormAvaliacao() {
+            const box = document.getElementById('box-form-avaliacao');
+            box.style.display = box.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function salvarNovaAvaliacao(e) {
+            e.preventDefault();
+            const autor = document.getElementById('novo-autor').value;
+            const texto = document.getElementById('novo-texto').value;
+            const nota = parseInt(document.getElementById('nova-nota').value);
+
+            const container = document.getElementById('lista-avaliacoes-container');
+            const novoItem = document.createElement('div');
+            novoItem.className = 'comentario-item';
+            novoItem.style = 'background: rgba(255,255,255,0.03); border: 1px solid var(--primary); border-radius: 12px; padding: 20px; margin-bottom: 16px; animation: fadeIn 0.5s ease;';
+            novoItem.innerHTML = `
+                <div style="color: #FBBF24; font-size: 1rem; margin-bottom: 6px;">
+                    ${'★'.repeat(nota)}${'☆'.repeat(5 - nota)}
+                </div>
+                <p style="margin: 0 0 10px 0; color: var(--text-muted); font-size: 0.85rem;">
+                    <strong style="color: #fff;">${autor}</strong> • Agora mesmo • <span style="color: #22C55E;">✓ Avaliação enviada</span>
+                </p>
+                <p style="margin: 0; color: var(--text-main); font-size: 0.95rem; line-height: 1.6;">${texto}</p>
+            `;
+            container.prepend(novoItem);
+
+            document.getElementById('novo-autor').value = '';
+            document.getElementById('novo-texto').value = '';
+            document.getElementById('box-form-avaliacao').style.display = 'none';
+            alert('Muito obrigado! Sua avaliação foi enviada e publicada com sucesso.');
+        }
+    </script>
+</body>
 </html>

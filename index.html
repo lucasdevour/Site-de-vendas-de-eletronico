@@ -3,32 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hagon Store</title>
+    <title>Hagon Store - Periféricos Gamer e Tecnologia de Alta Performance</title>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons & Swiper -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
+    <!-- CSS Stylesheets -->
     <link rel="stylesheet" href="design/style.css">
-    <link rel="stylesheet" href="design/cart.css">\n</head>
+    <link rel="stylesheet" href="design/cart.css">
+</head>
 <body>
 
     <div class="header-logo">
-        
-            <a href="./index.html" class="logo-link">
-                <div class="logo-hagon">
-                    <span class="logo-icon"><i class="fa-solid fa-gamepad"></i></span>
-                    <span class="logo-text">HAGON</span><span class="logo-highlight">STORE</span>
-                </div>
-            </a>
-
+        <a href="./index.html" class="logo-link">
+            <div class="logo-hagon">
+                <span class="logo-icon"><i class="fa-solid fa-gamepad"></i></span>
+                <span class="logo-text">HAGON</span><span class="logo-highlight">STORE</span>
+            </div>
+        </a>
     </div>
 
     <header class="header-gamma">
         <div class="container-header">
             <div class="header-busca">
                 <form action="#">
-                    <input type="text" placeholder="Buscar na Hagon Store...">
-                    <button type="submit" class="btn-lupa">
+                    <input type="text" placeholder="Buscar periféricos, headset, teclado gamer...">
+                    <button type="submit" class="btn-lupa" aria-label="Buscar">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </form>
@@ -39,12 +45,14 @@
                     <div class="icone-user-bw">
                         <i class="fa-regular fa-circle-user"></i>
                     </div>
-
                     <div class="usuario-links" id="area-auth">
-                        </div>
+                        <a href="pages/cadastro.html" class="link-nav">Cadastre-se</a>
+                        <span>|</span>
+                        <a href="pages/login-geral.html" class="link-login">Fazer login</a>
+                    </div>
                 </div>
 
-                <div class="carrinho-box-bw">
+                <div class="carrinho-box-bw" onclick="abrirCarrinho()" title="Ver Carrinho">
                     <span class="icone-sacola-bw">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </span>
@@ -54,7 +62,7 @@
         </div>
 
         <nav class="nav-categorias">
-            <a href="index.html" class="link-nav">Inicio</a>
+            <a href="index.html" class="link-nav ativo">Início</a>
             <a href="pages/categoria-lancamentos.html">Lançamentos</a>
             <a href="pages/categoria-caixas-som.html">Caixas de Som</a>
             <a href="pages/categoria-fones.html">Fones de Ouvido</a>
@@ -65,20 +73,25 @@
         </nav>
     </header>
 
+    <!-- HERO CAROUSEL -->
     <div class="swiper meuCarrossel">
         <div class="swiper-wrapper">
             <div class="swiper-slide banner-1">
                 <div class="texto-banner">
-                    <h2>PÁSCOA TECH</h2>
-                    <p>Os melhores periféricos com descontos reais.</p>
-                    <button>Comprar Agora</button>
+                    <h2>SETUP GAMER 2026</h2>
+                    <p>Eleve o seu nível competitivo com periféricos de precisão e até 40% OFF no PIX.</p>
+                    <a href="#vitrine" class="btn-ver-produto" style="width: auto; padding: 16px 36px; font-size: 1.05rem;">
+                        COMPRAR AGORA <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
             <div class="swiper-slide banner-2">
                 <div class="texto-banner">
-                    <h2>SETUP GAMER</h2>
-                    <p>Teclados e mouses para subir de nível.</p>
-                    <button>Ver Ofertas</button>
+                    <h2>ÁUDIO & IMERSÃO</h2>
+                    <p>Headsets 7.1 Surround e Caixas Bluetooth com graves potentes e iluminação RGB.</p>
+                    <a href="pages/categoria-fones.html" class="btn-ver-produto" style="width: auto; padding: 16px 36px; font-size: 1.05rem;">
+                        VER OFERTAS <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -87,126 +100,287 @@
         <div class="swiper-button-prev"></div>
     </div>
 
-    <main class="container-principal">
+    <!-- TRUST BAR (BARRA DE BENEFÍCIOS) -->
+    <section class="trust-bar">
+        <div class="trust-bar-container">
+            <div class="trust-item">
+                <div class="trust-icon"><i class="fa-solid fa-bolt"></i></div>
+                <div class="trust-text">
+                    <h4>10% OFF no PIX</h4>
+                    <p>Desconto automático à vista</p>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon"><i class="fa-solid fa-credit-card"></i></div>
+                <div class="trust-text">
+                    <h4>Até 10x Sem Juros</h4>
+                    <p>Parcelamento em todos os cartões</p>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                <div class="trust-text">
+                    <h4>Envio para todo o Brasil</h4>
+                    <p>Frete ágil com rastreio ponta a ponta</p>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="trust-text">
+                    <h4>Garantia de Fábrica</h4>
+                    <p>Hardware original com suporte direto</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VITRINE DE PRODUTOS -->
+    <main class="container-principal" id="vitrine">
         <h2>Destaques da Semana</h2>
         <section class="vitrine">
+            <!-- PRODUTO 1: Fone Gamer -->
             <div class="produto">
-                <img src="https://picsum.photos/id/1/300/300" alt="Fone Gamer">
-                <h3>Fone Gamer Surround 7.1</h3>
-                <p class="preco">R$ 249,90</p>
-                <a href="pages/produto-fone.html" class="btn-saiba-mais">Saiba Mais</a>
+                <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=600&q=80" alt="Headset Gamer RGB Surround 7.1" loading="lazy">
+                <h3>Headset Gamer RGB Surround 7.1 Imersivo</h3>
+                <div class="bloco-preco">
+                    <p class="preco">R$ 249,90</p>
+                    <p style="font-size: 0.85rem; color: #22C55E; margin: -10px 0 15px 0; font-weight: 600;">R$ 224,91 no PIX (10% OFF)</p>
+                </div>
+                <a href="pages/produto-fone.html" class="btn-ver-produto">
+                    VER PRODUTO <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
+
+            <!-- PRODUTO 2: Teclado Redragon -->
             <div class="produto">
-                <img src="https://static.wixstatic.com/media/71a6c2_65e64316536546bfa9a34fbe35cfbfcd~mv2.jpg/v1/fill/w_604,h_604,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/71a6c2_65e64316536546bfa9a34fbe35cfbfcd~mv2.jpg" alt="Teclado Gamer Redragon Mitra K551">
-                <h3>Teclado Gamer Redragon Mitra K551</h3>
-                <p class="preco">R$ 289,90</p>
-                <a href="pages/produto-teclado.html" class="btn-saiba-mais">Saiba Mais</a>
+                <img src="https://static.wixstatic.com/media/71a6c2_65e64316536546bfa9a34fbe35cfbfcd~mv2.jpg/v1/fill/w_604,h_604,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/71a6c2_65e64316536546bfa9a34fbe35cfbfcd~mv2.jpg" alt="Teclado Gamer Redragon Mitra K551" loading="lazy">
+                <h3>Teclado Mecânico Redragon Mitra K551 RGB</h3>
+                <div class="bloco-preco">
+                    <p class="preco">R$ 289,90</p>
+                    <p style="font-size: 0.85rem; color: #22C55E; margin: -10px 0 15px 0; font-weight: 600;">R$ 260,91 no PIX (10% OFF)</p>
+                </div>
+                <a href="pages/produto-teclado.html" class="btn-ver-produto">
+                    VER PRODUTO <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
+
+            <!-- PRODUTO 3: Mouse Gamer -->
             <div class="produto">
-                <img src="https://picsum.photos/id/2/300/300" alt="Mouse Gamer">
-                <h3>Mouse Gamer 12k DPI</h3>
-                <p class="preco">R$ 159,00</p>
-                <a href="pages/produto-mouse.html" class="btn-saiba-mais">Saiba Mais</a>
+                <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=600&q=80" alt="Mouse Gamer 12k DPI RGB" loading="lazy">
+                <h3>Mouse Gamer RGB 12.000 DPI Ultra Leve</h3>
+                <div class="bloco-preco">
+                    <p class="preco">R$ 159,00</p>
+                    <p style="font-size: 0.85rem; color: #22C55E; margin: -10px 0 15px 0; font-weight: 600;">R$ 143,10 no PIX (10% OFF)</p>
+                </div>
+                <a href="pages/produto-mouse.html" class="btn-ver-produto">
+                    VER PRODUTO <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
+
+            <!-- PRODUTO 4: Caixa de Som Bluetooth -->
             <div class="produto">
-                <img src="https://picsum.photos/id/11/300/300" alt="Caixa de Som">
-                <h3>Caixa de Som Bluetooth RGB</h3>
-                <p class="preco">R$ 189,00</p>
-                <a href="pages/produto-caixa-som.html" class="btn-saiba-mais">Saiba Mais</a>
+                <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80" alt="Caixa de Som Bluetooth RGB" loading="lazy">
+                <h3>Caixa de Som Portátil Bluetooth RGB 20W</h3>
+                <div class="bloco-preco">
+                    <p class="preco">R$ 189,00</p>
+                    <p style="font-size: 0.85rem; color: #22C55E; margin: -10px 0 15px 0; font-weight: 600;">R$ 170,10 no PIX (10% OFF)</p>
+                </div>
+                <a href="pages/produto-caixa-som.html" class="btn-ver-produto">
+                    VER PRODUTO <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
+
+            <!-- PRODUTO 5: Carregador Turbo 20W -->
             <div class="produto">
-                <img src="https://picsum.photos/id/119/300/300" alt="Carregador">
-                <h3>Carregador Turbo 20W USB-C</h3>
-                <p class="preco">R$ 79,90</p>
-                <a href="pages/produto-carregador.html" class="btn-saiba-mais">Saiba Mais</a>
+                <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=600&q=80" alt="Carregador Turbo 20W USB-C" loading="lazy">
+                <h3>Carregador Rápido Turbo 20W USB-C PD</h3>
+                <div class="bloco-preco">
+                    <p class="preco">R$ 79,90</p>
+                    <p style="font-size: 0.85rem; color: #22C55E; margin: -10px 0 15px 0; font-weight: 600;">R$ 71,91 no PIX (10% OFF)</p>
+                </div>
+                <a href="pages/produto-carregador.html" class="btn-ver-produto">
+                    VER PRODUTO <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
+
+            <!-- PRODUTO 6: Powerbank 20.000mAh -->
             <div class="produto">
-                <img src="https://picsum.photos/id/48/300/300" alt="Powerbank">
-                <h3>Powerbank 20.000mAh Ultra</h3>
-                <p class="preco">R$ 199,00</p>
-                <a href="pages/produto-powerbank.html" class="btn-saiba-mais">Saiba Mais</a>
+                <img src="https://images.unsplash.com/photo-1609592424368-4560b4313f8b?auto=format&fit=crop&w=600&q=80" alt="Powerbank 20.000mAh Ultra" loading="lazy">
+                <h3>Powerbank 20.000mAh Carregamento Rápido</h3>
+                <div class="bloco-preco">
+                    <p class="preco">R$ 199,00</p>
+                    <p style="font-size: 0.85rem; color: #22C55E; margin: -10px 0 15px 0; font-weight: 600;">R$ 179,10 no PIX (10% OFF)</p>
+                </div>
+                <a href="pages/produto-powerbank.html" class="btn-ver-produto">
+                    VER PRODUTO <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
+
+            <!-- PRODUTO 7: Webcam Full HD -->
             <div class="produto">
-                <img src="https://picsum.photos/id/250/300/300" alt="Webcam">
-                <h3>Webcam Full HD 1080p</h3>
-                <p class="preco">R$ 210,00</p>
-                <a href="pages/produto-webcam.html" class="btn-saiba-mais">Saiba Mais</a>
+                <img src="https://images.unsplash.com/photo-1587826080692-f439cd0b70da?auto=format&fit=crop&w=600&q=80" alt="Webcam Full HD 1080p" loading="lazy">
+                <h3>Webcam Streamer Full HD 1080p com Microfone</h3>
+                <div class="bloco-preco">
+                    <p class="preco">R$ 210,00</p>
+                    <p style="font-size: 0.85rem; color: #22C55E; margin: -10px 0 15px 0; font-weight: 600;">R$ 189,00 no PIX (10% OFF)</p>
+                </div>
+                <a href="pages/produto-webcam.html" class="btn-ver-produto">
+                    VER PRODUTO <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
+
+            <!-- PRODUTO 8: Projetor Smart -->
             <div class="produto">
-                <img src="https://picsum.photos/id/20/300/300" alt="Projetor">
-                <h3>Projetor Smart Portátil</h3>
-                <p class="preco">R$ 850,00</p>
-                <a href="pages/produto-projetor.html" class="btn-saiba-mais">Saiba Mais</a>
+                <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=600&q=80" alt="Projetor Smart Portátil" loading="lazy">
+                <h3>Projetor Smart Portátil Full HD Cinema 4K</h3>
+                <div class="bloco-preco">
+                    <p class="preco">R$ 850,00</p>
+                    <p style="font-size: 0.85rem; color: #22C55E; margin: -10px 0 15px 0; font-weight: 600;">R$ 765,00 no PIX (10% OFF)</p>
+                </div>
+                <a href="pages/produto-projetor.html" class="btn-ver-produto">
+                    VER PRODUTO <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
+
+            <!-- PRODUTO 9: Smartwatch Ultra -->
             <div class="produto">
-                <img src="https://picsum.photos/id/175/300/300" alt="Smartwatch">
-                <h3>Smartwatch Ultra Series</h3>
-                <p class="preco">R$ 299,00</p>
-                <a href="pages/produto-smartwatch.html" class="btn-saiba-mais">Saiba Mais</a>
+                <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=600&q=80" alt="Smartwatch Ultra Series" loading="lazy">
+                <h3>Smartwatch Ultra Titan Resistente à Água</h3>
+                <div class="bloco-preco">
+                    <p class="preco">R$ 299,00</p>
+                    <p style="font-size: 0.85rem; color: #22C55E; margin: -10px 0 15px 0; font-weight: 600;">R$ 269,10 no PIX (10% OFF)</p>
+                </div>
+                <a href="pages/produto-smartwatch.html" class="btn-ver-produto">
+                    VER PRODUTO <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
+
+            <!-- PRODUTO 10: Cabo USB-C -->
             <div class="produto">
-                <img src="https://picsum.photos/id/0/300/300" alt="Cabo USB">
-                <h3>Cabo USB-C Nylon 2 metros</h3>
-                <p class="preco">R$ 35,00</p>
-                <a href="pages/produto-cabo-usb.html" class="btn-saiba-mais">Saiba Mais</a>
+                <img src="https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=600&q=80" alt="Cabo USB-C Nylon" loading="lazy">
+                <h3>Cabo USB-C Reforçado em Nylon 60W 2M</h3>
+                <div class="bloco-preco">
+                    <p class="preco">R$ 35,00</p>
+                    <p style="font-size: 0.85rem; color: #22C55E; margin: -10px 0 15px 0; font-weight: 600;">R$ 31,50 no PIX (10% OFF)</p>
+                </div>
+                <a href="pages/produto-cabo-usb.html" class="btn-ver-produto">
+                    VER PRODUTO <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
         </section>
     </main>
 
+    <!-- RODAPÉ INSTITUCIONAL PROFISSIONAL -->
     <footer class="footer-hg">
         <div class="newsletter-faixa">
             <div class="container-news">
-                <h2>CADASTRE-SE E RECEBA NOVIDADES</h2>
-                <form class="form-news">
-                    <input type="email" placeholder="Digite seu e-mail">
-                    <button type="submit">➔</button>
+                <h2>CADASTRE-SE E RECEBA OFERTAS VIP</h2>
+                <form class="form-news" onsubmit="event.preventDefault(); alert('E-mail cadastrado com sucesso! Aproveite seus cupons.');">
+                    <input type="email" placeholder="Digite seu melhor e-mail..." required>
+                    <button type="submit" aria-label="Cadastrar">➔</button>
                 </form>
             </div>
         </div>
 
         <div class="footer-principal">
+            <!-- Coluna 1: Categorias -->
             <div class="coluna-footer">
                 <h3>CATEGORIAS</h3>
                 <ul>
-                    <li><a href="#">Gamer</a></li>
-                    <li><a href="#">Fones de Ouvido</a></li>
-                    <li><a href="#">Caixas de Som</a></li>
-                    <li><a href="#">Smartwatch</a></li>
+                    <li><a href="pages/categoria-gamer.html">Gamer & Periféricos</a></li>
+                    <li><a href="pages/categoria-fones.html">Fones & Headsets</a></li>
+                    <li><a href="pages/categoria-caixas-som.html">Caixas de Som RGB</a></li>
+                    <li><a href="pages/categoria-smartwatch.html">Smartwatches</a></li>
+                    <li><a href="pages/categoria-carregadores.html">Carregadores & Cabos</a></li>
+                    <li><a href="pages/categoria-lancamentos.html">Lançamentos</a></li>
                 </ul>
             </div>
 
+            <!-- Coluna 2: Suporte & Institucional -->
             <div class="coluna-footer">
-                <h3>SUPORTE</h3>
+                <h3>INSTITUCIONAL & AJUDA</h3>
                 <ul>
-                    <li><a href="#suporte">Fale Conosco</a></li>
-                    <li><a href="#">Garantia</a></li>
-                    <li><a href="#">Políticas de Troca</a></li>
-                    <li><a href="#">Situação do Pedido</a></li>
+                    <li><a href="pages/suporte.html">Central de Suporte</a></li>
+                    <li><a href="pages/suporte.html#faq">Perguntas Frequentes (FAQ)</a></li>
+                    <li><a href="pages/sobre.html">Sobre a Hagon Store</a></li>
+                    <li><a href="pages/suporte.html#garantia">Políticas de Garantia & Troca</a></li>
+                    <li><a href="pages/suporte.html#rastreio">Rastrear Meu Pedido</a></li>
                 </ul>
             </div>
 
+            <!-- Coluna 3: Atendimento e Redes -->
             <div class="coluna-footer">
-                <h3>SIGA-NOS</h3>
+                <h3>ATENDIMENTO & REDES</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px;">
+                    Seg. a Sex. das 09h às 18h<br>
+                    <strong>WhatsApp:</strong> (47) 99234-5678<br>
+                    <strong>E-mail:</strong> contato@hagonstore.com.br
+                </p>
                 <div class="redes-sociais">
-                    <span>📸</span> <span>📘</span> <span>🐦</span> <span>🎥</span>
+                    <a href="https://instagram.com" target="_blank" rel="noopener" style="text-decoration: none;" title="Instagram">
+                        <span><i class="fa-brands fa-instagram"></i></span>
+                    </a>
+                    <a href="https://wa.me/5547992345678" target="_blank" rel="noopener" style="text-decoration: none;" title="WhatsApp">
+                        <span><i class="fa-brands fa-whatsapp"></i></span>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener" style="text-decoration: none;" title="YouTube">
+                        <span><i class="fa-brands fa-youtube"></i></span>
+                    </a>
+                    <a href="https://tiktok.com" target="_blank" rel="noopener" style="text-decoration: none;" title="TikTok">
+                        <span><i class="fa-brands fa-tiktok"></i></span>
+                    </a>
                 </div>
             </div>
+
+            <!-- Coluna 4: Pagamento e Segurança -->
             <div class="coluna-footer">
-                <h3>PAGAMENTO</h3>
-                <div class="footer-pagamentos">
-                    <img src="assets/formas de pagamento.webp" alt="Formas de Pagamento" class="img-pagamentos">
+                <h3>PAGAMENTO SEGURO</h3>
+                <div class="footer-grade-badges">
+                    <!-- Badge Pix -->
+                    <span class="badge-pagamento-svg" title="PIX - Desconto de 10%">
+                        <svg viewBox="0 0 512 512" fill="#32BCAD"><path d="M383.6 371.6l-67.7-67.7c15.7-18.7 25.1-42.8 25.1-69.1 0-26.3-9.4-50.4-25.1-69.1l67.7-67.7c33.5 36.9 53.9 86 53.9 136.8 0 50.8-20.4 99.9-53.9 136.8zm-255.2 0C94.9 334.7 74.5 285.6 74.5 234.8c0-50.8 20.4-99.9 53.9-136.8l67.7 67.7c-15.7 18.7-25.1 42.8-25.1 69.1 0 26.3 9.4 50.4 25.1 69.1l-67.7 67.7zm86.5-67.7c11.7 11.7 27.2 18.1 43.6 18.1s31.9-6.4 43.6-18.1l20.4-20.4c5.7-5.7 5.7-15 0-20.7l-20.4-20.4c-11.7-11.7-27.2-18.1-43.6-18.1s-31.9 6.4-43.6 18.1l-20.4 20.4c-5.7 5.7-5.7 15 0 20.7l20.4 20.4z"/></svg>
+                    </span>
+                    <!-- Badge Visa -->
+                    <span class="badge-pagamento-svg" title="Visa">
+                        <svg viewBox="0 0 100 32" fill="#fff"><path d="M39.6 1.8L26.1 30.2H17.2L10.5 8.3C10.1 6.8 9.8 6.3 8.7 5.7C6.7 4.7 3.3 3.8 0 3.1L0.2 1.8H14.4C16.2 1.8 17.9 3 18.3 5.2L21.7 21.6L30.7 1.8H39.6ZM75.2 21.1C75.2 13.5 64.2 13.1 64.3 9.7C64.4 8.7 65.4 7.6 67.7 7.3C68.9 7.2 72.1 7.1 75.4 8.6L76.9 2.2C75 1.5 72.5 0.9 69.4 0.9C61 0.9 55.1 5.2 55 11.3C54.8 15.8 59 18.3 62.2 19.8C65.5 21.3 66.6 22.3 66.6 23.7C66.5 25.8 63.9 26.8 61.6 26.8C57.4 26.9 54.9 25.7 52.9 24.8L51.3 31.4C53.4 32.3 57.2 33.1 61.1 33.1C70.1 33.1 75.3 28.9 75.2 21.1ZM97.6 30.2H105L98.6 1.8H91.9C90.3 1.8 89 2.7 88.4 4.1L75.5 30.2H84.4L86.2 25.3H96.9L97.6 30.2ZM88.7 18.8L93.1 7.2L95.6 18.8H88.7ZM51.3 1.8L44.4 30.2H35.9L42.8 1.8H51.3Z"/></svg>
+                    </span>
+                    <!-- Badge Mastercard -->
+                    <span class="badge-pagamento-svg" title="Mastercard">
+                        <svg viewBox="0 0 100 60"><circle cx="36" cy="30" r="24" fill="#EB001B"/><circle cx="64" cy="30" r="24" fill="#F79E1B"/><path d="M50 13.6c-4.4 4.5-7.2 10.7-7.2 16.4 0 5.7 2.8 11.9 7.2 16.4 4.4-4.5 7.2-10.7 7.2-16.4 0-5.7-2.8-11.9-7.2-16.4z" fill="#FF5F00"/></svg>
+                    </span>
+                    <!-- Badge Boleto -->
+                    <span class="badge-pagamento-svg" title="Boleto Bancário">
+                        <i class="fa-solid fa-barcode" style="color: #fff; font-size: 1.1rem;"></i>
+                    </span>
+                    <!-- Badge Cartão -->
+                    <span class="badge-pagamento-svg" title="Elo & Hipercard">
+                        <i class="fa-regular fa-credit-card" style="color: #FF5500; font-size: 1.1rem;"></i>
+                    </span>
+                </div>
+
+                <div class="footer-selos">
+                    <div class="selo-seguranca">
+                        <i class="fa-solid fa-lock"></i>
+                        <span>SSL 256-Bit<br><strong style="color: #fff;">Compra Segura</strong></span>
+                    </div>
+                    <div class="selo-seguranca">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Empresa Verificada<br><strong style="color: #fff;">100% Confiável</strong></span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="footer-copy">
-            <p>&copy; 2026 HG TECNOLOGIA - Itajaí, SC.<br>Todos os direitos reservados.</p>
+        <div class="footer-copy-institucional">
+            <p><strong>HG TECNOLOGIA LTDA</strong> — Itajaí, SC | CNPJ: 45.123.890/0001-44</p>
+            <p>© 2026 HAGON STORE. Todos os direitos reservados. Preços, promoções e condições de pagamento são válidos exclusivamente para compras realizadas neste site.</p>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
     <script src="logic/script.js"></script>
     <script type="module" src="logic/auth.js"></script>
-    <script src="logic/cart.js"></script>\n</body>
+    <script src="logic/cart.js"></script>
+</body>
 </html>

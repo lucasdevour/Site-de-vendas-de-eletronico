@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central de Suporte & Atendimento - Hagon Store</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../design/style.css">
+    <link rel="stylesheet" href="../design/cart.css">
+</head>
+<body>
+
+    <div class="header-logo">
+        <a href="../index.html" class="logo-link">
+            <div class="logo-hagon">
+                <span class="logo-icon"><i class="fa-solid fa-gamepad"></i></span>
+                <span class="logo-text">HAGON</span><span class="logo-highlight">STORE</span>
+            </div>
+        </a>
+    </div>
+
+    <header class="header-gamma">
+        <div class="container-header">
+            <div class="header-busca">
+                <form action="#">
+                    <input type="text" placeholder="Buscar periféricos, ajuda, suporte...">
+                    <button type="submit" class="btn-lupa" aria-label="Buscar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="header-usuario">
+                <div class="usuario-perfil">
+                    <div class="icone-user-bw">
+                        <i class="fa-regular fa-circle-user"></i>
+                    </div>
+                    <div class="usuario-links" id="area-auth">
+                        <a href="cadastro.html" class="link-nav">Cadastre-se</a>
+                        <span>|</span>
+                        <a href="login-geral.html" class="link-login">Fazer login</a>
+                    </div>
+                </div>
+
+                <div class="carrinho-box-bw" onclick="abrirCarrinho()" title="Ver Carrinho">
+                    <span class="icone-sacola-bw">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </span>
+                    <span class="contador-carrinho-bw">0</span>
+                </div>
+            </div>
+        </div>
+
+        <nav class="nav-categorias">
+            <a href="../index.html" class="link-nav">Início</a>
+            <a href="categoria-lancamentos.html">Lançamentos</a>
+            <a href="categoria-caixas-som.html">Caixas de Som</a>
+            <a href="categoria-fones.html">Fones de Ouvido</a>
+            <a href="categoria-gamer.html">Gamer</a>
+            <a href="categoria-carregadores.html">Carregadores</a>
+            <a href="categoria-smartwatch.html">Smartwatch</a>
+            <a href="categoria-acessorios.html">Acessórios</a>
+        </nav>
+    </header>
+
+    <main class="pagina-suporte-container">
+        <!-- Hero Suporte -->
+        <div class="suporte-hero">
+            <h1>Central de Atendimento ao Cliente</h1>
+            <p>Estamos prontos para tirar dúvidas, auxiliar na garantia ou solucionar qualquer questão sobre o seu pedido.</p>
+        </div>
+
+        <!-- Cards de Canais Rápidos -->
+        <div class="grid-canais-atendimento">
+            <div class="card-canal">
+                <div class="card-canal-icon">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <h3>WhatsApp Oficial</h3>
+                <p>Atendimento rápido e humanizado para pedidos e dúvidas.</p>
+                <a href="https://wa.me/5547992345678" target="_blank" rel="noopener" class="btn-canal">
+                    Iniciar Conversa
+                </a>
+            </div>
+
+            <div class="card-canal">
+                <div class="card-canal-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <h3>E-mail de Suporte</h3>
+                <p>Envie sua mensagem e responderemos em até 24 horas úteis.</p>
+                <a href="mailto:contato@hagonstore.com.br" class="btn-canal">
+                    contato@hagonstore.com.br
+                </a>
+            </div>
+
+            <div class="card-canal">
+                <div class="card-canal-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <h3>Horário de Operação</h3>
+                <p>Segunda a Sexta: 09h às 18h<br>Sábados: 09h às 13h</p>
+                <span style="color: #22C55E; font-size: 0.85rem; font-weight: 700;">● Equipe Online</span>
+            </div>
+        </div>
+
+        <!-- Grade Formspree + FAQ -->
+        <div class="grid-form-faq">
+            <!-- Formulário -->
+            <div class="secao-suporte" style="margin: 0; max-width: 100%;">
+                <div class="container-suporte">
+                    <h2>Abrir Chamado Técnico</h2>
+                    <p class="subtitulo-suporte">Preencha o formulário abaixo e receba o retorno diretamente no seu e-mail.</p>
+
+                    <form class="form-suporte-hg" action="https://formspree.io/f/mgopgwwp" method="POST">
+                        <div class="linha-form">
+                            <div class="campo">
+                                <label>Nome Completo</label>
+                                <input type="text" name="nome" placeholder="Ex: Hiago Silva" required>
+                            </div>
+                            <div class="campo">
+                                <label>Seu E-mail</label>
+                                <input type="email" name="email" placeholder="seuemail@exemplo.com" required>
+                            </div>
+                        </div>
+
+                        <div class="linha-form">
+                            <div class="campo">
+                                <label>Número do Pedido (se houver)</label>
+                                <input type="text" name="pedido" placeholder="Ex: #HG-9842">
+                            </div>
+                            <div class="campo">
+                                <label>Assunto</label>
+                                <select name="assunto" required>
+                                    <option value="">Selecione o assunto</option>
+                                    <option value="tecnico">Dúvida Técnica / Compatibilidade</option>
+                                    <option value="entrega">Rastreio e Status da Entrega</option>
+                                    <option value="garantia">Acionamento de Garantia</option>
+                                    <option value="troca">Troca ou Devolução</option>
+                                    <option value="outro">Outros Assuntos</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="campo">
+                            <label>Sua Mensagem Detalhada</label>
+                            <textarea name="mensagem" rows="5" placeholder="Descreva sua solicitação com o máximo de detalhes possível..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-enviar-suporte">
+                            Enviar Solicitação <i class="fa-solid fa-paper-plane" style="margin-left: 6px;"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div class="bloco-faq" id="faq">
+                <h2 style="color: var(--primary); font-size: 1.6rem; margin-top: 0; margin-bottom: 25px;">
+                    Dúvidas Frequentes
+                </h2>
+
+                <div class="faq-item" id="rastreio">
+                    <div class="faq-pergunta">📦 Como rastrear meu pedido?</div>
+                    <div class="faq-resposta">
+                        Assim que o pagamento for confirmado e o pacote despachado, você receberá automaticamente o código de rastreamento por e-mail e WhatsApp para acompanhar passo a passo até sua porta.
+                    </div>
+                </div>
+
+                <div class="faq-item" id="garantia">
+                    <div class="faq-pergunta">🛡️ Como funciona a garantia dos produtos?</div>
+                    <div class="faq-resposta">
+                        Todos os produtos comercializados na Hagon Store contam com 1 ano de garantia direta contra defeitos de fabricação, além dos 7 dias para devolução incondicional garantidos pelo CDC.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-pergunta">⚡ O desconto de 10% no PIX é cumulativo?</div>
+                    <div class="faq-resposta">
+                        Sim! O desconto de 10% no PIX é aplicado sobre o valor final dos produtos no checkout, gerando economia imediata no pagamento instantâneo.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-pergunta">💳 Posso parcelar em quantos cartões?</div>
+                    <div class="faq-resposta">
+                        Você pode parcelar suas compras em até 10x sem juros com as principais bandeiras (Visa, Mastercard, Elo, Hipercard).
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- RODAPÉ INSTITUCIONAL PROFISSIONAL -->
+    <footer class="footer-hg">
+        <div class="newsletter-faixa">
+            <div class="container-news">
+                <h2>CADASTRE-SE E RECEBA OFERTAS VIP</h2>
+                <form class="form-news" onsubmit="event.preventDefault(); alert('E-mail cadastrado com sucesso!');">
+                    <input type="email" placeholder="Digite seu melhor e-mail..." required>
+                    <button type="submit" aria-label="Cadastrar">➔</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-principal">
+            <div class="coluna-footer">
+                <h3>CATEGORIAS</h3>
+                <ul>
+                    <li><a href="categoria-gamer.html">Gamer & Periféricos</a></li>
+                    <li><a href="categoria-fones.html">Fones & Headsets</a></li>
+                    <li><a href="categoria-caixas-som.html">Caixas de Som RGB</a></li>
+                    <li><a href="categoria-smartwatch.html">Smartwatches</a></li>
+                    <li><a href="categoria-carregadores.html">Carregadores & Cabos</a></li>
+                    <li><a href="categoria-lancamentos.html">Lançamentos</a></li>
+                </ul>
+            </div>
+
+            <div class="coluna-footer">
+                <h3>INSTITUCIONAL & AJUDA</h3>
+                <ul>
+                    <li><a href="suporte.html">Central de Suporte</a></li>
+                    <li><a href="suporte.html#faq">Perguntas Frequentes (FAQ)</a></li>
+                    <li><a href="sobre.html">Sobre a Hagon Store</a></li>
+                    <li><a href="suporte.html#garantia">Políticas de Garantia & Troca</a></li>
+                    <li><a href="suporte.html#rastreio">Rastrear Meu Pedido</a></li>
+                </ul>
+            </div>
+
+            <div class="coluna-footer">
+                <h3>ATENDIMENTO & REDES</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px;">
+                    Seg. a Sex. das 09h às 18h<br>
+                    <strong>WhatsApp:</strong> (47) 99234-5678<br>
+                    <strong>E-mail:</strong> contato@hagonstore.com.br
+                </p>
+                <div class="redes-sociais">
+                    <a href="https://instagram.com" target="_blank" rel="noopener" style="text-decoration: none;" title="Instagram">
+                        <span><i class="fa-brands fa-instagram"></i></span>
+                    </a>
+                    <a href="https://wa.me/5547992345678" target="_blank" rel="noopener" style="text-decoration: none;" title="WhatsApp">
+                        <span><i class="fa-brands fa-whatsapp"></i></span>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener" style="text-decoration: none;" title="YouTube">
+                        <span><i class="fa-brands fa-youtube"></i></span>
+                    </a>
+                    <a href="https://tiktok.com" target="_blank" rel="noopener" style="text-decoration: none;" title="TikTok">
+                        <span><i class="fa-brands fa-tiktok"></i></span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="coluna-footer">
+                <h3>PAGAMENTO SEGURO</h3>
+                <div class="footer-grade-badges">
+                    <span class="badge-pagamento-svg" title="PIX - Desconto de 10%">
+                        <svg viewBox="0 0 512 512" fill="#32BCAD"><path d="M383.6 371.6l-67.7-67.7c15.7-18.7 25.1-42.8 25.1-69.1 0-26.3-9.4-50.4-25.1-69.1l67.7-67.7c33.5 36.9 53.9 86 53.9 136.8 0 50.8-20.4 99.9-53.9 136.8zm-255.2 0C94.9 334.7 74.5 285.6 74.5 234.8c0-50.8 20.4-99.9 53.9-136.8l67.7 67.7c-15.7 18.7-25.1 42.8-25.1 69.1 0 26.3 9.4 50.4 25.1 69.1l-67.7 67.7zm86.5-67.7c11.7 11.7 27.2 18.1 43.6 18.1s31.9-6.4 43.6-18.1l20.4-20.4c5.7-5.7 5.7-15 0-20.7l-20.4-20.4c-11.7-11.7-27.2-18.1-43.6-18.1s-31.9 6.4-43.6 18.1l-20.4 20.4c-5.7 5.7-5.7 15 0 20.7l20.4 20.4z"/></svg>
+                    </span>
+                    <span class="badge-pagamento-svg" title="Visa">
+                        <svg viewBox="0 0 100 32" fill="#fff"><path d="M39.6 1.8L26.1 30.2H17.2L10.5 8.3C10.1 6.8 9.8 6.3 8.7 5.7C6.7 4.7 3.3 3.8 0 3.1L0.2 1.8H14.4C16.2 1.8 17.9 3 18.3 5.2L21.7 21.6L30.7 1.8H39.6ZM75.2 21.1C75.2 13.5 64.2 13.1 64.3 9.7C64.4 8.7 65.4 7.6 67.7 7.3C68.9 7.2 72.1 7.1 75.4 8.6L76.9 2.2C75 1.5 72.5 0.9 69.4 0.9C61 0.9 55.1 5.2 55 11.3C54.8 15.8 59 18.3 62.2 19.8C65.5 21.3 66.6 22.3 66.6 23.7C66.5 25.8 63.9 26.8 61.6 26.8C57.4 26.9 54.9 25.7 52.9 24.8L51.3 31.4C53.4 32.3 57.2 33.1 61.1 33.1C70.1 33.1 75.3 28.9 75.2 21.1ZM97.6 30.2H105L98.6 1.8H91.9C90.3 1.8 89 2.7 88.4 4.1L75.5 30.2H84.4L86.2 25.3H96.9L97.6 30.2ZM88.7 18.8L93.1 7.2L95.6 18.8H88.7ZM51.3 1.8L44.4 30.2H35.9L42.8 1.8H51.3Z"/></svg>
+                    </span>
+                    <span class="badge-pagamento-svg" title="Mastercard">
+                        <svg viewBox="0 0 100 60"><circle cx="36" cy="30" r="24" fill="#EB001B"/><circle cx="64" cy="30" r="24" fill="#F79E1B"/><path d="M50 13.6c-4.4 4.5-7.2 10.7-7.2 16.4 0 5.7 2.8 11.9 7.2 16.4 4.4-4.5 7.2-10.7 7.2-16.4 0-5.7-2.8-11.9-7.2-16.4z" fill="#FF5F00"/></svg>
+                    </span>
+                    <span class="badge-pagamento-svg" title="Boleto Bancário">
+                        <i class="fa-solid fa-barcode" style="color: #fff; font-size: 1.1rem;"></i>
+                    </span>
+                    <span class="badge-pagamento-svg" title="Elo & Hipercard">
+                        <i class="fa-regular fa-credit-card" style="color: #FF5500; font-size: 1.1rem;"></i>
+                    </span>
+                </div>
+
+                <div class="footer-selos">
+                    <div class="selo-seguranca">
+                        <i class="fa-solid fa-lock"></i>
+                        <span>SSL 256-Bit<br><strong style="color: #fff;">Compra Segura</strong></span>
+                    </div>
+                    <div class="selo-seguranca">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Empresa Verificada<br><strong style="color: #fff;">100% Confiável</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copy-institucional">
+            <p><strong>HG TECNOLOGIA LTDA</strong> — Itajaí, SC | CNPJ: 45.123.890/0001-44</p>
+            <p>© 2026 HAGON STORE. Todos os direitos reservados. Preços, promoções e condições de pagamento são válidos exclusivamente para compras realizadas neste site.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../logic/script.js"></script>
+    <script type="module" src="../logic/auth.js"></script>
+    <script src="../logic/cart.js"></script>
+</body>
+</html>

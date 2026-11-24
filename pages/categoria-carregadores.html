@@ -156,13 +156,13 @@
     </main>
     
 
-    <footer class="footer-hg">
+        <footer class="footer-hg">
         <div class="newsletter-faixa">
             <div class="container-news">
-                <h2>CADASTRE-SE E RECEBA NOVIDADES</h2>
-                <form class="form-news">
-                    <input type="email" placeholder="Digite seu e-mail">
-                    <button type="submit">➔</button>
+                <h2>CADASTRE-SE E RECEBA OFERTAS VIP</h2>
+                <form class="form-news" onsubmit="event.preventDefault(); alert('E-mail cadastrado com sucesso!');">
+                    <input type="email" placeholder="Digite seu melhor e-mail..." required>
+                    <button type="submit" aria-label="Cadastrar">➔</button>
                 </form>
             </div>
         </div>
@@ -171,39 +171,85 @@
             <div class="coluna-footer">
                 <h3>CATEGORIAS</h3>
                 <ul>
-                    <li><a href="#">Gamer</a></li>
-                    <li><a href="#">Fones de Ouvido</a></li>
-                    <li><a href="#">Caixas de Som</a></li>
-                    <li><a href="#">Smartwatch</a></li>
+                    <li><a href="categoria-gamer.html">Gamer & Periféricos</a></li>
+                    <li><a href="categoria-fones.html">Fones & Headsets</a></li>
+                    <li><a href="categoria-caixas-som.html">Caixas de Som RGB</a></li>
+                    <li><a href="categoria-smartwatch.html">Smartwatches</a></li>
+                    <li><a href="categoria-carregadores.html">Carregadores & Cabos</a></li>
+                    <li><a href="categoria-lancamentos.html">Lançamentos</a></li>
                 </ul>
             </div>
 
             <div class="coluna-footer">
-                <h3>SUPORTE</h3>
+                <h3>INSTITUCIONAL & AJUDA</h3>
                 <ul>
-                    <li><a href="#suporte">Fale Conosco</a></li>
-                    <li><a href="#">Garantia</a></li>
-                    <li><a href="#">Políticas de Troca</a></li>
-                    <li><a href="#">Situação do Pedido</a></li>
+                    <li><a href="suporte.html">Central de Suporte</a></li>
+                    <li><a href="suporte.html#faq">Perguntas Frequentes (FAQ)</a></li>
+                    <li><a href="sobre.html">Sobre a Hagon Store</a></li>
+                    <li><a href="suporte.html#garantia">Políticas de Garantia & Troca</a></li>
+                    <li><a href="suporte.html#rastreio">Rastrear Meu Pedido</a></li>
                 </ul>
             </div>
 
             <div class="coluna-footer">
-                <h3>SIGA-NOS</h3>
+                <h3>ATENDIMENTO & REDES</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px;">
+                    Seg. a Sex. das 09h às 18h<br>
+                    <strong>WhatsApp:</strong> (47) 99234-5678<br>
+                    <strong>E-mail:</strong> contato@hagonstore.com.br
+                </p>
                 <div class="redes-sociais">
-                    <span>📸</span> <span>📘</span> <span>🐦</span> <span>🎥</span>
+                    <a href="https://instagram.com" target="_blank" rel="noopener" style="text-decoration: none;" title="Instagram">
+                        <span><i class="fa-brands fa-instagram"></i></span>
+                    </a>
+                    <a href="https://wa.me/5547992345678" target="_blank" rel="noopener" style="text-decoration: none;" title="WhatsApp">
+                        <span><i class="fa-brands fa-whatsapp"></i></span>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener" style="text-decoration: none;" title="YouTube">
+                        <span><i class="fa-brands fa-youtube"></i></span>
+                    </a>
+                    <a href="https://tiktok.com" target="_blank" rel="noopener" style="text-decoration: none;" title="TikTok">
+                        <span><i class="fa-brands fa-tiktok"></i></span>
+                    </a>
                 </div>
             </div>
+
             <div class="coluna-footer">
-                <h3>PAGAMENTO</h3>
-                <div class="footer-pagamentos">
-                    <img src="../assets/formas de pagamento.webp" alt="Formas de Pagamento" class="img-pagamentos">
+                <h3>PAGAMENTO SEGURO</h3>
+                <div class="footer-grade-badges">
+                    <span class="badge-pagamento-svg" title="PIX - Desconto de 10%">
+                        <svg viewBox="0 0 512 512" fill="#32BCAD"><path d="M383.6 371.6l-67.7-67.7c15.7-18.7 25.1-42.8 25.1-69.1 0-26.3-9.4-50.4-25.1-69.1l67.7-67.7c33.5 36.9 53.9 86 53.9 136.8 0 50.8-20.4 99.9-53.9 136.8zm-255.2 0C94.9 334.7 74.5 285.6 74.5 234.8c0-50.8 20.4-99.9 53.9-136.8l67.7 67.7c-15.7 18.7-25.1 42.8-25.1 69.1 0 26.3 9.4 50.4 25.1 69.1l-67.7 67.7zm86.5-67.7c11.7 11.7 27.2 18.1 43.6 18.1s31.9-6.4 43.6-18.1l20.4-20.4c5.7-5.7 5.7-15 0-20.7l-20.4-20.4c-11.7-11.7-27.2-18.1-43.6-18.1s-31.9 6.4-43.6 18.1l-20.4 20.4c-5.7 5.7-5.7 15 0 20.7l20.4 20.4z"/></svg>
+                    </span>
+                    <span class="badge-pagamento-svg" title="Visa">
+                        <svg viewBox="0 0 100 32" fill="#fff"><path d="M39.6 1.8L26.1 30.2H17.2L10.5 8.3C10.1 6.8 9.8 6.3 8.7 5.7C6.7 4.7 3.3 3.8 0 3.1L0.2 1.8H14.4C16.2 1.8 17.9 3 18.3 5.2L21.7 21.6L30.7 1.8H39.6ZM75.2 21.1C75.2 13.5 64.2 13.1 64.3 9.7C64.4 8.7 65.4 7.6 67.7 7.3C68.9 7.2 72.1 7.1 75.4 8.6L76.9 2.2C75 1.5 72.5 0.9 69.4 0.9C61 0.9 55.1 5.2 55 11.3C54.8 15.8 59 18.3 62.2 19.8C65.5 21.3 66.6 22.3 66.6 23.7C66.5 25.8 63.9 26.8 61.6 26.8C57.4 26.9 54.9 25.7 52.9 24.8L51.3 31.4C53.4 32.3 57.2 33.1 61.1 33.1C70.1 33.1 75.3 28.9 75.2 21.1ZM97.6 30.2H105L98.6 1.8H91.9C90.3 1.8 89 2.7 88.4 4.1L75.5 30.2H84.4L86.2 25.3H96.9L97.6 30.2ZM88.7 18.8L93.1 7.2L95.6 18.8H88.7ZM51.3 1.8L44.4 30.2H35.9L42.8 1.8H51.3Z"/></svg>
+                    </span>
+                    <span class="badge-pagamento-svg" title="Mastercard">
+                        <svg viewBox="0 0 100 60"><circle cx="36" cy="30" r="24" fill="#EB001B"/><circle cx="64" cy="30" r="24" fill="#F79E1B"/><path d="M50 13.6c-4.4 4.5-7.2 10.7-7.2 16.4 0 5.7 2.8 11.9 7.2 16.4 4.4-4.5 7.2-10.7 7.2-16.4 0-5.7-2.8-11.9-7.2-16.4z" fill="#FF5F00"/></svg>
+                    </span>
+                    <span class="badge-pagamento-svg" title="Boleto Bancário">
+                        <i class="fa-solid fa-barcode" style="color: #fff; font-size: 1.1rem;"></i>
+                    </span>
+                    <span class="badge-pagamento-svg" title="Elo & Hipercard">
+                        <i class="fa-regular fa-credit-card" style="color: #FF5500; font-size: 1.1rem;"></i>
+                    </span>
+                </div>
+
+                <div class="footer-selos">
+                    <div class="selo-seguranca">
+                        <i class="fa-solid fa-lock"></i>
+                        <span>SSL 256-Bit<br><strong style="color: #fff;">Compra Segura</strong></span>
+                    </div>
+                    <div class="selo-seguranca">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Empresa Verificada<br><strong style="color: #fff;">100% Confiável</strong></span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="footer-copy">
-            <p>&copy; 2026 HG TECNOLOGIA - Itajaí, SC.<br>Todos os direitos reservados.</p>
+        <div class="footer-copy-institucional">
+            <p><strong>HG TECNOLOGIA LTDA</strong> — Itajaí, SC | CNPJ: 45.123.890/0001-44</p>
+            <p>© 2026 HAGON STORE. Todos os direitos reservados. Preços, promoções e condições de pagamento são válidos exclusivamente para compras realizadas neste site.</p>
         </div>
     </footer>
 
