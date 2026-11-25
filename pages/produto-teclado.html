@@ -181,7 +181,7 @@
                         <div class="nota-geral" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 14px; padding: 25px;">
                             <div class="valor-nota" id="valor-nota-media" style="font-size: 3.5rem; color: #fff; font-weight: 800;">5.0</div>
                             <div class="estrelas-amarelas" style="color: #FBBF24; font-size: 1.4rem; margin: 8px 0;">★★★★★</div>
-                            <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;" id="total-avaliacoes-texto">2 avaliações verificadas</p>
+                            <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;" id="total-avaliacoes-texto">2 avaliações de clientes</p>
                         </div>
                         <div class="coluna-barras" style="flex: 2; min-width: 280px;">
                             <div class="linha-stat"><span>5 estrelas</span> <div class="barra-fundo"><div class="barra-preenchida" id="barra-star-5" style="width: 100%;"></div></div> <span id="pct-star-5">100%</span></div>
@@ -491,7 +491,7 @@
             if (valorNotaEl) valorNotaEl.innerText = media;
 
             const totalAvaliacoesEl = document.getElementById('total-avaliacoes-texto');
-            if (totalAvaliacoesEl) totalAvaliacoesEl.innerText = `${totalCount} ${totalCount === 1 ? 'avaliação verificada' : 'avaliações verificadas'}`;
+            if (totalAvaliacoesEl) totalAvaliacoesEl.innerText = `${totalCount} ${totalCount === 1 ? 'avaliação de cliente' : 'avaliações de clientes'}`;
 
             const miniStarsEl = document.getElementById('mini-stars-rating');
             if (miniStarsEl) miniStarsEl.innerText = `${media} (${totalCount} avaliações)`;
@@ -513,7 +513,7 @@
                         </div>
                         ${r.title ? `<h4 style="margin: 0 0 6px 0; color: #fff; font-size: 1.05rem;">${r.title}</h4>` : ''}
                         <p style="margin: 0 0 10px 0; color: var(--text-muted); font-size: 0.85rem;">
-                            <strong style="color: #fff;">${r.name}</strong> • ${r.time || 'Recente'} • <span style="color: #22C55E;">✓ Compra Verificada</span>
+                            <strong style="color: #fff;">${r.name}</strong> • ${r.time || 'Avaliação da Comunidade'}
                         </p>
                         <p style="margin: 0; color: var(--text-main); font-size: 0.95rem; line-height: 1.6;">${r.comment}</p>
                     </div>

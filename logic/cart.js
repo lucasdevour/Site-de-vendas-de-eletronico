@@ -78,11 +78,17 @@ function injetarHTMLCarrinho() {
             </div>
             <div class="cart-items" id="cart-items-container"></div>
             <div class="cart-footer">
+                <div class="cart-pix-notice" id="cart-pix-notice" style="display: none;">
+                    <span><i class="fa-brands fa-pix"></i> No PIX (10% OFF):</span>
+                    <strong id="cart-pix-price">R$ 0,00</strong>
+                </div>
                 <div class="cart-total">
-                    <span>Total:</span>
+                    <span>Subtotal:</span>
                     <span id="cart-total-price">R$ 0,00</span>
                 </div>
-                <button class="btn-checkout" onclick="irParaCheckout()">Finalizar Compra</button>
+                <button class="btn-checkout" onclick="irParaCheckout()">
+                    Finalizar Compra <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
+                </button>
             </div>
         </div>
     `;
@@ -96,15 +102,29 @@ function renderizarItensCarrinho() {
     const items = getCartItems();
     container.innerHTML = '';
     
+    const pixNotice = document.getElementById('cart-pix-notice');
+    const pixPrice = document.getElementById('cart-pix-price');
+    const checkoutBtn = document.querySelector('.btn-checkout');
+
     if (items.length === 0) {
-        container.innerHTML = '<div class="cart-empty"><i class="fa-solid fa-cart-shopping"></i><p>Seu carrinho está vazio.</p></div>';
+        container.innerHTML = `
+            <div class="cart-empty">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <p>Seu carrinho está vazio.</p>
+            </div>
+        `;
         document.getElementById('cart-total-price').innerText = 'R$ 0,00';
+        if (pixNotice) pixNotice.style.display = 'none';
+        if (checkoutBtn) checkoutBtn.style.opacity = '0.5';
         return;
     }
     
+    if (checkoutBtn) checkoutBtn.style.opacity = '1';
+    
     let total = 0;
     items.forEach(item => {
-        total += item.preco * item.quantidade;
+        const itemTotal = item.preco * item.quantidade;
+        total += itemTotal;
         container.innerHTML += `
             <div class="cart-item">
                 <img src="${item.imagem}" alt="${item.nome}" class="cart-item-img">
@@ -112,17 +132,26 @@ function renderizarItensCarrinho() {
                     <h4>${item.nome}</h4>
                     <p class="cart-item-price">R$ ${item.preco.toFixed(2).replace('.', ',')}</p>
                     <div class="cart-item-qtd">
-                        <button onclick="alterarQtdCarrinho('${item.id}', -1)">-</button>
+                        <button type="button" onclick="alterarQtdCarrinho('${item.id}', -1)" aria-label="Diminuir">-</button>
                         <input type="text" readonly value="${item.quantidade}">
-                        <button onclick="alterarQtdCarrinho('${item.id}', 1)">+</button>
+                        <button type="button" onclick="alterarQtdCarrinho('${item.id}', 1)" aria-label="Aumentar">+</button>
                     </div>
                 </div>
-                <button class="cart-item-remove" onclick="removerDoCarrinho('${item.id}')"><i class="fa-solid fa-trash"></i></button>
+                <button type="button" class="cart-item-remove" onclick="removerDoCarrinho('${item.id}')" title="Remover do carrinho" aria-label="Remover">
+                    <i class="fa-solid fa-trash-can"></i>
+                </button>
             </div>
         `;
     });
     
-    document.getElementById('cart-total-price').innerText = 'R$ ' + total.toFixed(2).replace('.', ',');
+    const formattedTotal = 'R$ ' + total.toFixed(2).replace('.', ',');
+    document.getElementById('cart-total-price').innerText = formattedTotal;
+
+    if (pixNotice && pixPrice) {
+        const totalPix = total * 0.90;
+        pixPrice.innerText = 'R$ ' + totalPix.toFixed(2).replace('.', ',');
+        pixNotice.style.display = 'flex';
+    }
 }
 
 function atualizarContadorCarrinho() {
@@ -131,6 +160,9 @@ function atualizarContadorCarrinho() {
     const contadores = document.querySelectorAll('.contador-carrinho-bw');
     contadores.forEach(c => {
         c.innerText = count;
+        c.classList.remove('pulse');
+        void c.offsetWidth;
+        c.classList.add('pulse');
     });
 }
 

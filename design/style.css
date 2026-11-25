@@ -21,6 +21,10 @@
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg-dark);
     color: var(--text-main);
@@ -28,6 +32,26 @@ body {
     margin: 0;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+}
+
+/* ================= ANCHOR SCROLL OFFSET (FIX STICKY HEADER OVERLAP) ================= */
+.sessao-texto,
+.bloco-na-caixa,
+.secao-avaliacoes,
+#descricao,
+#especificacoes,
+#na-caixa,
+#avaliacoes {
+    scroll-margin-top: 140px;
+}
+
+/* ================= PLACEHOLDER STYLING (DISCRETE EXAMPLES) ================= */
+::placeholder,
+.input-group input::placeholder,
+.grupo-input input::placeholder {
+    color: #71717A !important;
+    opacity: 0.8 !important;
+    font-weight: 400 !important;
 }
 
 h1, h2, h3, h4, h5, h6, .preco, .preco-sticky, .btn-comprar, .btn-saiba-mais, .btn-ver-produto, .btn-comprar-jbl, .btn-comprar-agora, .logo-text, .logo-highlight {
@@ -749,6 +773,81 @@ h1, h2, h3, h4, h5, h6, .preco, .preco-sticky, .btn-comprar, .btn-saiba-mais, .b
 .voltar-login a:hover {
     color: var(--primary);
 }
+
+/* ================= LOGIN & CADASTRO CRO POLISH ================= */
+.opcoes-extras {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0 10px 0;
+    font-size: 0.88rem;
+}
+
+.opcoes-extras .container-check {
+    margin-bottom: 0;
+}
+
+.link-esqueci {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+
+.link-esqueci:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.divisor-ou {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 25px 0 20px 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.divisor-ou::before,
+.divisor-ou::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.divisor-ou span {
+    padding: 0 15px;
+    color: #71717A;
+    font-weight: 600;
+}
+
+.criar-account-link {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.criar-account-link p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.criar-account-link a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s, text-shadow 0.2s;
+    margin-left: 5px;
+}
+
+.criar-account-link a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+    text-shadow: 0 0 8px rgba(255, 85, 0, 0.4);
+}
+
 
 
 /* ================= SUB-NAV (SUMÁRIO) ================= */

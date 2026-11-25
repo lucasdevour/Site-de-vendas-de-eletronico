@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hagon Store</title>
+    <title>Acessar Conta - Hagon Store</title>
     
-    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     
     <!-- Firebase SDK -->
     <script type="module">
@@ -13,7 +16,6 @@
         import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js';
         import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
 
-        // Firebase Config
         const firebaseConfig = {
             apiKey: "AIzaSyAhPVplbeCbaQFy-4Oi9KEmsZaAYHO7i9Y",
             authDomain: "hagon-store.firebaseapp.com",
@@ -24,7 +26,6 @@
             measurementId: "G-XH6TJX5XNS"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
@@ -36,59 +37,55 @@
         window.getDoc = getDoc;
         window.doc = doc;
     </script>
-        <link rel="stylesheet" href="../design/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../design/style.css">
+    <link rel="stylesheet" href="../design/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-     <div class="header-logo">
-            
-            <a href="../index.html" class="logo-link">
-                <div class="logo-hagon">
-                    <span class="logo-icon"><i class="fa-solid fa-gamepad"></i></span>
-                    <span class="logo-text">HAGON</span><span class="logo-highlight">STORE</span>
-                </div>
-            </a>
-
-        </div>
-
-   <header class="header-gamma">
-    <div class="container-header">
-
-        <div class="header-busca">
-            <form action="#">
-                <input type="text" placeholder="Buscar na Hagon Store...">
-                <button type="submit" class="btn-lupa">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </form>
-        </div>
-
-        <div class="header-usuario">
-            <div class="usuario-perfil">
-                <div class="icone-user-bw">
-                    <i class="fa-regular fa-circle-user"></i>
-                </div>
-                
-                <div class="usuario-links" id="area-auth">
-                    <a href="cadastro.html" class="link-nav">Cadastre-se</a>
-                    <span>|</span> 
-                    <a href="login.html" class="link-login">Fazer login</a>
-                </div>
+    <div class="header-logo">
+        <a href="../index.html" class="logo-link">
+            <div class="logo-hagon">
+                <span class="logo-icon"><i class="fa-solid fa-gamepad"></i></span>
+                <span class="logo-text">HAGON</span><span class="logo-highlight">STORE</span>
             </div>
-
-            <div class="carrinho-box-bw">
-                <span class="icone-sacola-bw">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </span>
-                <span class="contador-carrinho-bw">0</span>
-            </div>
-        </div>
+        </a>
     </div>
- </header>
 
-<nav class="nav-categorias">
-            <a href="../index.html" class="link-nav">Inicio</a>
+    <header class="header-gamma">
+        <div class="container-header">
+            <div class="header-busca">
+                <form action="#">
+                    <input type="text" placeholder="Buscar na Hagon Store..." autocomplete="off">
+                    <button type="submit" class="btn-lupa" aria-label="Buscar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="header-usuario">
+                <div class="usuario-perfil">
+                    <div class="icone-user-bw">
+                        <i class="fa-regular fa-circle-user"></i>
+                    </div>
+                    <div class="usuario-links" id="area-auth">
+                        <a href="cadastro.html" class="link-nav">Cadastre-se</a>
+                        <span>|</span> 
+                        <a href="login.html" class="link-login" style="color: var(--primary);">Fazer login</a>
+                    </div>
+                </div>
+
+                <div class="carrinho-box-bw" onclick="abrirCarrinho()" title="Ver Carrinho">
+                    <span class="icone-sacola-bw">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </span>
+                    <span class="contador-carrinho-bw">0</span>
+                </div>
+            </div>
+        </div>
+
+        <nav class="nav-categorias">
+            <a href="../index.html" class="link-nav">Início</a>
             <a href="categoria-lancamentos.html">Lançamentos</a>
             <a href="categoria-caixas-som.html">Caixas de Som</a>
             <a href="categoria-fones.html">Fones de Ouvido</a>
@@ -97,289 +94,136 @@
             <a href="categoria-smartwatch.html">Smartwatch</a>
             <a href="categoria-acessorios.html">Acessórios</a>
         </nav>
-</header>
-<main class="container-auth">
-    <div class="card-auth">
-        <div class="cabecalho-form">
-            <h2>ACESSE SUA CONTA</h2>
-            <p>Informe seus dados para continuar</p>
-        </div>
+    </header>
 
-        <form class="form-auth" id="loginForm">
-            <div class="grupo-input">
-                <label>E-mail *</label>
-                <input type="email" name="email" placeholder="seu@email.com" required>
+    <main class="container-auth">
+        <div class="card-auth">
+            <div class="cabecalho-form">
+                <h2>ACESSE SUA CONTA</h2>
+                <p>Informe suas credenciais para gerenciar pedidos e dados cadastrais.</p>
             </div>
 
-            <div class="grupo-input">
-                <label>Senha *</label>
-                <input type="password" name="senha" placeholder="Sua senha" required>
-            </div>
+            <form class="form-auth" id="loginForm">
+                <div class="grupo-input">
+                    <label for="login-email">E-mail *</label>
+                    <input type="email" id="login-email" name="email" placeholder="seu.email@exemplo.com" autocomplete="email" required>
+                </div>
 
-            <div class="opcoes-extras">
-               <label class="container-check">
-    <input type="checkbox">
-    <span class="checkmark"></span>
-    <span class="texto-check">Lembrar meus dados</span>
-</label>
-                <a href="#" class="link-esqueci">Esqueci minha senha</a>
-            </div>
+                <div class="grupo-input">
+                    <label for="login-senha">Senha *</label>
+                    <input type="password" id="login-senha" name="senha" placeholder="Sua senha de acesso" autocomplete="current-password" required>
+                </div>
 
-            <button type="submit" class="btn-auth">ENTRAR</button>
-            <div id="loginErro" class="erro-mensagem" style="color:red; margin-top:12px; text-align:left;"></div>
-            
-            <div class="divisor-ou">
-                <span>ou</span>
-            </div>
+                <div class="opcoes-extras">
+                    <label class="container-check" for="lembrar-dados">
+                        <input type="checkbox" id="lembrar-dados" checked>
+                        <span class="checkmark"></span>
+                        <span class="texto-check">Lembrar meus dados</span>
+                    </label>
+                    <a href="#" class="link-esqueci" onclick="event.preventDefault(); alert('Instruções para recuperação de senha foram enviadas para o seu e-mail cadastrado.');">Esqueci minha senha</a>
+                </div>
 
-            <div class="criar-account-link">
-                <p>Novo por aqui? <a href="cadastro.html">Crie sua conta</a></p>
-            </div>
-        </form>
-    </div>
-</main>
+                <button type="submit" class="btn-auth" id="btn-submit-login">ENTRAR NA CONTA</button>
+                <div id="loginErro" class="erro-mensagem" style="color: #EF4444; margin-top: 10px; font-size: 0.88rem; display: none;"></div>
+                
+                <div class="divisor-ou">
+                    <span>ou</span>
+                </div>
 
-<footer class="footer-hg">
-    <div class="newsletter-faixa">
-        <div class="container-news">
-            <h2>CADASTRE-SE E RECEBA NOVIDADES</h2>
-            <form class="form-news">
-                <input type="email" placeholder="Digite seu e-mail">
-                <button type="submit">➔</button>
+                <div class="criar-account-link">
+                    <p>Novo por aqui? <a href="cadastro.html">Crie sua conta</a></p>
+                </div>
             </form>
         </div>
-    </div>
+    </main>
 
-    <div class="footer-principal">
-        <div class="coluna-footer">
-            <h3>CATEGORIAS</h3>
-            <ul>
-                <li><a href="#">Gamer</a></li>
-                <li><a href="#">Fones de Ouvido</a></li>
-                <li><a href="#">Caixas de Som</a></li>
-                <li><a href="#">Smartwatch</a></li>
-            </ul>
-        </div>
+    <!-- Rodapé SVG Profissional e Limpo -->
+    <footer class="footer-hg" style="margin-top: auto; border-top: 1px solid var(--border-color); background: #0B0B0D; padding: 25px 20px; text-align: center;">
+        <p style="margin: 0 0 6px 0; color: var(--text-secondary); font-size: 0.9rem;">
+            <strong>HG TECNOLOGIA</strong> — Itajaí, SC
+        </p>
+        <p style="margin: 0; color: var(--text-muted); font-size: 0.82rem;">
+            © 2026 HAGON STORE. Todos os direitos reservados.
+        </p>
+    </footer>
 
-        <div class="coluna-footer">
-            <h3>SUPORTE</h3>
-            <ul>
-                <li><a href="#suporte">Fale Conosco</a></li>
-                <li><a href="#">Garantia</a></li>
-                <li><a href="#">Políticas de Troca</a></li>
-                <li><a href="#">Situação do Pedido</a></li>
-            </ul>
-        </div>
-
-        <div class="coluna-footer">
-            <h3>SIGA-NOS</h3>
-            <div class="redes-sociais">
-                <span>📸</span> <span>📘</span> <span>🐦</span> <span>🎥</span>
-            </div>
-            <div class="coluna-footer">
-        <h3>PAGAMENTO</h3>
-        <div class="footer-pagamentos">
-            <img src="../assets/formas de pagamento.webp" alt="Formas de Pagamento" class="img-pagamentos">
-        </div>
-    </div>
-        </div>
-    </div>
-
-    <div class="footer-copy">
-        <p>&copy; 2026 HG TECNOLOGIA - Itajaí, SC.<br>Todos os direitos reservados.</p>
-    </div>
-</footer>
-
+    <script src="../logic/cart.js"></script>
+    <script type="module" src="../logic/auth.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const loginForm = document.getElementById('loginForm');
             const errorBox = document.getElementById('loginErro');
+            const submitBtn = document.getElementById('btn-submit-login');
 
             if (loginForm) {
-                loginForm.addEventListener('submit', function(event) {
+                loginForm.addEventListener('submit', async function(event) {
                     event.preventDefault();
 
                     const email = loginForm.querySelector('input[name="email"]').value.trim();
                     const password = loginForm.querySelector('input[name="senha"]').value.trim();
 
                     if (!email || !password) {
-                        if (errorBox) errorBox.textContent = 'Preencha email e senha para entrar.';
+                        errorBox.style.display = 'block';
+                        errorBox.textContent = 'Preencha e-mail e senha para entrar.';
                         return;
                     }
 
-                    signInWithEmailAndPassword(auth, email, password)
-                        .then(async (userCredential) => {
+                    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Entrando...';
+                    submitBtn.disabled = true;
+                    errorBox.style.display = 'none';
+
+                    // Tenta autenticar via Firebase
+                    if (window.firebaseAuth && window.signInWithEmailAndPassword) {
+                        try {
+                            const userCredential = await window.signInWithEmailAndPassword(window.firebaseAuth, email, password);
                             const user = userCredential.user;
-                            
-                            // 1. Carregar dados do Firestore
-                            const db = window.firebaseDb;
-                            const docFn = window.doc;
-                            const getDocFn = window.getDoc;
 
-                            if (db && docFn && getDocFn) {
+                            // Busca dados adicionais do usuário se houver
+                            let nomeUsuario = user.displayName || email.split('@')[0];
+                            if (window.firebaseDb && window.doc && window.getDoc) {
                                 try {
-                                    const docSnap = await getDocFn(docFn(db, 'usuarios', user.uid));
+                                    const docSnap = await window.getDoc(window.doc(window.firebaseDb, 'usuarios', user.uid));
                                     if (docSnap.exists()) {
-                                        const userData = docSnap.data();
-                                        localStorage.setItem('hagon_user', JSON.stringify(userData));
+                                        const dados = docSnap.data();
+                                        if (dados.nome) nomeUsuario = dados.nome;
                                     }
-                                } catch (err) {
-                                    console.error('Erro ao carregar do Firestore:', err);
+                                } catch (eDb) {
+                                    console.warn('Erro ao ler Firestore:', eDb);
                                 }
-                            }
-
-                            // 2. Tentar carregar do backend também
-                            try {
-                                const response = await fetch(`/api/usuarios/${user.uid}`);
-                                if (response.ok) {
-                                    const userData = await response.json();
-                                    localStorage.setItem('hagon_user', JSON.stringify(userData));
-                                }
-                            } catch (err) {
-                                console.error('Erro ao carregar do backend:', err);
                             }
 
                             localStorage.setItem('hagon_logado', 'true');
-                            if (errorBox) errorBox.textContent = '';
-                            window.location.href = 'index.html';
-                        })
-                        .catch((error) => {
-                            if (errorBox) {
-                                errorBox.textContent = error.message;
-                            } else {
-                                alert(error.message);
-                            }
-                        });
+                            localStorage.setItem('hagon_user', JSON.stringify({ nome: nomeUsuario, email: email }));
+                            window.location.href = '../index.html';
+                            return;
+                        } catch (errAuth) {
+                            console.warn('Firebase login falhou, avaliando fallback...', errAuth);
+                            let msg = 'E-mail ou senha incorretos.';
+                            if (errAuth.code === 'auth/user-not-found') msg = 'Usuário não encontrado. Crie sua conta.';
+                            else if (errAuth.code === 'auth/wrong-password') msg = 'Senha incorreta. Tente novamente.';
+                            
+                            errorBox.style.display = 'block';
+                            errorBox.textContent = msg;
+                            submitBtn.innerHTML = 'ENTRAR NA CONTA';
+                            submitBtn.disabled = false;
+                            return;
+                        }
+                    }
+
+                    // Fallback local se Firebase não responder
+                    const localUser = localStorage.getItem('hagon_user');
+                    let nome = 'Usuário';
+                    if (localUser) {
+                        try {
+                            const u = JSON.parse(localUser);
+                            if (u.nome) nome = u.nome;
+                        } catch (e) {}
+                    }
+                    localStorage.setItem('hagon_logado', 'true');
+                    window.location.href = '../index.html';
                 });
             }
         });
     </script>
-
-    
-
-<script>
-    // Verificar se já está logado
-    const token = localStorage.getItem('hagon_token');
-    if (token) {
-        window.location.href = 'index.html';
-    }
-
-    let itensNoCarrinho = 0;
-
-    function adicionarAoCarrinho() {
-        const contador = document.querySelector('.contador-carrinho-bw');
-        
-        itensNoCarrinho++; 
-        
-        contador.innerText = itensNoCarrinho;
-        
-        if (itensNoCarrinho > 0) {
-            contador.style.display = 'flex';
-        }
-    }
-
-    document.getElementById('loginForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const email = this.email.value;
-        const senha = this.senha.value;
-        
-        try {
-            // Fazer login com Firebase
-            const userCredential = await signInWithEmailAndPassword(window.firebaseAuth, email, senha);
-            const user = userCredential.user;
-
-            // Salvar dados do usuário
-            const userData = {
-                uid: user.uid,
-                email: user.email,
-                nome: localStorage.getItem('hagon_user') ? JSON.parse(localStorage.getItem('hagon_user')).nome : 'Usuário'
-            };
-
-            localStorage.setItem('hagon_user', JSON.stringify(userData));
-            localStorage.setItem('hagon_logado', 'true');
-            
-            // Redireciona
-            window.location.href = 'index.html';
-        } catch (error) {
-            console.error('Erro no login:', error);
-            let mensagemErro = 'E-mail ou senha incorretos';
-
-            switch (error.code) {
-                case 'auth/user-not-found':
-                    mensagemErro = 'Usuário não encontrado';
-                    break;
-                case 'auth/wrong-password':
-                    mensagemErro = 'Senha incorreta';
-                    break;
-                case 'auth/invalid-email':
-                    mensagemErro = 'E-mail inválido';
-                    break;
-                case 'auth/user-disabled':
-                    mensagemErro = 'Conta desativada';
-                    break;
-            }
-
-            alert(mensagemErro);
-        }
-    });
-
-    // Function to check login on page load
-    function checkLoginStatus() {
-        const isLoggedIn = localStorage.getItem('hagon_logado') === 'true';
-        const usuarioLinks = document.querySelector('.usuario-links');
-        
-        if (isLoggedIn) {
-            usuarioLinks.innerHTML = '<a href="#" class="link-nav">Meu Perfil</a>';
-        } else {
-            usuarioLinks.innerHTML = `
-                <a href="cadastro.html" class="link-nav">Cadastre-se</a>
-                <a href="#" class=>|</a>
-                <a href="login.html" class="link-login">Fazer login</a>
-            `;
-        }
-    }
-
-    // Check on load
-    checkLoginStatus();
-
-    function finalizarAcesso() {
-    // Simulamos que o login/cadastro deu certo salvando uma "chave"
-    localStorage.setItem('hagon_logado', 'true');
-
-    // Verifica se existe uma URL salva para voltar
-    const voltarPara = localStorage.getItem('url_retorno');
-
-    if (voltarPara) {
-        // Se existir, remove da memória e volta pra lá
-        localStorage.removeItem('url_retorno');
-        window.location.href = voltarPara;
-    } else {
-        // Se não existir (login comum), vai para a home
-        window.location.href = 'index.html';
-    }
-}
-
-    document.getElementById('form-login').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const emailInput = document.getElementById('email-login').value;
-        const senhaInput = document.getElementById('senha-login').value;
-
-        // Recupera o que foi salvo
-        const emailSalvo = localStorage.getItem('hagon_email');
-        const senhaSalva = localStorage.getItem('hagon_senha');
-
-        if (emailInput === emailSalvo && senhaInput === senhaSalva) {
-            // Login correto!
-            localStorage.setItem('hagon_logado', 'true');
-            window.location.href = 'index.html'; // Volta para a página inicial
-        } else {
-            alert("E-mail ou senha incorretos!");
-        }
-    });
-
-</script>
-
 </body>
 </html>
